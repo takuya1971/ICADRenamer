@@ -1647,11 +1647,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
       "projectName": "ICADRenamer",
-      "projectPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\ICADRenamer\\ICADRenamer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

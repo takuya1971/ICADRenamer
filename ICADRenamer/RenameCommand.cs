@@ -654,16 +654,29 @@ namespace ICADRenamer
 					if (partInf.is_unloaded) continue;
 					//新しいM番の名前を取得
 					var partName = GetNewName(partInf.name);
-					//パーツ名変更
-					part.setName(partName, partInf.comment, "", true);
-					//外部パーツの処理
-					if (partInf.is_external)
+					//パーツ名チェック
+					try
 					{
-						//アクセス権の取得
-						part.setAccess(false);
-						//パーツの保存
-						part.saveAs(GetNewDir(partInf.path), partName, partInf.comment);
-						_process.WaitForInputIdle();
+						//パーツ名変更
+						part.setName(partName, partInf.comment, "", true);
+						//外部パーツの処理
+						if (partInf.is_external)
+						{
+							//アクセス権の取得
+							part.setAccess(false);
+							//パーツの保存
+							part.saveAs(GetNewDir(partInf.path), partName, partInf.comment);
+							_process.WaitForInputIdle();
+						}
+					}
+					catch(SxException e)
+					{
+						RenameLogger.WriteLog(new LogItem
+						{
+							Exception = e,
+							Level = LogLevel.Error,
+							Message = e.Message,
+						});
 					}
 					//イベント
 					CategoryPregressed?.Invoke(this,
