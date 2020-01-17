@@ -1,0 +1,488 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.0": {
+      "WiX/3.11.2": {
+        "type": "package",
+        "build": {
+          "build/wix.props": {}
+        }
+      },
+      "WixSharp/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "WixSharp.bin": "1.14.2"
+        },
+        "build": {
+          "build/WixSharp.targets": {}
+        }
+      },
+      "WixSharp.bin/1.14.2": {
+        "type": "package",
+        "compile": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "runtime": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "build": {
+          "build/WixSharp.bin.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win": {
+      "WiX/3.11.2": {
+        "type": "package",
+        "build": {
+          "build/wix.props": {}
+        }
+      },
+      "WixSharp/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "WixSharp.bin": "1.14.2"
+        },
+        "build": {
+          "build/WixSharp.targets": {}
+        }
+      },
+      "WixSharp.bin/1.14.2": {
+        "type": "package",
+        "compile": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "runtime": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "build": {
+          "build/WixSharp.bin.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win-x64": {
+      "WiX/3.11.2": {
+        "type": "package",
+        "build": {
+          "build/wix.props": {}
+        }
+      },
+      "WixSharp/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "WixSharp.bin": "1.14.2"
+        },
+        "build": {
+          "build/WixSharp.targets": {}
+        }
+      },
+      "WixSharp.bin/1.14.2": {
+        "type": "package",
+        "compile": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "runtime": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "build": {
+          "build/WixSharp.bin.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win-x86": {
+      "WiX/3.11.2": {
+        "type": "package",
+        "build": {
+          "build/wix.props": {}
+        }
+      },
+      "WixSharp/1.14.2": {
+        "type": "package",
+        "dependencies": {
+          "WixSharp.bin": "1.14.2"
+        },
+        "build": {
+          "build/WixSharp.targets": {}
+        }
+      },
+      "WixSharp.bin/1.14.2": {
+        "type": "package",
+        "compile": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "runtime": {
+          "lib/BootstrapperCore.dll": {},
+          "lib/Microsoft.Deployment.WindowsInstaller.dll": {},
+          "lib/WixSharp.Msi.dll": {},
+          "lib/WixSharp.UI.dll": {},
+          "lib/WixSharp.dll": {}
+        },
+        "build": {
+          "build/WixSharp.bin.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WiX/3.11.2": {
+      "sha512": "GOGo3p5Sh+bbN+OfgbcAE/FUTK1z5YUlg4sW+fWllACWn7NZ9g6ugg4NLFq5Avz4OpmIHfitN3i3onTFnH6DlQ==",
+      "type": "package",
+      "path": "wix/3.11.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/wix.props",
+        "tools/LICENSE.TXT",
+        "tools/LuxTasks.dll",
+        "tools/Microsoft.Deployment.Compression.Cab.dll",
+        "tools/Microsoft.Deployment.Compression.dll",
+        "tools/Microsoft.Deployment.Resources.dll",
+        "tools/Microsoft.Deployment.WindowsInstaller.Package.dll",
+        "tools/Microsoft.Deployment.WindowsInstaller.dll",
+        "tools/ThmViewer.exe",
+        "tools/WixBalExtension.dll",
+        "tools/WixComPlusExtension.dll",
+        "tools/WixCop.exe",
+        "tools/WixDependencyExtension.dll",
+        "tools/WixDifxAppExtension.dll",
+        "tools/WixDirectXExtension.dll",
+        "tools/WixFirewallExtension.dll",
+        "tools/WixGamingExtension.dll",
+        "tools/WixHttpExtension.dll",
+        "tools/WixIIsExtension.dll",
+        "tools/WixLuxExtension.dll",
+        "tools/WixMsmqExtension.dll",
+        "tools/WixNetFxExtension.dll",
+        "tools/WixPSExtension.dll",
+        "tools/WixSqlExtension.dll",
+        "tools/WixTagExtension.dll",
+        "tools/WixTasks.dll",
+        "tools/WixUIExtension.dll",
+        "tools/WixUtilExtension.dll",
+        "tools/WixVSExtension.MSBuild12.dll",
+        "tools/WixVSExtension.MSBuild14.dll",
+        "tools/WixVSExtension.dll",
+        "tools/candle.exe",
+        "tools/candle.exe.config",
+        "tools/darice.cub",
+        "tools/dark.exe",
+        "tools/dark.exe.config",
+        "tools/difxapp_x64.wixlib",
+        "tools/difxapp_x86.wixlib",
+        "tools/doc/DTF.chm",
+        "tools/doc/DTFAPI.chm",
+        "tools/doc/Dependency.xsd",
+        "tools/doc/WiX.chm",
+        "tools/doc/bal.xsd",
+        "tools/doc/complus.xsd",
+        "tools/doc/difxapp.xsd",
+        "tools/doc/firewall.xsd",
+        "tools/doc/gaming.xsd",
+        "tools/doc/http.xsd",
+        "tools/doc/iis.xsd",
+        "tools/doc/lux.xsd",
+        "tools/doc/msmq.xsd",
+        "tools/doc/netfx.xsd",
+        "tools/doc/ps.xsd",
+        "tools/doc/sql.xsd",
+        "tools/doc/tag.xsd",
+        "tools/doc/thmutil.xsd",
+        "tools/doc/util.xsd",
+        "tools/doc/vs.xsd",
+        "tools/doc/wix.xsd",
+        "tools/doc/wixloc.xsd",
+        "tools/heat.exe",
+        "tools/heat.exe.config",
+        "tools/insignia.exe",
+        "tools/insignia.exe.config",
+        "tools/light.exe",
+        "tools/light.exe.config",
+        "tools/lit.exe",
+        "tools/lit.exe.config",
+        "tools/lux.exe",
+        "tools/lux.exe.config",
+        "tools/lux.targets",
+        "tools/melt.exe",
+        "tools/melt.exe.config",
+        "tools/mergemod.cub",
+        "tools/mergemod.dll",
+        "tools/mspatchc.dll",
+        "tools/nit.exe",
+        "tools/nit.exe.config",
+        "tools/pyro.exe",
+        "tools/pyro.exe.config",
+        "tools/retina.exe",
+        "tools/retina.exe.config",
+        "tools/sdk/BootstrapperCore.config",
+        "tools/sdk/BootstrapperCore.dll",
+        "tools/sdk/BootstrapperCore.xml",
+        "tools/sdk/DocCompiler.exe",
+        "tools/sdk/MakeSfxCA.exe",
+        "tools/sdk/MakeSfxCA.exe.config",
+        "tools/sdk/Microsoft.Deployment.Compression.Cab.dll",
+        "tools/sdk/Microsoft.Deployment.Compression.Cab.xml",
+        "tools/sdk/Microsoft.Deployment.Compression.Zip.dll",
+        "tools/sdk/Microsoft.Deployment.Compression.Zip.xml",
+        "tools/sdk/Microsoft.Deployment.Compression.dll",
+        "tools/sdk/Microsoft.Deployment.Compression.xml",
+        "tools/sdk/Microsoft.Deployment.Resources.dll",
+        "tools/sdk/Microsoft.Deployment.Resources.xml",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.Linq.dll",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.Linq.xml",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.Package.dll",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.Package.xml",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.dll",
+        "tools/sdk/Microsoft.Deployment.WindowsInstaller.xml",
+        "tools/sdk/MsgGen.exe",
+        "tools/sdk/XsdGen.exe",
+        "tools/sdk/XsdStitch.exe",
+        "tools/sdk/inc/BalBaseBootstrapperApplication.h",
+        "tools/sdk/inc/IBootstrapperApplication.h",
+        "tools/sdk/inc/IBootstrapperBAFunction.h",
+        "tools/sdk/inc/IBootstrapperEngine.h",
+        "tools/sdk/inc/aclutil.h",
+        "tools/sdk/inc/apputil.h",
+        "tools/sdk/inc/apuputil.h",
+        "tools/sdk/inc/atomutil.h",
+        "tools/sdk/inc/balcondition.h",
+        "tools/sdk/inc/balinfo.h",
+        "tools/sdk/inc/balretry.h",
+        "tools/sdk/inc/balutil.h",
+        "tools/sdk/inc/buffutil.h",
+        "tools/sdk/inc/butil.h",
+        "tools/sdk/inc/cabcutil.h",
+        "tools/sdk/inc/cabutil.h",
+        "tools/sdk/inc/certutil.h",
+        "tools/sdk/inc/conutil.h",
+        "tools/sdk/inc/cryputil.h",
+        "tools/sdk/inc/custommsierrors.h",
+        "tools/sdk/inc/deputil.h",
+        "tools/sdk/inc/dictutil.h",
+        "tools/sdk/inc/dirutil.h",
+        "tools/sdk/inc/dlutil.h",
+        "tools/sdk/inc/dutil.h",
+        "tools/sdk/inc/eseutil.h",
+        "tools/sdk/inc/fileutil.h",
+        "tools/sdk/inc/gdiputil.h",
+        "tools/sdk/inc/iis7util.h",
+        "tools/sdk/inc/inetutil.h",
+        "tools/sdk/inc/iniutil.h",
+        "tools/sdk/inc/jsonutil.h",
+        "tools/sdk/inc/locutil.h",
+        "tools/sdk/inc/logutil.h",
+        "tools/sdk/inc/memutil.h",
+        "tools/sdk/inc/metautil.h",
+        "tools/sdk/inc/osutil.h",
+        "tools/sdk/inc/pathutil.h",
+        "tools/sdk/inc/perfutil.h",
+        "tools/sdk/inc/polcutil.h",
+        "tools/sdk/inc/procutil.h",
+        "tools/sdk/inc/regutil.h",
+        "tools/sdk/inc/resrutil.h",
+        "tools/sdk/inc/reswutil.h",
+        "tools/sdk/inc/rexutil.h",
+        "tools/sdk/inc/rmutil.h",
+        "tools/sdk/inc/rssutil.h",
+        "tools/sdk/inc/sceutil.h",
+        "tools/sdk/inc/shelutil.h",
+        "tools/sdk/inc/sqlutil.h",
+        "tools/sdk/inc/srputil.h",
+        "tools/sdk/inc/strutil.h",
+        "tools/sdk/inc/svcutil.h",
+        "tools/sdk/inc/thmutil.h",
+        "tools/sdk/inc/timeutil.h",
+        "tools/sdk/inc/uriutil.h",
+        "tools/sdk/inc/userutil.h",
+        "tools/sdk/inc/wcalog.h",
+        "tools/sdk/inc/wcautil.h",
+        "tools/sdk/inc/wcawow64.h",
+        "tools/sdk/inc/wcawrapquery.h",
+        "tools/sdk/inc/wiutil.h",
+        "tools/sdk/inc/wuautil.h",
+        "tools/sdk/inc/xmlutil.h",
+        "tools/sdk/vs2010/lib/x64/deputil.lib",
+        "tools/sdk/vs2010/lib/x64/dutil.lib",
+        "tools/sdk/vs2010/lib/x64/wcautil.lib",
+        "tools/sdk/vs2010/lib/x86/balutil.lib",
+        "tools/sdk/vs2010/lib/x86/deputil.lib",
+        "tools/sdk/vs2010/lib/x86/dutil.lib",
+        "tools/sdk/vs2010/lib/x86/wcautil.lib",
+        "tools/sdk/vs2012/lib/x64/deputil.lib",
+        "tools/sdk/vs2012/lib/x64/dutil.lib",
+        "tools/sdk/vs2012/lib/x64/wcautil.lib",
+        "tools/sdk/vs2012/lib/x86/balutil.lib",
+        "tools/sdk/vs2012/lib/x86/deputil.lib",
+        "tools/sdk/vs2012/lib/x86/dutil.lib",
+        "tools/sdk/vs2012/lib/x86/wcautil.lib",
+        "tools/sdk/vs2013/lib/x64/deputil.lib",
+        "tools/sdk/vs2013/lib/x64/dutil.lib",
+        "tools/sdk/vs2013/lib/x64/wcautil.lib",
+        "tools/sdk/vs2013/lib/x86/balutil.lib",
+        "tools/sdk/vs2013/lib/x86/deputil.lib",
+        "tools/sdk/vs2013/lib/x86/dutil.lib",
+        "tools/sdk/vs2013/lib/x86/wcautil.lib",
+        "tools/sdk/vs2015/lib/x64/deputil.lib",
+        "tools/sdk/vs2015/lib/x64/dutil.lib",
+        "tools/sdk/vs2015/lib/x64/wcautil.lib",
+        "tools/sdk/vs2015/lib/x86/balutil.lib",
+        "tools/sdk/vs2015/lib/x86/deputil.lib",
+        "tools/sdk/vs2015/lib/x86/dutil.lib",
+        "tools/sdk/vs2015/lib/x86/wcautil.lib",
+        "tools/sdk/vs2017/lib/x64/deputil.lib",
+        "tools/sdk/vs2017/lib/x64/dutil.lib",
+        "tools/sdk/vs2017/lib/x64/wcautil.lib",
+        "tools/sdk/vs2017/lib/x86/balutil.lib",
+        "tools/sdk/vs2017/lib/x86/deputil.lib",
+        "tools/sdk/vs2017/lib/x86/dutil.lib",
+        "tools/sdk/vs2017/lib/x86/wcautil.lib",
+        "tools/sdk/wix.ca.targets",
+        "tools/sdk/wix.nativeca.targets",
+        "tools/sdk/x64/sfxca.dll",
+        "tools/sdk/x86/sfxca.dll",
+        "tools/shine.exe",
+        "tools/shine.exe.config",
+        "tools/smoke.exe",
+        "tools/smoke.exe.config",
+        "tools/torch.exe",
+        "tools/torch.exe.config",
+        "tools/wconsole.dll",
+        "tools/winterop.dll",
+        "tools/wix.dll",
+        "tools/wix.targets",
+        "tools/wix200x.targets",
+        "tools/wix2010.targets",
+        "tools/x86/burn.exe",
+        "wix.3.11.2.nupkg.sha512",
+        "wix.nuspec"
+      ]
+    },
+    "WixSharp/1.14.2": {
+      "sha512": "RNNN2+0kP3kkBSABpLlaPXM+7XI/NDAxzqq1AiyHmbQEVEabLpJD8zD+SmIrMFpX34RXj3C0FG18v4H0jkQ8nA==",
+      "type": "package",
+      "path": "wixsharp/1.14.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/WixSharp.targets",
+        "readme.txt",
+        "tools/Install.ps1",
+        "wixsharp.1.14.2.nupkg.sha512",
+        "wixsharp.nuspec"
+      ]
+    },
+    "WixSharp.bin/1.14.2": {
+      "sha512": "me5reMwnRLClaMmfYpvJitjbHBkuRulXeYoptSnBTtLOr9EHz9xZ0M8GnZTJ40bm5uq3LR0Xbm6idKlwDlS8FA==",
+      "type": "package",
+      "path": "wixsharp.bin/1.14.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/WixSharp.bin.targets",
+        "lib/BootstrapperCore.dll",
+        "lib/BootstrapperCore.xml",
+        "lib/Microsoft.Deployment.WindowsInstaller.dll",
+        "lib/Microsoft.Deployment.WindowsInstaller.xml",
+        "lib/WixSharp.Msi.dll",
+        "lib/WixSharp.Msi.xml",
+        "lib/WixSharp.UI.dll",
+        "lib/WixSharp.UI.xml",
+        "lib/WixSharp.dll",
+        "lib/WixSharp.xml",
+        "lib/nbsbuilder.exe",
+        "wixsharp.bin.1.14.2.nupkg.sha512",
+        "wixsharp.bin.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.0": [
+      "WiX >= 3.11.2",
+      "WixSharp >= 1.14.2"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\拓也\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\拓也\\Source\\repos\\ICADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj",
+      "projectName": "ICADRenamerSetup",
+      "projectPath": "C:\\Users\\拓也\\Source\\repos\\ICADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj",
+      "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\拓也\\Source\\repos\\ICADRenamer\\ICADRenamerSetup\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\拓也\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net40"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://www.nuget.org/api/v2/": {}
+      },
+      "frameworks": {
+        "net40": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net40": {
+        "dependencies": {
+          "WiX": {
+            "target": "Package",
+            "version": "[3.11.2, )"
+          },
+          "WixSharp": {
+            "target": "Package",
+            "version": "[1.14.2, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

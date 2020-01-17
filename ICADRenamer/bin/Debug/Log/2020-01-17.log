@@ -1,0 +1,377 @@
+2020-01-17 11:36:14.2978|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 11:37:19.0620|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 11:37:30.6184|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 11:38:42.0372|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 11:38:56.9280|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 11:38:59.1357|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 11:39:20.5883|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 11:39:26.4570|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item)
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter)    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item)
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter)
+2020-01-17 11:39:26.4570|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item)
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter)    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item)
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter)
+2020-01-17 11:43:56.0054|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 11:43:58.4524|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。|->
+2020-01-17 11:45:04.9139|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 11:45:09.8857|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 11:45:12.7663|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 11:45:24.9548|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 11:45:29.9248|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 11:45:57.9628|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 11:49:03.7452|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 11:53:46.9055|ERROR|変換エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 644
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 221    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 644
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 221
+2020-01-17 11:53:49.6295|ERROR|変換エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 644
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 221    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 644
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 221
+2020-01-17 13:21:12.5541|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 13:21:18.9172|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1120|->
+2020-01-17 13:21:47.2446|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 13:21:55.9445|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 13:22:06.3302|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 13:22:08.2516|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1120 署名:木下|->
+2020-01-17 13:23:01.9117|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 13:30:54.5697|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 656
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 222    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 656
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 222
+2020-01-17 13:30:54.5697|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 656
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 222    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel model) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 656
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 222
+2020-01-17 13:34:10.1264|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 13:34:14.5664|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1120|->
+2020-01-17 13:34:19.8083|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 13:34:28.1955|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 13:34:35.5800|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 13:37:12.9615|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1120 署名:木下|->
+2020-01-17 13:48:46.9191|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 13:50:34.7046|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 13:50:39.5362|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 13:50:51.0582|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 13:50:58.0156|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 13:51:28.6392|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 13:52:01.5535|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 13:54:07.3834|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 13:54:12.0739|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1120|->
+2020-01-17 13:54:14.6082|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 13:54:22.7397|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 13:54:30.8147|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 13:54:33.5421|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1120 署名:木下|->
+2020-01-17 13:58:35.0915|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 13:58:41.2377|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M12000|->
+2020-01-17 13:58:43.4996|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:|->
+2020-01-17 13:58:44.6959|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 13:58:50.2747|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 13:58:55.9652|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 13:59:01.4584|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 13:59:02.7537|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 14:01:02.1278|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 14:01:37.7835|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 14:01:42.8810|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 14:01:45.3592|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 14:01:51.4819|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 14:01:56.8231|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 14:01:58.6480|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 14:02:07.7487|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 14:02:16.4852|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:16.4852|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:16.4962|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
+2020-01-17 14:02:28.9248|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:28.9248|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:28.9348|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-1_C-1用K12B用取出治具.icd|->
+2020-01-17 14:02:35.9188|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:35.9188|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:35.9188|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-2_C-2用K12B用取出治具.icd|->
+2020-01-17 14:02:59.5645|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:59.5645|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:02:59.5645|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1120-0500-01_ベースプレート.icd|->
+2020-01-17 14:03:01.8872|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:01.8872|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:01.8872|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-01_ベースプレート.icd|->
+2020-01-17 14:03:02.5712|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:02.5712|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:02.5712|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-02_製品台.icd|->
+2020-01-17 14:03:04.6282|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:04.6282|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:04.6432|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-03_巾木折.icd|->
+2020-01-17 14:03:06.6332|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:06.6332|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:06.6332|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-05_ベースプレート止め板.icd|->
+2020-01-17 14:03:08.6522|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:08.6522|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:08.6742|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-06_スペーサ.icd|->
+2020-01-17 14:03:12.6360|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:12.6360|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:12.6360|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-01_クランプ爪A.icd|->
+2020-01-17 14:03:14.4248|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:14.4248|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:14.4248|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-03_クランプシュー.icd|->
+2020-01-17 14:03:18.8052|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:18.8052|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:18.8052|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-04_ヘミサルボード.icd|->
+2020-01-17 14:03:33.6400|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:37.3777|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:50.5205|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-05_クランプ爪A幅広.icd|->
+2020-01-17 14:03:52.7948|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:52.7948|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:03:52.7948|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-06_クランプ爪B.icd|->
+2020-01-17 14:03:59.9233|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:04:00.0033|ERROR|変換エラー|->System.NullReferenceException: オブジェクト参照がオブジェクト インスタンスに設定されていません。
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 14:04:00.1283|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-01-1_ベースプレート材料.icd|->
+2020-01-17 14:04:13.3637|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:13.3637|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:13.3667|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-01_ベースプレート.icd|->
+2020-01-17 14:04:14.6429|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:14.6429|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:14.6429|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-02_製品台.icd|->
+2020-01-17 14:04:15.3936|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:15.3936|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:15.3936|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-03_巾木折ブラケット.icd|->
+2020-01-17 14:04:15.9397|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:15.9397|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:15.9397|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-04_巾木折先端.icd|->
+2020-01-17 14:04:16.5927|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:16.5927|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:16.5927|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-05-1_C-2用ベースプレート.icd|->
+2020-01-17 14:04:17.1187|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:17.1187|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:17.1187|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-05_C-2用ベースプレート.icd|->
+2020-01-17 14:04:18.2416|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:18.2416|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:18.2466|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1200-0500-01_ベースプレート.icd|->
+2020-01-17 14:04:18.8962|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:18.8962|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:04:19.7231|INFO|変換終了|->
+2020-01-17 14:06:37.6662|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 14:06:37.9502|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。|->
+2020-01-17 14:09:25.0065|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 14:09:29.7625|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 14:09:32.9415|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 14:09:39.4862|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 14:09:45.4154|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 14:09:46.3688|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 14:09:47.0018|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 14:09:47.7338|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:47.7338|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:47.7338|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
+2020-01-17 14:09:48.2248|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.2248|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.2268|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-1_C-1用K12B用取出治具.icd|->
+2020-01-17 14:09:48.4428|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.4428|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.4458|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-2_C-2用K12B用取出治具.icd|->
+2020-01-17 14:09:48.8608|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.8608|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:48.8608|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1120-0500-01_ベースプレート.icd|->
+2020-01-17 14:09:49.1498|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.1498|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.1498|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-01_ベースプレート.icd|->
+2020-01-17 14:09:49.5618|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.5618|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.5618|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-02_製品台.icd|->
+2020-01-17 14:09:49.9358|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.9358|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:49.9358|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-03_巾木折.icd|->
+2020-01-17 14:09:50.4538|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:50.4538|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:50.4538|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-05_ベースプレート止め板.icd|->
+2020-01-17 14:09:50.9468|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:50.9468|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:50.9468|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-06_スペーサ.icd|->
+2020-01-17 14:09:51.2498|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:51.2498|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:51.2498|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-01_クランプ爪A.icd|->
+2020-01-17 14:09:51.4898|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:51.4898|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:51.4928|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-03_クランプシュー.icd|->
+2020-01-17 14:09:51.7678|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217
+2020-01-17 14:09:51.7678|ERROR|変換エラー|->sxnet.SxException:  MSG03250 ウィンドウ開設数を超えたので、閉じてから操作してください。
+   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 217

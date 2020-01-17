@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\拓也\\Source\\repos\\iCADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\拓也\\Source\\repos\\iCADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\拓也\\Source\\repos\\iCADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj",
+        "projectName": "ICADRenamerSetup",
+        "projectPath": "C:\\Users\\拓也\\Source\\repos\\iCADRenamer\\ICADRenamerSetup\\ICADRenamerSetup.csproj",
+        "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\拓也\\Source\\repos\\iCADRenamer\\ICADRenamerSetup\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\拓也\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net40"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net40": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net40": {
+          "dependencies": {
+            "WiX": {
+              "target": "Package",
+              "version": "[3.11.2, )"
+            },
+            "WixSharp": {
+              "target": "Package",
+              "version": "[1.14.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

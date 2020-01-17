@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Target Name="ILRepacker" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+
+    <ItemGroup>
+        <InputAssemblies Include="$(TargetPath)" />      
+        <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == 'CsvHelper'" />
+        <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == 'Microsoft.Toolkit.Forms.UI.Controls.WebView'" />
+        <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == 'Newtonsoft.Json'" />
+        <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == 'NLog'" />
+        <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == '$Ookii.Commandline.dll'" />
+        <InputAssemblies Include="$(OutputPath)\sxnet.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Must be a fully qualified name -->
+        <!-- <DoNotInternalizeAssemblies Include="ICADRenamer" /> -->
+    </ItemGroup>
+
+    <ILRepackd
+        Parallel="true"
+        Internalize="true"
+        InputAssemblies="@(InputAssemblies)"
+        TargetKind="SameASPrimaryAssembly"
+        OutputFile="$(TargetPath)"
+    />
+
+    </Target>
+</Project>

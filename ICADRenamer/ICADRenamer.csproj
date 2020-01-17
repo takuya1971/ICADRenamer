@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D72F03DC-A36F-440D-9995-A5AFA333B00F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ICADRenamer</RootNamespace>
+    <AssemblyName>ICADRenamer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ICADRenamer.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug2|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="sxnet">
+      <HintPath>..\..\..\..\..\..\ICADSX\bin\sxnet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="RegexContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CSV\BooleanJapaneseConverter.cs" />
+    <Compile Include="CSV\CsvRecorder.cs" />
+    <Compile Include="CSV\CsvRecordItem.cs" />
+    <Compile Include="Events\CategorychangeEventArgs.cs" />
+    <Compile Include="Events\ItemProgressedEventArgs.cs" />
+    <Compile Include="Events\ProgressCategory.cs" />
+    <Compile Include="ExecuteProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExecuteProgressForm.Designer.cs">
+      <DependentUpon>ExecuteProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HelpBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpBrowser.Designer.cs">
+      <DependentUpon>HelpBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeywordEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeywordEditForm.Designer.cs">
+      <DependentUpon>KeywordEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log\LogItem.cs" />
+    <Compile Include="Log\LogMessageCategory.cs" />
+    <Compile Include="Log\LogMessageKind.cs" />
+    <Compile Include="Log\RenameLogger.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageCategory.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="OptionSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionSettingForm.Designer.cs">
+      <DependentUpon>OptionSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgressCounter.cs" />
+    <Compile Include="ProgressItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RegexCategory.cs" />
+    <Compile Include="RegexInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegexInputForm.Designer.cs">
+      <DependentUpon>RegexInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RenameCommand.cs" />
+    <Compile Include="RenameExecuteParams.cs" />
+    <Compile Include="Settings\FrameKeyword.cs" />
+    <Compile Include="Settings\FrameKeywordSerializer.cs" />
+    <Compile Include="Settings\OptionSettings.cs" />
+    <Compile Include="Settings\OptionSettingsSerializer.cs" />
+    <Compile Include="Settings\SettingBase.cs" />
+    <Compile Include="SystemMethods.cs" />
+    <Compile Include="SystemSettings.cs" />
+    <Compile Include="TupleEnumerable.cs" />
+    <Content Include="Help\img\ToolTip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecuteProgressForm.resx">
+      <DependentUpon>ExecuteProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpBrowser.resx">
+      <DependentUpon>HelpBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeywordEditForm.resx">
+      <DependentUpon>KeywordEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionSettingForm.resx">
+      <DependentUpon>OptionSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegexInputForm.resx">
+      <DependentUpon>RegexInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ICADRenamer.licenseheader" />
+    <None Include="ILRepack.Config.props" />
+    <None Include="ILRepack.targets" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Scripts\tocbot-master\.babelrc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\icons8-コピー-16.png" />
+    <Content Include="Scripts\tocbot-master\.gitignore">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\.travis.yml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\bower.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\CHANGELOG.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\codecept.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\package.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Scripts\tocbot-master\src\scss\styles.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\tocbot.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\_code-styles.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\_page-styles.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\_tocbot-core.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\_tocbot-default-theme.scss" />
+    <None Include="Scripts\tocbot-master\src\scss\_tocbot-responsive.scss" />
+    <None Include="Scripts\tocbot-master\test\data\markdown.md" />
+    <Content Include="Scripts\tocbot-master\travis-deploy.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper">
+      <Version>12.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="ILRepack">
+      <Version>2.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task">
+      <Version>2.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Win32.UI.Controls">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>4.6.8</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Schema">
+      <Version>4.6.8</Version>
+    </PackageReference>
+    <PackageReference Include="Ookii.CommandLine">
+      <Version>2.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+    <Content Include="FodyWeavers.xml" />
+    <Content Include="Help\CSS\tocbot.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\Help.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\DestinationFolderDialog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\ExecuteProgressScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\HelpScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\LogViewer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\MainScreen.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\OperationScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\OptionSettingDialog1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\OptionSettingDialog2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\RegexInputScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\RegexScreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\img\SourceFolderDialog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="License.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lisences\NLOG_LICENSE.txt" />
+    <Content Include="Resources\AppIcon.ico" />
+    <Content Include="Resources\appIcon80.ico" />
+    <Content Include="Resources\Execute.ico" />
+    <Content Include="Resources\Help16.ico" />
+    <Content Include="Resources\icons8-キャンセル２-30.png" />
+    <Content Include="Resources\icons8-コマンドの実行-16.png" />
+    <Content Include="Resources\icons8-テスト合格-30.png" />
+    <Content Include="Resources\icons8-ヘルプ-16.png" />
+    <Content Include="Resources\icons8-ヘルプ-32.png" />
+    <Content Include="Resources\icons8-ホーム-16.png" />
+    <Content Include="Resources\icons8-全て保存-30.png" />
+    <Content Include="Resources\icons8-削除-32.png" />
+    <Content Include="Resources\icons8-情報-16.png" />
+    <Content Include="Resources\icons8-戻る-16.png" />
+    <Content Include="Resources\icons8-新規作成-30.png" />
+    <Content Include="Resources\icons8-購読を更新します-16.png" />
+    <Content Include="Resources\icons8-進む-16.png" />
+    <Content Include="Resources\Infomation.ico" />
+    <Content Include="Resources\InputIcon.ico" />
+    <Content Include="Resources\Setting.ico" />
+    <Content Include="Resources\sozai_cman_jp_20191218015244.png" />
+    <Content Include="Resources\sozai_cman_jp_20191218015545.png" />
+    <Content Include="Resources\sozai_cman_jp_20191218020534.png" />
+    <Content Include="Scripts\tocbot-master\dist\styles.css" />
+    <Content Include="Scripts\tocbot-master\dist\tocbot.css" />
+    <Content Include="Scripts\tocbot-master\dist\tocbot.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\dist\tocbot.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\next.config.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\pages\changelog.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\pages\index.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\pages\skipRendering.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\pages\_config.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\scripts\fix-export.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\server.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\tocbot-master\src\components\Template\Hero\index.js" />
+    <Content Include="Scripts\tocbot-master\src\components\Template\index.js" />
+    <Content Include="Scripts\tocbot-master\src\components\Template\Tocbot\index.js" />
+    <Content Include="Scripts\tocbot-master\src\components\Template\Tracking\index.js" />
+    <Content Include="Scripts\tocbot-master\src\components\Template\TryIt\index.js" />
+    <Content Include="Scripts\tocbot-master\src\js\build-html.js" />
+    <Content Include="Scripts\tocbot-master\src\js\default-options.js" />
+    <Content Include="Scripts\tocbot-master\src\js\index.js" />
+    <Content Include="Scripts\tocbot-master\src\js\parse-content.js" />
+    <Content Include="Scripts\tocbot-master\src\js\scroll-smooth\index.js" />
+    <Content Include="Scripts\tocbot-master\src\utils\make-ids.js" />
+    <Content Include="Scripts\tocbot-master\src\utils\path.js" />
+    <Content Include="Scripts\tocbot-master\test\data\json-data.js" />
+    <Content Include="Scripts\tocbot-master\test\data\rendered.html" />
+    <Content Include="Scripts\tocbot-master\test\data\sample-bootstrap.html" />
+    <Content Include="Scripts\tocbot-master\test\data\sample-meat.html" />
+    <Content Include="Scripts\tocbot-master\test\diff.html" />
+    <Content Include="Scripts\tocbot-master\test\imageDiff.js" />
+    <Content Include="Scripts\tocbot-master\test\index.js" />
+    <Content Include="Scripts\tocbot-master\test\integration_test.js" />
+    <Content Include="Scripts\tocbot-master\test\steps_file.js" />
+    <Content Include="Scripts\tocbot-master\test\__screenshots-diff__\tocbot.png" />
+    <Content Include="Scripts\tocbot-master\test\__screenshots__\tocbot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\tocbot-master\index.d.ts">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

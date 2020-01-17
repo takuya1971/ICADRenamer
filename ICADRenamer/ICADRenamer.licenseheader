@@ -1,0 +1,15 @@
+﻿extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+/* ICAD Renaler
+    Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
+*/
+extensions: .aspx .ascx
+<%-- 
+Copyright (c)2020 T. Kinoshita. All Rights Reserved
+--%>
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd
+<!--
+Copyright (c)2020 T. Kinoshita. All Rights Reserved
+-->

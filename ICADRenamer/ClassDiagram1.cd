@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ICADRenamer.MainForm" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AigBFhwAACFCQAAggAmMEEQGEEAMAJAAIAALQIAAQDA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.AboutBox" Collapsed="true">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>tIAAAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AboutBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.ExecuteProgressForm" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAIgAACkAB1AQQECAACACAMBACAAAAqAIABBABDA=</HashCode>
+      <FileName>ExecuteProgressForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.HelpBrowser" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAACCgAAQAAACAAaACAAEAAAAAiAAAAAAAABA=</HashCode>
+      <FileName>HelpBrowser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.KeywordEditForm" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TBGAAIAgACBAEAAAggDiIBEGAOAIBABAA5AI4CiAASA=</HashCode>
+      <FileName>KeywordEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.NativeMethods" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NativeMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.OptionSettingForm" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBAEABBIAChAwBAQQgCCCItGQIAJDCEDQyAIgQmEBSA=</HashCode>
+      <FileName>OptionSettingForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Program" Collapsed="true">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAABAAAIAAAABAAAAACAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.ProgressCounter" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProgressCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.ProgressItem" Collapsed="true">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAACAACAA=</HashCode>
+      <FileName>ProgressItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.RegexInputForm" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBBAAQAABCJABBAQAACAAAECEIAIBAAAABAEQACAoSA=</HashCode>
+      <FileName>RegexInputForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.RenameCommand" Collapsed="true">
+    <Position X="13.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAAgQACAEAEUAoAQAABAgCYAAEAAKAIAAQAAAEBI=</HashCode>
+      <FileName>RenameCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICADRenamer.RenameExecuteParams" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAEAAgAAAAAAAAgAAAAAAAAAE=</HashCode>
+      <FileName>RenameExecuteParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.SystemMethods" Collapsed="true">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAgAAAAAAAAAAAAQAAAIAAAAAAAAAAAAE=</HashCode>
+      <FileName>SystemMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.SystemSettings" Collapsed="true">
+    <Position X="13.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAQAAAIAAAAAAAAAAACAAhAgAAAAAgA=</HashCode>
+      <FileName>SystemSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.TupleEnumerable" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TupleEnumerable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Settings.FrameKeyword" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Settings\FrameKeyword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Settings.FrameKeywordSerializer" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAIAAAAAAAAAABAAAAAgAA=</HashCode>
+      <FileName>Settings\FrameKeywordSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Settings.OptionSettings" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAABAAAAgAAEAACAAAAAAAQAQAAABAAA=</HashCode>
+      <FileName>Settings\OptionSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Settings.OptionSettingsSerializer" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAIAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>Settings\OptionSettingsSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Settings.SettingBase" Collapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgAAAAAAAAAAAAAAAIAAAAAAAAAABAAAAAEAA=</HashCode>
+      <FileName>Settings\SettingBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Log.LogItem" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAIAAAAAA=</HashCode>
+      <FileName>Log\LogItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Log.RenameLogger" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAMIAAAASAQAEAAAAAEAAAFAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Log\RenameLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Events.CategoryChangeEventArgs" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\CategorychangeEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.Events.ItemProgressedEventArgs" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Events\ItemProgressedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.CSV.BooleanJapaneseConverter" Collapsed="true">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CSV\BooleanJapaneseConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.CSV.CsvRecorder" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABAAAEAAAA=</HashCode>
+      <FileName>CSV\CsvRecorder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.CSV.CsvRecordItem" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAIAAAAAIAAEAAAAAAAAAABAgAAAAAAAQA=</HashCode>
+      <FileName>CSV\CsvRecordItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.RegexContextMenuStrip" Collapsed="true">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAMAQAAAAACAQAICAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>RegexContextMenuStrip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICADRenamer.CommandLineArgs" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAABAACAAAAEAAAAAAAAQACAA=</HashCode>
+      <FileName>CommandLineArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ICADRenamer.RegexCategory" Collapsed="true">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAgAAAE=</HashCode>
+      <FileName>RegexCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ICADRenamer.Log.LogMessageCategory" Collapsed="true">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIBgAAAAAAEAQAwAAIAAAAAABAIABogAU=</HashCode>
+      <FileName>Log\LogMessageCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ICADRenamer.Log.LogMessageKind" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAQAgAAAAAAAAAAAAAAgAAAEAAQAAAAA=</HashCode>
+      <FileName>Log\LogMessageKind.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ICADRenamer.Events.ProgressCategory" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAAFAAIAAAgAAAAAAIA=</HashCode>
+      <FileName>Events\ProgressCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

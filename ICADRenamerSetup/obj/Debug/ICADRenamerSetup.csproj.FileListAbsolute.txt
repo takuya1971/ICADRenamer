@@ -1,0 +1,14 @@
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\ICADRenamerSetup.exe.config
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\ICADRenamerSetup.exe
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\ICADRenamerSetup.pdb
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\BootstrapperCore.dll
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\WixSharp.Msi.dll
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\WixSharp.UI.dll
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\bin\Debug\WixSharp.dll
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\ICADRenamerSetup.csprojAssemblyReference.cache
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\WixSharpSetup.CustomDialog.resources
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\ICADRenamerSetup.csproj.GenerateResource.cache
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\ICADRenamerSetup.csproj.CopyComplete
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\ICADRenamerSetup.exe
+C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamerSetup\obj\Debug\ICADRenamerSetup.pdb
