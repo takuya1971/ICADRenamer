@@ -184,3 +184,4 @@ C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRename
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.exe
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.pdb
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.ICADStartingForm.resources
+C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.ICADStartingForm.resources

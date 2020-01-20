@@ -783,238 +783,378 @@ namespace ICADRenamer
 
 		private void ExecuteReplace(IEnumerable<string> files)
 		{
+			SxFileModel fModel = null;
+			SxModel model = null;
+			CsvRecordItem record = null;
+
 			foreach (var file in files)
 			{
-				var fModel = new SxFileModel(file);
-				var model = fModel.open(false);
-				var resultList = new List<string>();
-				var record = _recordItems.FirstOrDefault(x => x.DestinationPath == file);
-				resultList.AddRange(ExecutePartName(ref model));
-				resultList.AddRange(ExecuteDrawingTitle(ref model));
-				if(resultList.Any())
-				{
-					var sb = new StringBuilder();
-					foreach(var item in resultList)
+				fModel = new SxFileModel(file);
+				model = fModel.open(false);
+				record = _recordItems.FirstOrDefault(x => x.DestinationPath == file);
+				ExecutePartName();
+				ExecuteDrawingTitle();
+				SaveFile();
+			}
+			DeleteFile();
+			return;
+
+			//ファイルの削除
+			void DeleteFile()
+			{
+				Parallel.ForEach(files,
+					file =>
 					{
-						sb.AppendLine(item);
-					}
+						if (File.Exists(file)) File.Delete(file);
+					});
+			}
+			//ファイルの保存
+			void SaveFile()
+			{
+				var inf = model.getInf();
+				record.DestinationPath = $@"{inf.path}\{inf.name}.icd";
+				record.DestinationFileName = $@"{inf.name}.icd";
+				try
+				{
+					model.save();
+				}
+				catch (Exception e)
+				{
 					record.IsSuccess = false;
-					record.Remark = sb.ToString();
+					record.Remark = GetRemark(record.Remark, ErrorCategory.Save, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.Save)
+					});
+				}
+				finally
+				{
+					model.close();
+				}
+			}
+
+			/// パーツ名・パーツの図面名の変更
+			void ExecutePartName()
+			{
+				/*	メインルーチン
+					最上位パーツから子パーツへと降りていく*/
+				//
+				foreach (var wf in model.getWFList())
+				{
+					//3D空間リスト
+					if (wf.getPartList().Length == 0) continue;
+					//最上位パーツ
+					var topParts = wf.getTopPartList();
+					if (!topParts.Any()) continue;
+					//変更処理
+					foreach (var topPart in topParts)
+					{
+						//パーツ情報
+						var inf = topPart.getInfDetail();
+						//パーツの置き換え
+						var refPart = topPart;
+						//外部パーツかつ読み取り専用のとき
+						if (inf.is_external && inf.is_read_only)
+						{
+							//アクセス権取得
+							topPart.setAccess(false);
+						}
+						//パーツ名を変更
+						topPart.setName(GetName(inf.name), inf.comment, "", true);
+						//子パーツ情報を変更
+						ChangeChild(ref refPart);
+					}
+				}
+				return;
+				//子パーツ情報を変更する
+				void ChangeChild(ref SxEntPart parent)
+				{
+					//子パーツリスト
+					var childs = parent.getChildList();
+					//なければ戻る(再帰処理の終了)
+					if (childs == null) return;
+					//子パーツの名前変更
+					foreach (var child in childs)
+					{
+						try
+						{
+							//置き換え
+							var refChild = child;
+							//パーツ情報
+							var inf = child.getInfDetail();
+							//新しい名前
+							var newName = GetName(inf.name);
+							if (newName == null) continue;
+							//
+							//外部パーツかつ読み取り専用のとき
+							if (inf.is_external && inf.is_read_only)
+							{
+								//アクセス権取得
+								child.setAccess(false);
+							}
+							//名前の変更
+							child.setName(newName, inf.comment, "", true);
+							//さらに子パーツを変更(再帰処理の開始）
+							ChangeChild(ref refChild);
+						}
+						catch (Exception e)
+						{
+							record.Remark = GetRemark(record.Remark, ErrorCategory.ChildPartName, e);
+							//
+							RenameLogger.WriteLog(new LogItem
+							{
+								Exception = e,
+								Level = LogLevel.Error,
+								Message = GetExchangeError(ErrorCategory.ChildPartName)
+							});
+							continue;
+						}
+					}
+				}
+				//変更した名前を取得する
+				string GetName(string name)
+				{
+					foreach (var pattern in _keywords.DrawNumberRegexes)
+					{
+						if (Regex.IsMatch(name, $"^{pattern}"))
+						{
+							return Regex.Replace(name, pattern, _param.PrefixName);
+						}
+					}
+					return null;
+				}
+			}
+
+			//図面表題欄の変更
+			void ExecuteDrawingTitle()
+			{
+				/*	メインルーチン
+					ビューリストから要素を変更する*/
+				//ビューリスト
+				var vsArray = model.getVSList();
+				//
+				foreach (var vs in vsArray)
+				{
+					//
+					ChangeDrawNumber(vs);
+					ChangeDate(vs);
+					ChangeSignature(vs);
+					if (_param.Settings.CanDeleteDelta)
+					{
+						DeleteDelta(vs);
+						DeleteDeltaNote(vs);
+					}
+					if (_param.Settings.CanExecuteUpdate)
+					{
+						SxSys.command(SystemSettings.UpdateCommand, true);
+					}
+				}
+				//テキストのセグメントリスト
+				static IEnumerable<SxEntSeg> GetTextSegs(SxVS vs)
+					=> vs.getSegList(0, 0, true, true)
+					.Where(x => x.getGeom().type == SxGeom.TYPE_NOTE);
+				//図面名変更
+				void ChangeDrawNumber(SxVS vs)
+				{
+					//セグメントがあるかどうか
+					var segs = GetTextSegs(vs);
+					if (!segs.Any()) return;
+					//
+					try
+					{
+						foreach (var textSeg in segs)
+						{
+							if (textSeg.getGeom() is SxGeomText geomText)
+							{
+								foreach (var line in geomText.txt)
+								{
+									foreach (var pattern in _keywords.DrawNumberRegexes)
+									{
+										var txtLine = line;
+										txtLine = Regex.Replace(line, pattern, _param.PrefixName);
+									}
+								}
+							}
+						}
+					}
+					catch (Exception e)
+					{
+						record.IsSuccess = false;
+						record.Remark = GetRemark(record.Remark, ErrorCategory.DrawingNumber, e);
+						RenameLogger.WriteLog(new LogItem
+						{
+							Exception = e,
+							Level = LogLevel.Error,
+							Message = GetExchangeError(ErrorCategory.DrawingNumber)
+						});
+					}
+				}
+				//日付変更
+				void ChangeDate(SxVS vs)
+				{
+					var segs = GetTextSegs(vs);
+					if (!segs.Any()) return;
+					//
+					try
+					{
+						foreach (var textSeg in segs)
+						{
+							if (textSeg.getGeom() is SxGeomText geomText)
+							{
+								if (geomText.text_line_num == 1)
+								{
+									foreach (var pattern in _keywords.DateRegexes)
+									{
+										if (!Regex.IsMatch(geomText.txt[0], pattern)) continue;
+										//
+										var date = DateTime.Today;
+										geomText.txt[0] = $"{date.Year}/{date.Month}/{date.Day}";
+										return;
+									}
+								}
+							}
+						}
+					}
+					catch (Exception e)
+					{
+						record.IsSuccess = false;
+						record.Remark = GetRemark(record.Remark, ErrorCategory.Date, e);
+						//ログ
+						RenameLogger.WriteLog(new LogItem
+						{
+							Exception = e,
+							Level = LogLevel.Error,
+							Message = GetExchangeError(ErrorCategory.Date)
+						});
+					}
+				}
+				//署名変更
+				void ChangeSignature(SxVS vs)
+				{
+					var segs = GetTextSegs(vs);
+					if (!segs.Any()) return;
+					try
+					{
+						foreach (var textSeg in segs)
+						{
+							if (textSeg.getGeom() is SxGeomText textGeom)
+							{
+								if (textGeom.text_line_num == 1)
+								{
+									foreach (var pattern in _keywords.Signatures)
+									{
+										if (Regex.IsMatch(textGeom.txt[0], pattern))
+										{
+											textGeom.txt[0] = _param.Signature;
+											break;
+										}
+									}
+								}
+							}
+						}
+					}
+					catch (Exception e)
+					{
+						record.IsSuccess = false;
+						record.Remark = GetRemark(record.Remark, ErrorCategory.Signature, e);
+						RenameLogger.WriteLog(new LogItem
+						{
+							Exception = e,
+							Level = LogLevel.Error,
+							Message = GetExchangeError(ErrorCategory.Signature)
+						});
+					}
+				}
+				//デルタマーク削除
+				void DeleteDelta(SxVS vs)
+				{
+					var segs = vs.getSegList(0, 0, false, true, true, true)
+						.Where(x => x.getGeom().type == SxGeom.TYPE_DELTA);
+					if (!segs.Any()) return;
+					//
+					foreach (var seg in segs)
+					{
+						try
+						{
+							var deleteSeg = seg;
+							deleteSeg.delete();
+						}
+						catch (Exception e)
+						{
+							record.IsSuccess = false;
+							record.Remark = GetRemark(record.Remark, ErrorCategory.DelaNote, e);
+							//ログ
+							RenameLogger.WriteLog(new LogItem
+							{
+								Exception = e,
+								Level = LogLevel.Error,
+								Message = GetExchangeError(ErrorCategory.Delta)
+							});
+						}
+					}
+				}
+				//訂正注記削除
+				void DeleteDeltaNote(SxVS vs)
+				{
+					var segs = GetTextSegs(vs);
+					if (!segs.Any()) return;
+					//
+					foreach (var seg in segs)
+					{
+						try
+						{
+							foreach (var pattern1 in _keywords.DeltaNoteRegexes)
+							{
+								foreach (var pattern2 in _keywords.Signatures)
+								{
+									//pattern1+pattern2で終わる
+									var pattern = $"{pattern1}{pattern2}$";
+									if (seg.getGeom() is SxGeomText geomText)
+									{
+										if (geomText.txt.Any(x => Regex.IsMatch(x, pattern)))
+										{
+											var deleteSeg = seg;
+											deleteSeg.delete();
+										}
+									}
+								}
+							}
+						}
+						catch (Exception e)
+						{
+							record.IsSuccess = false;
+							record.Remark = GetRemark(record.Remark, ErrorCategory.DelaNote, e);
+							//ログ
+							RenameLogger.WriteLog(new LogItem
+							{
+								Exception = e,
+								Level = LogLevel.Error,
+								Message = GetExchangeError(ErrorCategory.DelaNote)
+							});
+						}
+					}
 				}
 			}
 		}
 
-		private List<string> ExecuteDrawingTitle(ref SxModel model)
+		private string GetRemark(string remark, ErrorCategory category, Exception e = null)
 		{
-			/*	メインルーチン
-				ビューリストから要素を変更する*/
-			//ビューリスト
-			var vsArray = model.getVSList();
-			var errorList = new List<string>();
-			//
-			foreach (var vs in vsArray)
+			StringBuilder sb;
+			if (remark.Length > 0)
 			{
-				//
-				ChangeDrawNumber(vs);
-				ChangeDate(vs);
-				ChangeSignature(vs);
-				if (_param.Settings.CanDeleteDelta)
-				{
-					DeleteDelta(vs);
-					DeleteDeltaNote(vs);
-				}
-				if (_param.Settings.CanExecuteUpdate)
-				{
-					SxSys.command(SystemSettings.UpdateCommand, true);
-				}
+				sb = new StringBuilder(remark);
+				sb.AppendLine();
 			}
-			return errorList;
-			//テキストのセグメントリスト
-			static IEnumerable<SxEntSeg> GetTextSegs(SxVS vs)
-				=> vs.getSegList(0, 0, true, true)
-				.Where(x => x.getGeom().type == SxGeom.TYPE_NOTE);
-			//図面名変更
-			void ChangeDrawNumber(SxVS vs)
+			else
 			{
-				//セグメントがあるかどうか
-				var segs = GetTextSegs(vs);
-				if (!segs.Any()) return;
-				//
-				try
-				{
-					foreach (var textSeg in segs)
-					{
-						if (textSeg.getGeom() is SxGeomText geomText)
-						{
-							foreach (var line in geomText.txt)
-							{
-								foreach (var pattern in _keywords.DrawNumberRegexes)
-								{
-									var txtLine = line;
-									txtLine = Regex.Replace(line, pattern, _param.PrefixName);
-								}
-							}
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					var msg = GetExchangeError(ErrorCategory.DrawingNumber);
-					errorList.Add(GetCSVRemark(msg, e));
-					RenameLogger.WriteLog(new LogItem
-					{
-						Exception = e,
-						Level = LogLevel.Error,
-						Message = msg
-					});
-				}
+				sb = new StringBuilder();
 			}
-			//日付変更
-			void ChangeDate(SxVS vs)
-			{
-				var segs = GetTextSegs(vs);
-				if (!segs.Any()) return;
-				//
-				try
-				{
-					foreach (var textSeg in segs)
-					{
-						if (textSeg.getGeom() is SxGeomText geomText)
-						{
-							if (geomText.text_line_num == 1)
-							{
-								foreach (var pattern in _keywords.DateRegexes)
-								{
-									if (!Regex.IsMatch(geomText.txt[0], pattern)) continue;
-									//
-									var date = DateTime.Today;
-									geomText.txt[0] = $"{date.Year}/{date.Month}/{date.Day}";
-									return;
-								}
-							}
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					var msg = GetExchangeError(ErrorCategory.Date);
-					errorList.Add(GetCSVRemark(msg, e));
-					RenameLogger.WriteLog(new LogItem
-					{
-						Exception = e,
-						Level = LogLevel.Error,
-						Message = msg
-					});
-				}
-			}
-			//署名変更
-			void ChangeSignature(SxVS vs)
-			{
-				var segs = GetTextSegs(vs);
-				if (!segs.Any()) return;
-				try
-				{
-					foreach (var textSeg in segs)
-					{
-						if (textSeg.getGeom() is SxGeomText textGeom)
-						{
-							if (textGeom.text_line_num == 1)
-							{
-								foreach (var pattern in _keywords.Signatures)
-								{
-									if (Regex.IsMatch(textGeom.txt[0], pattern))
-									{
-										textGeom.txt[0] = _param.Signature;
-										break;
-									}
-								}
-							}
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					var msg = GetExchangeError(ErrorCategory.Signature);
-					errorList.Add(GetCSVRemark(msg, e));
-					RenameLogger.WriteLog(new LogItem
-					{
-						Exception = e,
-						Level = LogLevel.Error,
-						Message = msg
-					});
-				}
-			}
-			//デルタマーク削除
-			void DeleteDelta(SxVS vs)
-			{
-				var segs = vs.getSegList(0, 0, false, true, true, true)
-					.Where(x => x.getGeom().type == SxGeom.TYPE_DELTA);
-				if (!segs.Any()) return;
-				//
-				foreach (var seg in segs)
-				{
-					try
-					{
-						var deleteSeg = seg;
-						deleteSeg.delete();
-					}
-					catch (Exception e)
-					{
-						var msg = GetExchangeError(ErrorCategory.Delta);
-						errorList.Add(GetCSVRemark(msg, e));
-						RenameLogger.WriteLog(new LogItem
-						{
-							Exception = e,
-							Level = LogLevel.Error,
-							Message = msg
-						});
-					}
-				}
-			}
-			//訂正注記削除
-			void DeleteDeltaNote(SxVS vs)
-			{
-				var segs = GetTextSegs(vs);
-				if (!segs.Any()) return;
-				//
-				foreach (var seg in segs)
-				{
-					try
-					{
-						foreach (var pattern1 in _keywords.DeltaNoteRegexes)
-						{
-							foreach (var pattern2 in _keywords.Signatures)
-							{
-								//pattern1+pattern2で終わる
-								var pattern = $"{pattern1}{pattern2}$";
-								if (seg.getGeom() is SxGeomText geomText)
-								{
-									if (geomText.txt.Any(x => Regex.IsMatch(x, pattern)))
-									{
-										var deleteSeg = seg;
-										deleteSeg.delete();
-									}
-								}
-							}
-						}
-					}
-					catch (Exception e)
-					{
-						var msg = GetExchangeError(ErrorCategory.DelaNote);
-						errorList.Add(GetCSVRemark(msg, e));
-						RenameLogger.WriteLog(new LogItem
-						{
-							Exception = e,
-							Level = LogLevel.Error,
-							Message = msg
-						});
-					}
-				}
-			}
+			sb.AppendLine(GetExchangeError(category));
+			sb.AppendLine(e.Message);
+			return sb.ToString();
 		}
-
-		private string GetCSVRemark(string message, Exception e)
-			=> $"{message}\r\n{e.Message}";
 
 		private string GetExchangeError(ErrorCategory category)
 		{
@@ -1077,177 +1217,9 @@ namespace ICADRenamer
 			Save,
 		}
 
-		/// <summary>
-		/// パーツ名・パーツの図面名の変更
-		/// Execute2のメソッド
-		/// </summary>
-		/// <param name="model">モデル</param>
-		private List<string> ExecutePartName(ref SxModel model)
-		{
-			/*	メインルーチン
-				最上位パーツから子パーツへと降りていく*/
-			//エラーのリスト
-			var errorList = new List<string>();
-			//
-			foreach (var wf in model.getWFList())
-			{
-				//3D空間リスト
-				if (wf.getPartList().Length == 0) continue;
-				//最上位パーツ　通常は１個
-				var topParts = wf.getTopPartList();
-				if (!topParts.Any()) return errorList;
-				//変更処理
-				foreach (var topPart in topParts)
-				{
-					//パーツ情報
-					var inf = topPart.getInfDetail();
-					//パーツの置き換え
-					var refPart = topPart;
-					//外部パーツかつ読み取り専用のとき
-					if (inf.is_external && inf.is_read_only)
-					{
-						//アクセス権取得
-						topPart.setAccess(false);
-					}
-					//モデル情報を変更
-					SetModelInfo(ref refPart);
-					//子パーツ情報を変更
-					ChangeChild(ref refPart);
-					//パーツ名を変更
-					inf.name = GetName(inf.name);
-				}
-			}
-			try
-			{
-				//パーツを保存
-				model.savePart(null, true, true);
-				//モデルを保存
-				model.save("", "", model.getInf().comment, 0, 0);
-			}
-			catch (Exception e)
-			{
-				var msg = GetExchangeError(ErrorCategory.Save);
-				errorList.Add(GetCSVRemark(msg, e));
-				RenameLogger.WriteLog(new LogItem
-				{
-					Exception = e,
-					Level = LogLevel.Error,
-					Message = msg
-				});
-			}
-			//
-			return errorList;
-			//
-			//モデル情報を変更する
-			void SetModelInfo(ref SxEntPart part)
-			{
-				//var errorList = new List<string>();
-
-				//パーツのモデル
-				var partModel = part.getModel();
-				try
-				{
-					//モデル情報
-					var info = partModel.getInf();
-					//新しい名前
-					var name = GetName(info.name);
-					//名前がnull出ないなら変更
-					if (name != null) info.name = name;
-					//保存
-					partModel.save("", "", info.comment, 0, 0);
-				}
-				catch (Exception e)
-				{
-					var msg = GetExchangeError(ErrorCategory.ModelName);
-					errorList.Add(GetCSVRemark(msg, e));
-					RenameLogger.WriteLog(new LogItem
-					{
-						Exception = e,
-						Level = LogLevel.Error,
-						Message = msg
-					});
-				}
-				finally
-				{
-					//閉じる
-					partModel.close();
-				}
-			}
-			//子パーツ情報を変更する
-			void ChangeChild(ref SxEntPart parent)
-			{
-				//子パーツリスト
-				var childs = parent.getChildList();
-				//なければ戻る(再起処理の終了)
-				if (childs == null) return;
-				//子パーツの名前変更
-				foreach (var child in childs)
-				{
-					try
-					{
-						//置き換え
-						var refChild = child;
-						//パーツ情報
-						var inf = child.getInfDetail();
-						//外部パーツかつ読み取り専用のとき
-						if (inf.is_external && inf.is_read_only)
-						{
-							//アクセス権取得
-							child.setAccess(false);
-						}
-						//モデル情報を変更
-						SetModelInfo(ref refChild);
-						//新しい名前
-						var newName = GetName(inf.name);
-						//さらに子パーツを変更(再起処理の開始）
-						ChangeChild(ref refChild);
-					}
-					catch (Exception e)
-					{
-						var msg = GetExchangeError(ErrorCategory.ChildPartName);
-						errorList.Add(GetCSVRemark(msg, e));
-						//
-						RenameLogger.WriteLog(new LogItem
-						{
-							Exception = e,
-							Level = LogLevel.Error,
-							Message = msg
-						});
-						continue;
-					}
-				}
-			}
-			//変更した名前を取得する
-			string GetName(string name)
-			{
-				foreach (var pattern in _keywords.DrawNumberRegexes)
-				{
-					if (Regex.IsMatch(name, $"^{pattern}"))
-					{
-						return Regex.Replace(name, pattern, _param.PrefixName);
-					}
-				}
-				return null;
-			}
-		}
-
-		private void SetFailedRecordItem(string path, string message, Exception e)
-		{
-			var item = RecordItems.First(x => x.DestinationPath == path);
-			item.IsSuccess = false;
-			var sb = new StringBuilder(item.Remark);
-			if (sb.Length > 0)
-			{
-				sb.Append("\r\n");
-			}
-			sb.AppendLine(message);
-			sb.Append(e.Message);
-			item.Remark += sb.ToString();
-		}
-
 		private CsvRecordItem[] CopyFiles(string[] files)
 		{
-			var items = new LinkedList<CsvRecordItem>();
+			var items = new List<CsvRecordItem>();
 
 			Parallel.ForEach(files, (Action<string>) (file =>
 			 {
@@ -1283,6 +1255,10 @@ namespace ICADRenamer
 					 item.IsSuccess = false;
 					 item.Remark = $"ファイルコピーが失敗しました。\r\n{e.Message}";
 				 }
+				 finally
+				 {
+					 items.Add(item);
+				 }
 			 }));
 			return items.OrderBy(x => x.SourcePath).ToArray();
 		}
@@ -1290,14 +1266,7 @@ namespace ICADRenamer
 		private string GetNewPath2(string sourcePath)
 		{
 			var relativePath = sourcePath.Remove(0, _param.SourcePath.Length);
-			foreach (var pattern in _param.Settings.NewProjectRegex)
-			{
-				if (Regex.IsMatch(relativePath, pattern))
-				{
-					relativePath = Regex.Replace(relativePath, pattern, _param.PrefixName);
-					break;
-				}
-			}
+			//
 			return $"{_param.DestinationPath}{relativePath}";
 		}
 	}
