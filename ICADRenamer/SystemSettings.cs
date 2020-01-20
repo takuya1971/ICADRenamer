@@ -52,5 +52,15 @@ namespace ICADRenamer
 		/// オプション設定ファイルを保持するプロパティ
 		/// </summary>
 		public static string OptionSetting { get; } = SettingFolder + @"\OptionSettings.json";
+
+		/// <summary>
+		/// 更新コマンドを保持するプロパティ
+		/// </summary>
+		public static string[] UpdateCommand { get; } = new string[]
+		{
+			@";MENUCVPO",
+			@";CVREEXEC",
+			@"@GO",
+		};
 	}
 }

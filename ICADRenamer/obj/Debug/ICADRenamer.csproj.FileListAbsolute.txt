@@ -183,3 +183,4 @@ C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRename
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.csproj.CopyComplete
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.exe
 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.pdb
+C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.ICADStartingForm.resources

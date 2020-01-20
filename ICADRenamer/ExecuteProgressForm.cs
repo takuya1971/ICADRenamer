@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ICADRenamer.Log;
+using System.Threading.Tasks;
 using NLog;
 
 namespace ICADRenamer
@@ -187,27 +188,6 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		/// フォーム表示後イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">イベント引数</param>
-		private void ExecuteProgressForm_Shown(object sender, EventArgs e)
-		{
-			//ログ
-			RenameLogger.WriteLog(LogMessageKind.Operation, new List<(LogMessageCategory category, string message)>
-			{
-				(LogMessageCategory.SourceForm,_formName),
-				(LogMessageCategory.Message,$"{_formName}を開始しました。"),
-				(LogMessageCategory.SourcePath,_executeParams.SourcePath),
-				(LogMessageCategory.DestinationPath,_executeParams.DestinationPath),
-				(LogMessageCategory.NewNumber,_executeParams.PrefixName),
-				(LogMessageCategory.Signature,_executeParams.Signature)
-			});
-			//
-			_command.Execute(_executeParams);
-		}
-
-		/// <summary>
 		/// カウンタラベルを取得する
 		/// </summary>
 		/// <param name="category">進捗区分</param>
@@ -294,6 +274,8 @@ namespace ICADRenamer
 			_command.CategoryPregressed += Command_CategoryProgressed;
 			_command.CategoryStarted += Command_CategoryStarted;
 			_command.ExecuteFinished += Command_ExecuteFinished;
+			_command.ICADStarted += Command_ICADStarted;
+			_command.ICADStarting += Command_ICADStarting;
 			//進捗リスト
 			_progressItems = new List<ProgressItem>
 			{
@@ -339,5 +321,52 @@ namespace ICADRenamer
 				}
 			};
 		}
+
+		/// <summary>
+		/// ICAD起動中フォームを保持するフィールド
+		/// </summary>
+		private ICADStartingForm _iCadStartingForm = null;
+
+		private void Command_ICADStarting(object sender, EventArgs e)
+		{
+			_iCadStartingForm = new ICADStartingForm();
+			_iCadStartingForm.Show();
+		}
+
+		private void Command_ICADStarted(object sender, EventArgs e)
+		{
+			if(!(_iCadStartingForm==null || _iCadStartingForm.IsDisposed))
+			{
+				_iCadStartingForm.Close();
+			}
+			_iCadStartingForm = null;
+			Prepared?.Invoke(this, new EventArgs());
+		}
+
+		/// <summary>
+		/// フォーム表示イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void ExecuteProgressForm_Load(object sender, EventArgs e)
+		{
+			//ログ
+			RenameLogger.WriteLog(LogMessageKind.Operation, new List<(LogMessageCategory category, string message)>
+			{
+				(LogMessageCategory.SourceForm,_formName),
+				(LogMessageCategory.Message,$"{_formName}を開始しました。"),
+				(LogMessageCategory.SourcePath,_executeParams.SourcePath),
+				(LogMessageCategory.DestinationPath,_executeParams.DestinationPath),
+				(LogMessageCategory.NewNumber,_executeParams.PrefixName),
+				(LogMessageCategory.Signature,_executeParams.Signature)
+			});
+			//
+			_command.Execute(_executeParams);
+		}
+
+		/// <summary>
+		/// 準備完了時に動作するイベント
+		/// </summary>
+		public event EventHandler Prepared;
 	}
 }

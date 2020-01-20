@@ -186,16 +186,16 @@
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.ClientSize = new System.Drawing.Size(384, 261);
+			this.ControlBox = false;
 			this.Controls.Add(this._tableLayoutPanel);
 			this.Controls.Add(this._flowLayoutPanel);
-			this.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (128)));
-			this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+			this.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
-			this.MinimizeBox = false;
 			this.Name = "ExecuteProgressForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "実行中";
-			this.TopMost = true;
-			this.Shown += new System.EventHandler(this.ExecuteProgressForm_Shown);
+			this.Load += new System.EventHandler(this.ExecuteProgressForm_Load);
 			this._flowLayoutPanel.ResumeLayout(false);
 			this._tableLayoutPanel.ResumeLayout(false);
 			this._tableLayoutPanel.PerformLayout();

@@ -98,24 +98,31 @@ namespace ICADRenamer
 			if (tag == 3)
 			{
 				//ICADファイルがない場合
-				if (Directory.GetFiles(dialog.SelectedPath, SystemSettings.IcadExtension, SearchOption.AllDirectories).Length == 0)
+				try
 				{
-					//エラー表示
-					const string mes = "選択したフォルダにはICADファイルがありません。";
-					//メッセ―ジとログ
-					SystemMethods.GetMessageBox(MessageCategory.InputError
-						, mes
-						, LogMessageKind.Operation
-						, new List<(LogMessageCategory category, string message)>
-						{
+					if (Directory.GetFiles(dialog.SelectedPath, SystemSettings.IcadExtension, SearchOption.AllDirectories).Length == 0)
+					{
+						//エラー表示
+						const string mes = "選択したフォルダにはICADファイルがありません。";
+						//メッセ―ジとログ
+						SystemMethods.GetMessageBox(MessageCategory.InputError
+							, mes
+							, LogMessageKind.Operation
+							, new List<(LogMessageCategory category, string message)>
+							{
 							(LogMessageCategory.SourceForm,Text),
 							(LogMessageCategory.Message,mes),
 							(LogMessageCategory.FilePath,dialog.SelectedPath),
-					});
-					//選択したパスを消す
-					dialog.SelectedPath = string.Empty;
-					//もう一度ダイアログを開く
-					BrowseButton_Click(button, new EventArgs());
+						});
+						//選択したパスを消す
+						dialog.SelectedPath = string.Empty;
+						//もう一度ダイアログを開く
+						BrowseButton_Click(button, new EventArgs());
+					}
+				}
+				catch(Exception)
+				{
+					BrowseButton_Click(sender, e);
 				}
 			}
 			//フォルダが選択されていた時
@@ -197,8 +204,17 @@ namespace ICADRenamer
 			});
 			//実行完了イベント
 			progressForm.ExecuteFinished += ProgressForm_ExecuteFinished;
+			progressForm.Prepared += ProgressForm_Prepared;
 			//フォーム表示
 			progressForm.Show();
+		}
+
+		private void ProgressForm_Prepared(object sender, EventArgs e)
+		{
+			if(sender is Form progressForm)
+			{
+				progressForm.Show();
+			}
 		}
 
 		/// <summary>

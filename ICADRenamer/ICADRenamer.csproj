@@ -79,6 +79,12 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="ICADStartingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ICADStartingForm.Designer.cs">
+      <DependentUpon>ICADStartingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegexContextMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpBrowser.resx">
       <DependentUpon>HelpBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ICADStartingForm.resx">
+      <DependentUpon>ICADStartingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeywordEditForm.resx">
       <DependentUpon>KeywordEditForm.cs</DependentUpon>

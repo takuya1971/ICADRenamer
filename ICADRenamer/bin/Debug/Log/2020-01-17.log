@@ -996,3 +996,293 @@
    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
    場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 218
+2020-01-17 17:08:06.1844|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 17:08:10.2731|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 17:08:40.6963|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 17:08:50.2758|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 17:08:55.7485|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 17:09:06.3529|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 17:09:19.7774|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 17:10:06.3709|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:10:06.3709|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:10:06.3709|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
+2020-01-17 17:13:11.1413|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 17:13:21.2154|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 17:13:23.5905|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 17:13:29.0691|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 17:13:35.8027|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 17:13:36.8655|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 17:13:45.9718|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 17:13:58.5826|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:13:58.5856|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:13:58.5856|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
+2020-01-17 17:14:22.7002|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:22.7002|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:22.7002|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-1_C-1用K12B用取出治具.icd|->
+2020-01-17 17:14:28.4226|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:28.4226|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:28.4226|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0700-00-2_C-2用K12B用取出治具.icd|->
+2020-01-17 17:14:37.7771|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:37.7771|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:37.7771|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-01_ベースプレート.icd|->
+2020-01-17 17:14:50.3908|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:50.3908|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:14:50.3908|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-02_製品台.icd|->
+2020-01-17 17:15:50.0307|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:50.0307|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:50.0307|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-03_巾木折.icd|->
+2020-01-17 17:15:54.4877|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:54.4877|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:54.4927|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-05_ベースプレート止め板.icd|->
+2020-01-17 17:15:56.7545|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:56.7545|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:15:56.7605|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-06_スペーサ.icd|->
+2020-01-17 17:16:53.4177|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:16:53.4177|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:16:53.4177|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-01_クランプ爪A.icd|->
+2020-01-17 17:16:56.0319|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:16:56.0319|ERROR|変換エラー|->System.ArgumentNullException: 値を Null にすることはできません。
+パラメーター名:source
+   場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 627
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:16:56.0319|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0600-03_クランプシュー.icd|->
+2020-01-17 17:24:37.1412|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 17:24:42.5956|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 17:24:45.1810|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 17:25:01.2102|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 17:25:04.4049|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 17:25:09.8007|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下|->
+2020-01-17 17:25:15.5191|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 17:25:21.9636|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 17:25:24.5176|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:木下|->
+2020-01-17 17:25:35.3031|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 17:28:12.3845|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:28:12.3845|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 682
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:28:12.3845|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
+2020-01-17 17:35:17.2013|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。|->
+2020-01-17 17:35:27.5661|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1200|->
+2020-01-17 17:35:30.1795|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:t.k.|->
+2020-01-17 17:35:36.4036|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具|->
+2020-01-17 17:35:40.9920|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1200|->
+2020-01-17 17:35:41.8306|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 コピー先:D:\M1200 新番号:M1200 署名:t.k.|->
+2020-01-17 17:35:51.2728|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-1_C-1用K10B取出治具.icd|->
+2020-01-17 17:36:57.7488|ERROR| MSG03070 同一名の図面名が存在します。          |->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 661    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 661
+2020-01-17 17:36:57.7488|ERROR| MSG03070 同一名の図面名が存在します。          |->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 661    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 661
+2020-01-17 17:36:57.9908|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 687
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 687
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:36:57.9928|ERROR|変換エラー|->System.ArgumentOutOfRangeException: '1' の値は 'Value' に対して有効ではありません。'Value' は 'minimum' と 'maximum' の間でなければなりません。
+パラメーター名:Value
+   場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 687
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223    場所 System.Windows.Forms.ProgressBar.set_Value(Int32 value)
+   場所 ICADRenamer.ExecuteProgressForm.DisplayUpdate(ProgressItem item) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 173
+   場所 ICADRenamer.ExecuteProgressForm.Command_CategoryProgressed(Object sender, ItemProgressedEventArgs e) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\ExecuteProgressForm.cs:行 119
+   場所 ICADRenamer.RenameCommand.RenameParts(SxModel& model) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 687
+   場所 ICADRenamer.RenameCommand.Execute(RenameExecuteParams parameter) 場所 C:\Users\Administrator\source\repos\ICADRenamer\ICADRenamer\RenameCommand.cs:行 223
+2020-01-17 17:36:57.9928|INFO| 発生元:変換進捗 メッセージ:ファイル変換開始 ファイルパス:M1124-0500-00-2_C-2用K10B取出治具.icd|->
