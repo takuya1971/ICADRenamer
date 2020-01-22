@@ -98,7 +98,11 @@ namespace ICADRenamer.Settings
 					"Techno",
 					"techno",
 					"TECHNO"
-				}
+				},
+			DrawNumberSplit=new List<string>
+			{
+				"M[0-9]{4}|M[0-9]{3}|MA[0-9]{6}",
+			}
 		};
 	}
 }

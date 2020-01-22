@@ -36,6 +36,9 @@ namespace ICADRenamer.Settings
 		[JsonProperty("署名要素")]
 		public List<string> Signatures { get; set; }
 
+		[JsonProperty("図番区切")]
+		public List<string> DrawNumberSplit { get; set; }
+
 		/// <summary>
 		///   <see cref="FrameKeyword"/> classの初期化
 		/// </summary>

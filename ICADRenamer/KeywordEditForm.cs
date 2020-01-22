@@ -150,6 +150,9 @@ namespace ICADRenamer
 				case RegexCategory.Signature:
 					data = _keyword.Signatures;
 					break;
+				case RegexCategory.DrawNumberCategory:
+					data = _keyword.DrawNumberSplit;
+					break;
 			}
 			//
 			_viewBox.Items.Clear();
@@ -177,6 +180,9 @@ namespace ICADRenamer
 					break;
 				case RegexCategory.Signature:
 					_keyword.Signatures = data;
+					break;
+				case RegexCategory.DrawNumberCategory:
+					_keyword.DrawNumberSplit = data;
 					break;
 			}
 		}
@@ -242,6 +248,7 @@ namespace ICADRenamer
 			if (_dateButton.Checked) return RegexCategory.Date;
 			if (_deltaNoteButton.Checked) return RegexCategory.DeltaNote;
 			if (_signatureButton.Checked) return RegexCategory.Signature;
+			if (_drawNumberCategory.Checked) return RegexCategory.DrawNumberCategory;
 			else return 0;
 		}
 

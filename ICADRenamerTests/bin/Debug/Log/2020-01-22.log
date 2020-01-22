@@ -1,0 +1,200 @@
+2020-01-22 01:20:30.6511|ERROR|図番変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1002    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1002
+2020-01-22 01:20:39.1831|ERROR|日付変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1043    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1043
+2020-01-22 01:44:42.9233|ERROR|図番変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1002    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1002
+2020-01-22 01:44:52.2243|ERROR|日付変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1043    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1043
+2020-01-22 01:59:53.0415|ERROR|図番変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1001    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDrawNumber|52_11(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1001
+2020-01-22 02:00:05.5055|ERROR|日付変更エラー|->sxnet.SxException: 指定した要素がアクティブウィンドウに表示されていません。
+   場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1042    場所 sxnet.SxEntSeg.editText(String text)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangeDate|52_12(SxVS vs, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1042
+2020-01-22 23:10:17.3451|ERROR|D:\M1200\PARTS\M1124-0700-01-1_ベースプレート材料2.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-01-1_ベースプレート材料2.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3451|ERROR|D:\M1200\PARTS\M1124-0600-03_クランプシュー.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0600-03_クランプシュー.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3451|ERROR|D:\M1200\PARTS\M1124-0700-05-1_C-2用ベースプレート.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-05-1_C-2用ベースプレート.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3451|ERROR|D:\M1200\M1124-0500-00-1_C-1用K10B取出治具.icdはD:\M1200にコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\M1124-0500-00-1_C-1用K10B取出治具.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3451|ERROR|D:\M1200\PARTS\M1124-0500-02_製品台.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0500-02_製品台.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3811|ERROR|D:\M1200\PARTS\M1124-0700-05_C-2用ベースプレート.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-05_C-2用ベースプレート.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3811|ERROR|D:\M1200\PARTS\M1124-0500-03_巾木折.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0500-03_巾木折.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3811|ERROR|D:\M1200\PARTS\M1124-0600-04_ヘミサルボード.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0600-04_ヘミサルボード.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.3811|ERROR|D:\M1200\M1124-0500-00-2_C-2用K10B取出治具.icdはD:\M1200にコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\M1124-0500-00-2_C-2用K10B取出治具.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4121|ERROR|D:\M1200\PARTS\M1124-0500-05_ベースプレート止め板.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0500-05_ベースプレート止め板.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4121|ERROR|D:\M1200\M1124-0700-00-2_C-2用K12B用取出治具.icdはD:\M1200にコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\M1124-0700-00-2_C-2用K12B用取出治具.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4121|ERROR|D:\M1200\PARTS\M1124-0600-05_クランプ爪A幅広.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0600-05_クランプ爪A幅広.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4121|ERROR|D:\M1200\M1124-0700-00-1_C-1用K12B用取出治具.icdはD:\M1200にコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\M1124-0700-00-1_C-1用K12B用取出治具.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4561|ERROR|D:\M1200\PARTS\M1124-0500-01_ベースプレート.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0500-01_ベースプレート.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4561|ERROR|D:\M1200\PARTS\M1124-0700-01_ベースプレート.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-01_ベースプレート.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4561|ERROR|D:\M1200\PARTS\M1124-0600-06_クランプ爪B.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0600-06_クランプ爪B.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4561|ERROR|D:\M1200\PARTS\M1124-0500-06_スペーサ.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0500-06_スペーサ.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4951|ERROR|D:\M1200\PARTS\M1124-0600-01_クランプ爪A.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0600-01_クランプ爪A.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.4951|ERROR|D:\M1200\PARTS\M1124-0700-02_製品台.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-02_製品台.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.5071|ERROR|D:\M1200\PARTS\M1124-0700-01-1_ベースプレート材料.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-01-1_ベースプレート材料.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.5181|ERROR|D:\M1200\PARTS\M1124-0700-03_巾木折ブラケット.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-03_巾木折ブラケット.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172
+2020-01-22 23:10:17.5341|ERROR|D:\M1200\PARTS\M1124-0700-04_巾木折先端.icdはD:\M1200\PARTSにコピーできませんでした。|->System.IO.IOException: ファイル 'D:\M1200\PARTS\M1124-0700-04_巾木折先端.icd' は既に存在します。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172    場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   場所 System.IO.File.Copy(String sourceFileName, String destFileName)
+   場所 ICADRenamer.RenameCommand.<>c__DisplayClass56_0.<CopyFiles>b__0(String file) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 1172

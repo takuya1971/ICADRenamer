@@ -32,6 +32,11 @@ namespace ICADRenamer
 		/// 新しい工事番号
 		/// </summary>
 		NewProject,
+
+		/// <summary>
+		/// 図番区切を保持するフィールド
+		/// </summary>
+		DrawNumberCategory,
 	}
 }
 

@@ -58,9 +58,13 @@ namespace ICADRenamer
 		/// </summary>
 		public static string[] UpdateCommand { get; } = new string[]
 		{
-			@";MENUCVPO",
-			@";CVREEXEC",
-			@"@GO",
+			";GXDMY",
+			";CRTVW",
+			";MENUCVRE",
+			"@GO",
+			"..UPDFLG /1/",
+			"..COMFLG /1/",
+			"..LINCTR /1/",
 		};
 	}
 }

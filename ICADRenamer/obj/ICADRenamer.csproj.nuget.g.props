@@ -5,7 +5,7 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\拓也\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
   </PropertyGroup>
@@ -17,6 +17,6 @@
     <Import Project="$(NuGetPackageRoot)ilrepack\2.0.18\build\ILRepack.props" Condition="Exists('$(NuGetPackageRoot)ilrepack\2.0.18\build\ILRepack.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgILRepack Condition=" '$(PkgILRepack)' == '' ">C:\Users\拓也\.nuget\packages\ilrepack\2.0.18</PkgILRepack>
+    <PkgILRepack Condition=" '$(PkgILRepack)' == '' ">C:\Users\Administrator\.nuget\packages\ilrepack\2.0.18</PkgILRepack>
   </PropertyGroup>
 </Project>

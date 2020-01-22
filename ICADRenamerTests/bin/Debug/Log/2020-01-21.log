@@ -1,0 +1,88 @@
+2020-01-21 21:54:20.3096|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG02197 アクセス権取得できない外部パーツが存在しました。
+   場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912    場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912
+2020-01-21 21:54:20.4947|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG02197 アクセス権取得できない外部パーツが存在しました。
+   場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912    場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912
+2020-01-21 21:54:20.6576|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG02197 アクセス権取得できない外部パーツが存在しました。
+   場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912    場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912
+2020-01-21 21:54:20.8066|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG02197 アクセス権取得できない外部パーツが存在しました。
+   場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912    場所 sxnet.SxEntPart.setAccess(Boolean read_only)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 912
+2020-01-21 23:09:49.5652|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:49.9702|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:51.3542|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:51.7232|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:52.0812|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:52.5262|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:53.0652|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:56.4032|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:56.9712|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:57.5282|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:58.0212|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909
+2020-01-21 23:09:58.4112|ERROR|子パーツ名変更エラー|->sxnet.SxException:  MSG03070 同一名の図面名が存在します。          
+   場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909    場所 sxnet.SxEntPart.setName(String name, String comment, String filename, Boolean change_all)
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__SetNewName|52_7(SxEntPart& part, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 877
+   場所 ICADRenamer.RenameCommand.<ExecuteReplace>g__ChangePart|52_9(SxEntPart& parent, <>c__DisplayClass52_0& ) 場所 C:\Users\Administrator\OneDrive - 株式会社　テクノ　\App\ICADRenamer\ICADRenamer\RenameCommand.cs:行 909

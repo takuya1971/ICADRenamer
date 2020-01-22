@@ -46,6 +46,7 @@
 			this._viewBox = new System.Windows.Forms.ListBox();
 			this._toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this._commonContextMenuStrip = new ICADRenamer.RegexContextMenuStrip();
+			this._drawNumberCategory = new System.Windows.Forms.RadioButton();
 			this.flowLayoutPanel1.SuspendLayout();
 			this._groupBox.SuspendLayout();
 			this._tableLayoutPanel.SuspendLayout();
@@ -136,13 +137,14 @@
 			// 
 			// _groupBox
 			// 
+			this._groupBox.Controls.Add(this._drawNumberCategory);
 			this._groupBox.Controls.Add(this._signatureButton);
 			this._groupBox.Controls.Add(this._deltaNoteButton);
 			this._groupBox.Controls.Add(this._dateButton);
 			this._groupBox.Controls.Add(this._drawNumberButton);
 			this._groupBox.Location = new System.Drawing.Point(3, 3);
 			this._groupBox.Name = "_groupBox";
-			this._groupBox.Size = new System.Drawing.Size(130, 127);
+			this._groupBox.Size = new System.Drawing.Size(130, 147);
 			this._groupBox.TabIndex = 1;
 			this._groupBox.TabStop = false;
 			this._groupBox.Text = "編集する検索規則";
@@ -229,11 +231,22 @@
 			// _commonContextMenuStrip
 			// 
 			this._commonContextMenuStrip.Name = "commonContextMenuStrip";
-			this._commonContextMenuStrip.Size = new System.Drawing.Size(181, 92);
+			this._commonContextMenuStrip.Size = new System.Drawing.Size(140, 70);
 			this._commonContextMenuStrip.AddNewRequest += new System.EventHandler(this.CommonContextMenuStrip_AddNewRequest);
 			this._commonContextMenuStrip.DeleteRequest += new System.EventHandler(this.CommonContextMenuStrip_DeleteRequest);
 			this._commonContextMenuStrip.EditRequest += new System.EventHandler(this.CommonContextMenuStrip_EditRequest);
 			this._commonContextMenuStrip.Opened += new System.EventHandler(this.CommonContextMenuStrip_Opened);
+			// 
+			// _drawNumberCategory
+			// 
+			this._drawNumberCategory.AutoSize = true;
+			this._drawNumberCategory.Location = new System.Drawing.Point(6, 122);
+			this._drawNumberCategory.Name = "_drawNumberCategory";
+			this._drawNumberCategory.Size = new System.Drawing.Size(97, 19);
+			this._drawNumberCategory.TabIndex = 4;
+			this._drawNumberCategory.Text = "署名検索規則";
+			this._toolTip.SetToolTip(this._drawNumberCategory, "図番の区切です");
+			this._drawNumberCategory.UseVisualStyleBackColor = true;
 			// 
 			// KeywordEditForm
 			// 
@@ -279,5 +292,6 @@
 		private System.Windows.Forms.ToolTip _toolTip;
 		private RegexContextMenuStrip _commonContextMenuStrip;
 		private System.Windows.Forms.Button _helpButton;
+		private System.Windows.Forms.RadioButton _drawNumberCategory;
 	}
 }
