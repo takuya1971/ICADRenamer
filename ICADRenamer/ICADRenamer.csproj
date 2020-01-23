@@ -80,6 +80,7 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="Events\CountItem.cs" />
     <Compile Include="ICADStartingForm.cs">
       <SubType>Form</SubType>
     </Compile>

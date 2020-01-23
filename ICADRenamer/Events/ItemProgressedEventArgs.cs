@@ -12,19 +12,18 @@ namespace ICADRenamer.Events
 	public class ItemProgressedEventArgs : EventArgs
 	{
 		/// <summary>
-		/// 進行した区分を保持するプロパティ
+		/// ファイルカウントを保持するプロパティ
 		/// </summary>
-		public ProgressCategory Category { get; set; }
+		public CountItem FileCount { get; set;}
 
 		/// <summary>
-		/// 名前を保持するプロパティ
+		/// 詳細カウントを保持するプロパティ
 		/// </summary>
-		public string Name { get; set; } = "";
+		public CountItem DetailCount { get; set; }
 
 		/// <summary>
-		/// 進捗カウンタ
+		/// ビューカウントを保持するプロパティ
 		/// </summary>
-
-		public int Counter { get; set; } = 0;
+		public CountItem VIewCount { get; set; }
 	}
 }

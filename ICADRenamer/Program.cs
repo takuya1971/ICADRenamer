@@ -63,19 +63,6 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		///変換進捗イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private static void Command_CategoryStarted(object sender, Events.ItemProgressedEventArgs e)
-		{
-			if (e.Category == Events.ProgressCategory.File)
-			{
-				Console.WriteLine($"実行中のファイル:{e.Name}");
-			}
-		}
-
-		/// <summary>
 		/// 不正なコマンド文字列を実行する
 		/// </summary>
 		/// <returns></returns>
@@ -159,8 +146,6 @@ namespace ICADRenamer
 			}
 			//実行コマンド
 			var command = new RenameCommand();
-			//イベント登録
-			command.CategoryStarted += Command_CategoryStarted;
 			//実行
 			command.Execute(new RenameExecuteParams
 			{

@@ -16,9 +16,9 @@ namespace ICADRenamer.Tests
 		[TestMethod()]
 		public void Execute2Test()
 		{
-			//ClearDir();
+			DateTime start = DateTime.Now;
 			var command = new RenameCommand();
-			command.Execute2(new RenameExecuteParams
+			command.Execute(new RenameExecuteParams
 			{
 				SourcePath = @"D:\M1124_KB治具 - コピー",
 				DestinationPath = @"D:\M1200",
@@ -30,17 +30,8 @@ namespace ICADRenamer.Tests
 			{
 				Console.WriteLine(resultRecord);
 			}
-		}
-
-		void ClearDir()
-		{
-			var files = Directory.GetFiles(@"D:\M1200", SystemSettings.IcadExtension, SearchOption.AllDirectories);
-			var i = 0;
-			while(files.Length>0)
-			{
-				File.Delete(files[i]);
-				i++;
-			}
+			var time = start.Subtract(DateTime.Now);
+			Console.WriteLine($"実行時間:{time.TotalSeconds}sec.");
 		}
 	}
 }

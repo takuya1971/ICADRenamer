@@ -13,5 +13,10 @@ namespace ICADRenamer.Events
 		/// 個数を保持するプロパティ
 		/// </summary>
 		public int TotalItem { get; set; }
+
+		/// <summary>
+		/// ビュー数を保持するプロパティ
+		/// </summary>
+		public int FrameNumber { get; set; }
 	}
 }

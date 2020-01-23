@@ -42,5 +42,10 @@ namespace ICADRenamer.Events
 		/// モデルを保持するフィールド
 		/// </summary>
 		Model,
+
+		/// <summary>
+		/// 詳細を保持するフィールド
+		/// </summary>
+		Detail,
 	}
 }

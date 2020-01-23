@@ -34,10 +34,7 @@ namespace ICADRenamer
 		/// </summary>
 		private RenameCommand _command;
 
-		/// <summary>
-		/// 進捗アイテムを保持するフィールド
-		/// </summary>
-		private List<ProgressItem> _progressItems;
+		public event EventHandler ExecuteStarted;
 
 		/// <summary>
 		///   <see cref="ExecuteProgressForm"/> classの初期化
@@ -61,23 +58,6 @@ namespace ICADRenamer
 		public event EventHandler ExecuteFinished;
 
 		/// <summary>
-		/// 実行している項目の名称を取得する
-		/// </summary>
-		/// <param name="item">進捗アイテム</param>
-		/// <returns></returns>
-		private static string GetName(ProgressItem item) => item.Category switch
-		{
-			ProgressCategory.ChangePartName => $"パーツ名変更:{item.Name}",
-			ProgressCategory.File => item.Name,
-			ProgressCategory.Segment => "図面文字変更",
-			ProgressCategory.Update => "更新処理",
-			ProgressCategory.View => $"{item.Name}ビュー",
-			ProgressCategory.Model => $"{item.Name}モデル",
-			ProgressCategory.ChangeDrawing => "",
-			_ => "",
-		};
-
-		/// <summary>
 		/// キャンセルボタンクリックイベントを実行する
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
@@ -95,57 +75,6 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		/// 実行区分変更イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void Command_CategoryChanged(object sender, CategoryChangeEventArgs e)
-		{
-			var item = GetItem(e.Category);
-			if (item.Counters == null) item.Counters = new ProgressCounter { Count = 0, Counter = 0 };
-			item.Counters.Count = e.TotalItem;
-			DisplayUpdate(item);
-			Application.DoEvents();
-		}
-
-		/// <summary>
-		/// 実行区分進捗イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void Command_CategoryProgressed(object sender, ItemProgressedEventArgs e)
-		{
-			var item = GetItem(e.Category);
-			item.Counters.Counter++;
-			DisplayUpdate(item);
-			Application.DoEvents();
-		}
-
-		/// <summary>
-		/// 実行区分開始イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void Command_CategoryStarted(object sender, ItemProgressedEventArgs e)
-		{
-			if (e.Category == ProgressCategory.File)
-			{
-				RenameLogger.WriteLog(LogMessageKind.FileStart
-					, new List<(LogMessageCategory category, string message)>
-				{
-					(LogMessageCategory.SourceForm,_formName),
-					(LogMessageCategory.Message,"ファイル変換開始"),
-					(LogMessageCategory.FilePath,e.Name)
-				});
-			}
-			//
-			var item = GetItem(e.Category);
-			item.Name = e.Name;
-			item.Counters.Counter=e.Counter;
-			DisplayUpdate(item);
-		}
-
-		/// <summary>
 		/// コマンド終了イベントを実行する
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
@@ -160,166 +89,88 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		/// 表示の変更を実行する
-		/// </summary>
-		/// <param name="item">進捗アイテム</param>
-		private void DisplayUpdate(ProgressItem item)
-		{
-			ProgressBar bar = GetProgressBar(item.Category);
-			Label nameLabel = GetNameLabel(item.Category);
-			Label counterLabel = GetCounterLabel(item.Category);
-			//
-			if (bar != null)
-			{
-				bar.Value = item.Counters.Counter;
-				bar.Maximum = item.Counters.Count;
-			}
-			if (nameLabel != null) nameLabel.Text = GetName(item);
-			if (counterLabel != null) counterLabel.Text = $"{ item.Counters.Counter}/{item.Counters.Count}";
-			//ファイルの進捗データ
-			var fileItem = _progressItems.First(x => x.Category == ProgressCategory.File);
-			//進捗率
-			if (fileItem.Counters.Count > 0)
-			{
-				int progRate = (int) (fileItem.Counters.Counter / fileItem.Counters.Count);
-				Text = $"変換進捗 実行中...{progRate}%";
-			}
-			Application.DoEvents();
-		}
-
-		/// <summary>
-		/// カウンタラベルを取得する
-		/// </summary>
-		/// <param name="category">進捗区分</param>
-		/// <returns></returns>
-		private Label GetCounterLabel(ProgressCategory category)
-		{
-			switch (category)
-			{
-				case ProgressCategory.ChangePartName:
-				case ProgressCategory.Segment:
-					return _itemCountLabel;
-				case ProgressCategory.File:
-					return _fileCountLabel;
-				case ProgressCategory.Update:
-				case ProgressCategory.View:
-				case ProgressCategory.Model:
-					return _categoryCountLabel;
-				default:
-					return null;
-			}
-		}
-
-		/// <summary>
-		/// 進捗アイテムを取得する
-		/// </summary>
-		/// <param name="category">進捗区分</param>
-		/// <returns></returns>
-		private ProgressItem GetItem(ProgressCategory category)
-			=> _progressItems.First(x => x.Category == category);
-		/// <summary>
-		/// 名前ラベルを取得する
-		/// </summary>
-		/// <param name="category">進捗区分</param>
-		/// <returns></returns>
-		private Label GetNameLabel(ProgressCategory category)
-		{
-			switch (category)
-			{
-				case ProgressCategory.Update:
-				case ProgressCategory.View:
-				case ProgressCategory.Model:
-					return _categoryNameLabel;
-				case ProgressCategory.File:
-					return _fileNameLabel;
-				case ProgressCategory.Segment:
-				case ProgressCategory.ChangePartName:
-					return _itemNameLabel;
-				default:
-					return null;
-			}
-		}
-
-		/// <summary>
-		/// プログレスバーを取得する
-		/// </summary>
-		/// <param name="category">進捗区分</param>
-		/// <returns></returns>
-		private ProgressBar GetProgressBar(ProgressCategory category)
-		{
-			switch (category)
-			{
-				case ProgressCategory.ChangePartName:
-				case ProgressCategory.Segment:
-					return _itemProgressBar;
-				case ProgressCategory.File:
-					return _fileProgressBar;
-				case ProgressCategory.Update:
-				case ProgressCategory.View:
-				case ProgressCategory.Model:
-					return _viewProgressBar;
-				default:
-					return null;
-			}
-		}
-
-		/// <summary>
 		/// 初期化を実行する
 		/// </summary>
 		private void Initialize()
 		{
-			//実行コマンド
 			_command = new RenameCommand();
-			_command.CategoryChanged += Command_CategoryChanged;
-			_command.CategoryPregressed += Command_CategoryProgressed;
-			_command.CategoryStarted += Command_CategoryStarted;
-			_command.ExecuteFinished += Command_ExecuteFinished;
+			_command.DetailChanged += Command_DetailChanged;
+			_command.DrawingTitleStarted += Command_DrawingTitleStarted;
+			_command.ExecuteStarted += Command_ExecuteStarted;
+			_command.FileCopyStarted += Command_FileCopyStarted;
+			_command.FileDeleteStarted += Command_FileDeleteStarted;
 			_command.ICADStarted += Command_ICADStarted;
 			_command.ICADStarting += Command_ICADStarting;
-			//進捗リスト
-			_progressItems = new List<ProgressItem>
+			_command.UpdateStarted += Command_ExecuteFinished;
+		}
+
+		private void Command_FileDeleteStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText("元ファイル削除中...");
+		}
+
+		private string GetFormText(string message) => $"変換実行中:{message}";
+
+		private void Command_FileCopyStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText($"ファイルコピー中...{_executeParams.SourcePath}→{_executeParams.DestinationPath}");
+		}
+
+		private void Command_ExecuteStarted(object sender, EventArgs e)
+		{
+			ExecuteStarted?.Invoke(this, new EventArgs());
+		}
+
+		private void Command_DrawingTitleStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText("図面表題欄編集中...");
+		}
+
+		private void Command_DetailChanged(object sender, ItemProgressedEventArgs e)
+		{
+			for (var i = 1; i < 4; i++)
 			{
-				new ProgressItem{
-					Category= ProgressCategory.ChangeDrawing,
-					Counters=new ProgressCounter{Count=0, Counter=0},
-				},
-				new ProgressItem{
-					Category= ProgressCategory.ChangePartName,
-					Counters=new ProgressCounter
-					{
-						Count=0,
-						Counter=0,
-					}
-				},
-				new ProgressItem{Category= ProgressCategory.File,
-					Counters= new ProgressCounter
-					{
-						Count=0,
-						Counter=0,
-					}
-				},
-				new ProgressItem{Category= ProgressCategory.Segment,
-					Counters=new ProgressCounter
-					{
-						Count=0,
-						Counter=0,
-					}
-				},
-				new ProgressItem{Category= ProgressCategory.Update,
-					Counters=new ProgressCounter
-					{
-						Count=0,
-						Counter=0,
-					}
-				},
-				new ProgressItem{Category= ProgressCategory.View,
-					Counters=new ProgressCounter
-					{
-						Count=0,
-						Counter=0,
-					}
-				}
+				ChangeProgress(i, e);
+			}
+		}
+
+		private void ChangeProgress(int index, ItemProgressedEventArgs e)
+		{
+			ProgressBar pb = index switch
+			{
+				1 => _fileProgressBar,
+				2 => _viewProgressBar,
+				3 => _itemProgressBar,
+				_ => null
 			};
+			Label nameLabel = index switch
+			{
+				1 => _fileNameLabel,
+				2 => _categoryNameLabel,
+				3 => _itemNameLabel,
+				_ => null
+			};
+			Label countLabel = index switch
+			{
+				1 => _fileCountLabel,
+				2 => _categoryCountLabel,
+				3 => _itemCountLabel,
+				_ => null
+			};
+			CountItem item = index switch
+			{
+				1 => e.FileCount,
+				2 => e.VIewCount,
+				3 => e.DetailCount,
+				_ => new CountItem()
+			};
+			//
+			pb.Maximum = item.Items;
+			pb.Value = item.Counter;
+			nameLabel.Text = item.Name;
+			countLabel.Text = $"{item.Counter}/{item.Items}";
+			var rate = e.DetailCount.Counter / e.DetailCount.Items;
+			Text = $"{Text}{rate.ToString()}%";
 		}
 
 		/// <summary>
@@ -335,7 +186,7 @@ namespace ICADRenamer
 
 		private void Command_ICADStarted(object sender, EventArgs e)
 		{
-			if(!(_iCadStartingForm==null || _iCadStartingForm.IsDisposed))
+			if (!(_iCadStartingForm == null || _iCadStartingForm.IsDisposed))
 			{
 				_iCadStartingForm.Close();
 			}
@@ -361,7 +212,14 @@ namespace ICADRenamer
 				(LogMessageCategory.Signature,_executeParams.Signature)
 			});
 			//
-			_command.Execute(_executeParams);
+			ExecuteCommand();
+		}
+
+		private async void ExecuteCommand()
+		{
+			var task=Task.Run(() => _command.Execute(_executeParams));
+			await task;
+			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>
