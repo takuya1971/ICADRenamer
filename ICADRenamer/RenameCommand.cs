@@ -186,7 +186,7 @@ namespace ICADRenamer
 					break;
 				}
 			}
-			var filePath = $"{sourceName}→{_param.PrefixName}-変換結果-iCADRenamer";
+			var filePath = $"{sourceName}→{_param.PrefixName}-変換結果-iCADRenamer.csv";
 			return Path.Combine(_param.DestinationPath, filePath);
 		}
 
@@ -334,6 +334,8 @@ namespace ICADRenamer
 					//変更処理
 					foreach (var (topPart,itemIndex) in topParts.Indexed())
 					{
+						SxEntPart refPart = topPart;
+
 						DetailChanged?.Invoke(this,
 							new ItemProgressedEventArgs
 							{
@@ -343,7 +345,7 @@ namespace ICADRenamer
 									Items = Total,
 									Name = Path.GetFileName(file)
 								},
-								VIewCount = new CountItem
+								ViewCount = new CountItem
 								{
 									Counter = viewIndex,
 									Items = wfArray.Length,
@@ -353,10 +355,9 @@ namespace ICADRenamer
 								{
 									Counter = itemIndex,
 									Items = topParts.Length,
-									Name = topPart.getInfDetail().name
+									Name = refPart.getInf().kind==SxInfEnt.KIND_PART?topPart.getInfDetail().name:""
 								}
 							});
-						SxEntPart refPart = topPart;
 						SetNewName(ref refPart);
 						//子パーツ情報を変更
 						ChangePart(ref refPart);
@@ -471,10 +472,10 @@ namespace ICADRenamer
 								Items = files.Count(),
 								Name = Path.GetFileName(file)
 							},
-							VIewCount = new CountItem
+							ViewCount = new CountItem
 							{
-								Counter = vsArray.Length,
-								Items = vsIndex,
+								Counter = vsIndex,
+								Items = vsArray.Length,
 								Name = vs.getInf().name
 							},
 							DetailCount = new CountItem
@@ -565,7 +566,7 @@ namespace ICADRenamer
 					foreach (var pattern in _keywords.DateRegexes)
 					{
 						var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
-						if (!Regex.IsMatch(text, $"^({pattern})", RegexOptions.Compiled)) continue;
+						if (!Regex.IsMatch(text, $"^({pattern}$)", RegexOptions.Compiled)) continue;
 						seg.editText(DateTime.Today.ToString("yyyy/M/d"));
 						return;
 					}
@@ -580,7 +581,7 @@ namespace ICADRenamer
 					foreach (var pattern in _keywords.Signatures)
 					{
 						var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
-						if (!Regex.IsMatch(text, pattern, RegexOptions.Compiled)) continue;
+						if (!Regex.IsMatch(text, $"^{pattern}", RegexOptions.Compiled)) continue;
 						seg.editText(_param.Signature);
 						return;
 					}

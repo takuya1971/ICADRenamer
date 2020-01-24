@@ -34,7 +34,10 @@ namespace ICADRenamer
 		/// </summary>
 		private RenameCommand _command;
 
-		public event EventHandler ExecuteStarted;
+		/// <summary>
+		/// ICAD起動中フォームを保持するフィールド
+		/// </summary>
+		private ICADStartingForm _iCadStartingForm = null;
 
 		/// <summary>
 		///   <see cref="ExecuteProgressForm"/> classの初期化
@@ -58,6 +61,16 @@ namespace ICADRenamer
 		public event EventHandler ExecuteFinished;
 
 		/// <summary>
+		/// 実行開始時に動作するイベント
+		/// </summary>
+		public event EventHandler ExecuteStarted;
+
+		/// <summary>
+		/// 準備完了時に動作するイベント
+		/// </summary>
+		public event EventHandler Prepared;
+
+		/// <summary>
 		/// キャンセルボタンクリックイベントを実行する
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
@@ -75,65 +88,10 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		/// コマンド終了イベントを実行する
+		/// 進捗表示の更新を実行する
 		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="index">区分インデックスを表す数値</param>
 		/// <param name="e">イベント引数</param>
-		/// <exception cref="NotImplementedException"></exception>
-		private void Command_ExecuteFinished(object sender, EventArgs e)
-		{
-			if (_command.CancelRequest) ExecuteCanceled?.Invoke(this, new EventArgs());
-			else ExecuteFinished?.Invoke(this, new EventArgs());
-			_command?.Dispose();
-			Close();
-		}
-
-		/// <summary>
-		/// 初期化を実行する
-		/// </summary>
-		private void Initialize()
-		{
-			_command = new RenameCommand();
-			_command.DetailChanged += Command_DetailChanged;
-			_command.DrawingTitleStarted += Command_DrawingTitleStarted;
-			_command.ExecuteStarted += Command_ExecuteStarted;
-			_command.FileCopyStarted += Command_FileCopyStarted;
-			_command.FileDeleteStarted += Command_FileDeleteStarted;
-			_command.ICADStarted += Command_ICADStarted;
-			_command.ICADStarting += Command_ICADStarting;
-			_command.UpdateStarted += Command_ExecuteFinished;
-		}
-
-		private void Command_FileDeleteStarted(object sender, EventArgs e)
-		{
-			Text = GetFormText("元ファイル削除中...");
-		}
-
-		private string GetFormText(string message) => $"変換実行中:{message}";
-
-		private void Command_FileCopyStarted(object sender, EventArgs e)
-		{
-			Text = GetFormText($"ファイルコピー中...{_executeParams.SourcePath}→{_executeParams.DestinationPath}");
-		}
-
-		private void Command_ExecuteStarted(object sender, EventArgs e)
-		{
-			ExecuteStarted?.Invoke(this, new EventArgs());
-		}
-
-		private void Command_DrawingTitleStarted(object sender, EventArgs e)
-		{
-			Text = GetFormText("図面表題欄編集中...");
-		}
-
-		private void Command_DetailChanged(object sender, ItemProgressedEventArgs e)
-		{
-			for (var i = 1; i < 4; i++)
-			{
-				ChangeProgress(i, e);
-			}
-		}
-
 		private void ChangeProgress(int index, ItemProgressedEventArgs e)
 		{
 			ProgressBar pb = index switch
@@ -160,10 +118,11 @@ namespace ICADRenamer
 			CountItem item = index switch
 			{
 				1 => e.FileCount,
-				2 => e.VIewCount,
+				2 => e.ViewCount,
 				3 => e.DetailCount,
 				_ => new CountItem()
 			};
+
 			//
 			pb.Maximum = item.Items;
 			pb.Value = item.Counter;
@@ -174,16 +133,79 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
-		/// ICAD起動中フォームを保持するフィールド
+		/// 詳細変更イベントを実行する
 		/// </summary>
-		private ICADStartingForm _iCadStartingForm = null;
-
-		private void Command_ICADStarting(object sender, EventArgs e)
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_DetailChanged(object sender, ItemProgressedEventArgs e)
 		{
-			_iCadStartingForm = new ICADStartingForm();
-			_iCadStartingForm.Show();
+			for (var i = 1; i < 4; i++)
+			{
+				ChangeProgress(i, e);
+			}
 		}
 
+		/// <summary>
+		/// 図面表題欄進捗イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_DrawingTitleStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText("図面表題欄編集中...");
+		}
+
+		/// <summary>
+		/// コマンド終了イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">イベント引数</param>
+		/// <exception cref="NotImplementedException"></exception>
+		private void Command_ExecuteFinished(object sender, EventArgs e)
+		{
+			if (_command.CancelRequest) ExecuteCanceled?.Invoke(this, new EventArgs());
+			else ExecuteFinished?.Invoke(this, new EventArgs());
+			_command?.Dispose();
+			Close();
+		}
+
+		/// <summary>
+		/// 変換開始イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_ExecuteStarted(object sender, EventArgs e)
+		{
+			ExecuteStarted?.Invoke(this, new EventArgs());
+		}
+
+		delegate void EventMethod(object sender, EventArgs e);
+
+		/// <summary>
+		/// ファイルコピー開始イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_FileCopyStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText($"ファイルコピー中...{_executeParams.SourcePath}→{_executeParams.DestinationPath}");
+		}
+
+		/// <summary>
+		/// ファイル削除開始イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_FileDeleteStarted(object sender, EventArgs e)
+		{
+			Text = GetFormText("元ファイル削除中...");
+		}
+
+		/// <summary>
+		/// ICADプロセス開始完了イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
 		private void Command_ICADStarted(object sender, EventArgs e)
 		{
 			if (!(_iCadStartingForm == null || _iCadStartingForm.IsDisposed))
@@ -192,6 +214,26 @@ namespace ICADRenamer
 			}
 			_iCadStartingForm = null;
 			Prepared?.Invoke(this, new EventArgs());
+		}
+
+		/// <summary>
+		/// ICADプロセス開始中を実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_ICADStarting(object sender, EventArgs e)
+		{
+			_iCadStartingForm = new ICADStartingForm();
+			_iCadStartingForm.Show();
+		}
+
+		/// <summary>
+		/// コマンド実行を実行する
+		/// </summary>
+		private void ExecuteCommand()
+		{
+			_command.Execute(_executeParams);
+			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>
@@ -215,16 +257,27 @@ namespace ICADRenamer
 			ExecuteCommand();
 		}
 
-		private async void ExecuteCommand()
-		{
-			var task=Task.Run(() => _command.Execute(_executeParams));
-			await task;
-			ExecuteFinished?.Invoke(this, new EventArgs());
-		}
+		/// <summary>
+		/// フォームキャプション文字列を取得する
+		/// </summary>
+		/// <param name="message">メッセージを表す文字列</param>
+		/// <returns></returns>
+		private string GetFormText(string message) => $"変換実行中:{message}";
 
 		/// <summary>
-		/// 準備完了時に動作するイベント
+		/// 初期化を実行する
 		/// </summary>
-		public event EventHandler Prepared;
+		private void Initialize()
+		{
+			_command = new RenameCommand();
+			_command.DetailChanged += Command_DetailChanged;
+			_command.DrawingTitleStarted += Command_DrawingTitleStarted;
+			_command.ExecuteStarted += Command_ExecuteStarted;
+			_command.FileCopyStarted += Command_FileCopyStarted;
+			_command.FileDeleteStarted += Command_FileDeleteStarted;
+			_command.ICADStarted += Command_ICADStarted;
+			_command.ICADStarting += Command_ICADStarting;
+			_command.UpdateStarted += Command_ExecuteFinished;
+		}
 	}
 }

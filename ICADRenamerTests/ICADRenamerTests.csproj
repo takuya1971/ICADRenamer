@@ -47,6 +47,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ExecuteProgressFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenameCommandTests.cs" />
   </ItemGroup>

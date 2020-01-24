@@ -24,6 +24,6 @@ namespace ICADRenamer.Events
 		/// <summary>
 		/// ビューカウントを保持するプロパティ
 		/// </summary>
-		public CountItem VIewCount { get; set; }
+		public CountItem ViewCount { get; set; }
 	}
 }
