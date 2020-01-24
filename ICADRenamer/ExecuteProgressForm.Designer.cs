@@ -196,6 +196,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "実行中";
 			this.Load += new System.EventHandler(this.ExecuteProgressForm_Load);
+			this.Shown += new System.EventHandler(this.ExecuteProgressForm_Shown);
 			this._flowLayoutPanel.ResumeLayout(false);
 			this._tableLayoutPanel.ResumeLayout(false);
 			this._tableLayoutPanel.PerformLayout();

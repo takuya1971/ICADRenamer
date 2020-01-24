@@ -178,9 +178,6 @@ namespace ICADRenamer
 		{
 			ExecuteStarted?.Invoke(this, new EventArgs());
 		}
-
-		delegate void EventMethod(object sender, EventArgs e);
-
 		/// <summary>
 		/// ファイルコピー開始イベントを実行する
 		/// </summary>
@@ -188,7 +185,7 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Command_FileCopyStarted(object sender, EventArgs e)
 		{
-			Text = GetFormText($"ファイルコピー中...{_executeParams.SourcePath}→{_executeParams.DestinationPath}");
+			Text = GetFormText($"ファイルコピー中...");
 		}
 
 		/// <summary>
@@ -212,7 +209,6 @@ namespace ICADRenamer
 			{
 				_iCadStartingForm.Close();
 			}
-			_iCadStartingForm = null;
 			Prepared?.Invoke(this, new EventArgs());
 		}
 
@@ -253,8 +249,6 @@ namespace ICADRenamer
 				(LogMessageCategory.NewNumber,_executeParams.PrefixName),
 				(LogMessageCategory.Signature,_executeParams.Signature)
 			});
-			//
-			ExecuteCommand();
 		}
 
 		/// <summary>
@@ -278,6 +272,16 @@ namespace ICADRenamer
 			_command.ICADStarted += Command_ICADStarted;
 			_command.ICADStarting += Command_ICADStarting;
 			_command.UpdateStarted += Command_ExecuteFinished;
+		}
+
+		/// <summary>
+		/// フォーム表示イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void ExecuteProgressForm_Shown(object sender, EventArgs e)
+		{
+			ExecuteCommand();
 		}
 	}
 }

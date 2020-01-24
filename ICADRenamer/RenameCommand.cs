@@ -1,25 +1,25 @@
 ﻿/*	ICAD Renamer
 	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
 */
-using ICADRenamer.CSV;
-using ICADRenamer.Events;
-using ICADRenamer.Log;
-using ICADRenamer.Settings;
-
-using NLog;
-
-using sxnet;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Threading;
-using System.Text;
+
+using ICADRenamer.CSV;
+using ICADRenamer.Events;
+using ICADRenamer.Log;
+using ICADRenamer.Settings;
+
 using Microsoft.VisualBasic;
+
+using NLog;
+
+using sxnet;
 
 namespace ICADRenamer
 {
@@ -28,7 +28,7 @@ namespace ICADRenamer
 	/// </summary>
 	public class RenameCommand : IDisposable
 	{
-		
+
 		/// <summary>
 		/// ICADのファイル名を保持するフィールド
 		/// </summary>
@@ -53,16 +53,34 @@ namespace ICADRenamer
 		/// </summary>
 		private CsvRecorder _recorder;
 
+		/// <summary>
+		///  ファイルコピー開始時に動作するイベント
+		/// </summary>
 		public event EventHandler FileCopyStarted;
 
+		/// <summary>
+		///  ファイル削除開始時に動作するイベント
+		/// </summary>
 		public event EventHandler FileDeleteStarted;
 
+		/// <summary>
+		///  パーツ名変更開始時に動作するイベント
+		/// </summary>
 		public event EventHandler PartRenameStarted;
 
+		/// <summary>
+		///  図面表題欄の変更時に動作するイベント
+		/// </summary>
 		public event EventHandler DrawingTitleStarted;
 
+		/// <summary>
+		///  更新開始時に動作するイベント
+		/// </summary>
 		public event EventHandler UpdateStarted;
 
+		/// <summary>
+		///  実行進捗時に動作するイベント
+		/// </summary>
 		public event EventHandler<ItemProgressedEventArgs> DetailChanged;
 
 		/// <summary>
@@ -180,7 +198,7 @@ namespace ICADRenamer
 			//パターン検索
 			foreach (var pattern in _keywords.DrawNumberSplit)
 			{
-				if(Regex.IsMatch(_param.SourcePath, pattern))
+				if (Regex.IsMatch(_param.SourcePath, pattern))
 				{
 					sourceName = Regex.Matches(_param.SourcePath, pattern)[0].Value;
 					break;
@@ -232,6 +250,7 @@ namespace ICADRenamer
 			PartRenameStarted?.Invoke(this, new EventArgs());
 			//パーツ変更
 			ExecuteReplace(GetSuccessedFiles());
+			//プロセスの開き直し
 			_process.Close();
 			_process = GetIcadProcess();
 			//イベント
@@ -244,16 +263,24 @@ namespace ICADRenamer
 			_recorder.WriteAll(_recordItems);
 		}
 
+		/// <summary>
+		/// コピー成功ファイルの取得を実行する
+		/// </summary>
+		/// <returns></returns>
 		private IEnumerable<string> GetSuccessedFiles() =>
-			_recordItems.Where(x => x.IsSuccess).Select(x => x.DestinationPath);
+					_recordItems.Where(x => x.IsSuccess).Select(x => x.DestinationPath);
 
+		/// <summary>
+		/// 変換を実行する
+		/// </summary>
+		/// <param name="files">変更するファイルリスト</param>
 		private void ExecuteReplace(IEnumerable<string> files)
 		{
 			SxFileModel fModel = null;
 			SxModel model = null;
 			CsvRecordItem record = null;
 			//
-			foreach (var (file,fileIndex) in files.Indexed())
+			foreach (var (file, fileIndex) in files.Indexed())
 			{
 				//ICADファイルモデル
 				fModel = new SxFileModel(file);
@@ -266,14 +293,16 @@ namespace ICADRenamer
 				//保存
 				SaveFile();
 			}
-			//
+			//元ファイル削除
 			DeleteFile();
 			return;
 
 			//ファイルの削除
 			void DeleteFile()
 			{
+				//イベント
 				FileDeleteStarted?.Invoke(this, new EventArgs());
+				//ファイルがあれば削除実行
 				Parallel.ForEach(files,
 					file =>
 					{
@@ -283,18 +312,25 @@ namespace ICADRenamer
 			//ファイルの保存
 			void SaveFile()
 			{
+				//モデル情報
 				var inf = model.getInf();
+				//コピー先パス
 				record.DestinationPath = $@"{inf.path}\{inf.name}.icd";
+				//コピー先ファイル名
 				record.DestinationFileName = $@"{inf.name}.icd";
 				try
 				{
+					//新しいファイル名
 					var newName = GetName(inf.name);
+					//新しいファイルがあれば
 					if (File.Exists($@"{inf.path}\\{newName}.icd"))
 					{
+						//上書き
 						model.save();
 					}
 					else
 					{
+						//名前を付けて保存
 						model.save("", newName, inf.comment, 0, 0);
 					}
 				}
@@ -316,48 +352,54 @@ namespace ICADRenamer
 			}
 
 			/// パーツ名・パーツの図面名の変更
-			void ExecutePartName(string file,int fileIndex, int Total)
+			void ExecutePartName(string file, int fileIndex, int Total)
 			{
 				/*	メインルーチン
 					最上位パーツから子パーツへと降りていく*/
-				//
+				//3D図面に切り替え
 				SxSys.setDim(true);
+				//3D空間リスト
 				var wfArray = model.getWFList();
-				foreach (var (wf,viewIndex) in wfArray.Indexed())
+				foreach (var (wf, viewIndex) in wfArray.Indexed())
 				{
 					//3D空間リスト
 					if (wf.getPartList() == null) continue;
 					//最上位パーツ
 					var topParts = wf.getTopPartList();
 					//パーツがなければスキップ
-					if (topParts==null) continue;
+					if (topParts == null) continue;
 					//変更処理
-					foreach (var (topPart,itemIndex) in topParts.Indexed())
+					foreach (var (topPart, itemIndex) in topParts.Indexed())
 					{
+						//引数用パーツ
 						SxEntPart refPart = topPart;
-
+						//イベント
 						DetailChanged?.Invoke(this,
 							new ItemProgressedEventArgs
 							{
+								//ファイル
 								FileCount = new CountItem
 								{
-									Counter = fileIndex,
+									Counter = fileIndex + 1,
 									Items = Total,
 									Name = Path.GetFileName(file)
 								},
+								//3D空間
 								ViewCount = new CountItem
 								{
-									Counter = viewIndex,
+									Counter = viewIndex + 1,
 									Items = wfArray.Length,
 									Name = wf.getInf().name,
 								},
+								//進捗
 								DetailCount = new CountItem
 								{
-									Counter = itemIndex,
+									Counter = itemIndex + 1,
 									Items = topParts.Length,
-									Name = refPart.getInf().kind==SxInfEnt.KIND_PART?topPart.getInfDetail().name:""
+									Name = refPart.getInf().kind == SxInfEnt.KIND_PART ? topPart.getInfDetail().name : ""
 								}
 							});
+						//新しい名前
 						SetNewName(ref refPart);
 						//子パーツ情報を変更
 						ChangePart(ref refPart);
@@ -369,20 +411,30 @@ namespace ICADRenamer
 					if (part.getInf().kind != SxInfEnt.KIND_PART) return;
 					//パーツ情報
 					var inf = part.getInfDetail();
+					//読取専用解除
 					if (inf.is_read_only)
 					{
 						part.setAccess(false);
 					}
+					//新しい名前
 					var newName = GetName(inf.name);
+					//名前に図番を含むとき
 					if (newName != null)
 					{
+						//新しいパス
 						var newPath = newFilePath(inf.path, newName);
+						//ファイルが存在するとき
 						if (File.Exists(newPath))
 						{
+							//新しいパーツ名
 							var newPartName = Path.GetFileNameWithoutExtension(newPath);
+							//同じ名前が存在したらスキップ
 							if (part.getInfDetail().name == newPartName) return;
+							//ファイルモデル
 							var fModel = new SxFileModel(newPath);
+							//置換
 							part.replace(fModel, true);
+							//パーツ名の変更
 							part.setName(fModel.getFileNameNoExt(), part.getInfDetail().comment, "", true);
 						}
 						else
@@ -445,46 +497,65 @@ namespace ICADRenamer
 			}
 		}
 
+		/// <summary>
+		/// 図面表題欄の変更を実行する
+		/// </summary>
+		/// <param name="files">変更するファイルパス配列</param>
 		private void ExecuteDrawingTitle(IEnumerable<string> files)
 		{
 			/*	メインルーチン
-				ここからスタート*/
+				ここからスタート
+			*/
+			//CSVレコード
 			CsvRecordItem record = null;
-			foreach (var (file,fileIndex) in files.Indexed())
+			//実行
+			foreach (var (file, fileIndex) in files.Indexed())
 			{
+				//ファイルモデル
 				var fModel = new SxFileModel(file);
+				//モデル
 				var model = fModel.open(false);
+				//2次元
 				SxSys.setDim(false);
+				//レコードを取得
 				record = _recordItems.FirstOrDefault(x => x.DestinationPath == file);
+				//ビューリスト
 				var vsArray = model.getVSList();
-				foreach(var (vs,vsIndex) in vsArray.Indexed())
-				 {
-					var segList = vs.getSegList(0, 0, true, true, true, true);
-					foreach (var (seg,segIndex) in segList.Indexed())
+				//
+				foreach (var (vs, vsIndex) in vsArray.Indexed())
+				{
+					//セグメントリスト
+					var segList = vs.getSegList(0, 0, false, true, true, true);
+					//セグメントを検索
+					foreach (var (seg, segIndex) in segList.Indexed())
 					{
 						//イベント
 						DetailChanged?.Invoke(this,
 						new ItemProgressedEventArgs
 						{
+							//ファイル情報
 							FileCount = new CountItem
 							{
-								Counter = fileIndex,
+								Counter = fileIndex + 1,
 								Items = files.Count(),
 								Name = Path.GetFileName(file)
 							},
+							//ビュー情報
 							ViewCount = new CountItem
 							{
-								Counter = vsIndex,
+								Counter = vsIndex + 1,
 								Items = vsArray.Length,
 								Name = vs.getInf().name
 							},
+							//セグメント情報
 							DetailCount = new CountItem
 							{
-								Counter = segIndex,
+								Counter = segIndex + 1,
 								Items = segList.Length,
 								Name = seg.ID.ToString()
 							}
 						});
+						//セグメントタイプで実行するメソッドを選択
 						switch (seg.Type)
 						{
 							case SxEntSeg.SEGTYPE_DELTA:
@@ -498,7 +569,8 @@ namespace ICADRenamer
 								break;
 						}
 					}
-				 }
+				}
+				//更新可能なら
 				if (_param.Settings.CanExecuteUpdate)
 				{
 					//イベント
@@ -506,7 +578,9 @@ namespace ICADRenamer
 					//更新コマンド発行
 					SxSys.command(SystemSettings.UpdateCommand, false);
 				}
+				//保存
 				model.save();
+				//クローズ
 				model.close(false);
 			}
 			return;
@@ -516,8 +590,10 @@ namespace ICADRenamer
 			{
 				try
 				{
+					//訂正記号削除可能なら
 					if (_param.Settings.CanDeleteDelta)
 					{
+						//削除
 						seg.delete();
 					}
 				}
@@ -525,6 +601,12 @@ namespace ICADRenamer
 				{
 					record.IsSuccess = false;
 					record.Remark = GetRemark(record.Remark, ErrorCategory.Delta, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.Delta)
+					});
 				}
 			}
 			//図番変更
@@ -549,9 +631,24 @@ namespace ICADRenamer
 							//照合
 							if ((Regex.IsMatch(text, $"^({prefixPattern})", RegexOptions.Compiled)))
 							{
-								//変更
-								seg.editText(Regex.Replace(text, prefixPattern, _param.PrefixName));
-								return;
+								try
+								{
+									//変更
+									seg.editText(Regex.Replace(text, prefixPattern, _param.PrefixName));
+									return;
+								}
+								catch (SxException e)
+								{
+									record.IsSuccess = false;
+									record.Remark = GetRemark(record.Remark, ErrorCategory.DrawingNumber, e);
+									RenameLogger.WriteLog(new LogItem
+									{
+										Exception = e,
+										Level = LogLevel.Error,
+										Message = GetExchangeError(ErrorCategory.DrawingNumber)
+									});
+									continue;
+								}
 							}
 						}
 					}
@@ -560,59 +657,131 @@ namespace ICADRenamer
 			//日付変更
 			void ChangeDate(SxEntSeg seg)
 			{
+				//ジオメトリを取得
 				if (seg.getGeom() is SxGeomText geomText)
 				{
+					//テキストが1行出なければスキップ
 					if (geomText.text_line_num != 1) return;
+					//日付パターンと照合
 					foreach (var pattern in _keywords.DateRegexes)
 					{
-						var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
-						if (!Regex.IsMatch(text, $"^({pattern}$)", RegexOptions.Compiled)) continue;
-						seg.editText(DateTime.Today.ToString("yyyy/M/d"));
-						return;
+						try
+						{
+							//テキストを取得。半角に変更
+							var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
+							//照合が一致すれば
+							if (!Regex.IsMatch(text, $"^({pattern}$)", RegexOptions.Compiled)) continue;
+							//変更
+							seg.editText(DateTime.Today.ToString("yyyy/M/d"));
+							return;
+						}
+						catch (SxException e)
+						{
+							record.IsSuccess = false;
+							record.Remark = GetRemark(record.Remark, ErrorCategory.Date, e);
+							RenameLogger.WriteLog(new LogItem
+							{
+								Exception = e,
+								Level = LogLevel.Error,
+								Message = GetExchangeError(ErrorCategory.Date)
+							});
+						}
 					}
 				}
 			}
 			//署名変更
 			void ChangeSignature(SxEntSeg seg)
 			{
+				//ジオメトリを取得
 				if (seg.getGeom() is SxGeomText geomText)
 				{
+					//1行
 					if (geomText.text_line_num != 1) return;
+					//照合
 					foreach (var pattern in _keywords.Signatures)
 					{
-						var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
-						if (!Regex.IsMatch(text, $"^{pattern}", RegexOptions.Compiled)) continue;
-						seg.editText(_param.Signature);
-						return;
+						try
+						{
+							//テキストを半角にして取得
+							var text = Strings.StrConv(geomText.txt[0], VbStrConv.Narrow);
+							//照合が一致すれば
+							if (!Regex.IsMatch(text, $"^{pattern}", RegexOptions.Compiled)) continue;
+							//変更
+							seg.editText(_param.Signature);
+							return;
+						}
+						catch (SxException e)
+						{
+							record.IsSuccess = false;
+							record.Remark = GetRemark(record.Remark, ErrorCategory.Signature);
+							RenameLogger.WriteLog(new LogItem
+							{
+								Exception = e,
+								Level = LogLevel.Error,
+								Message = GetExchangeError(ErrorCategory.Signature)
+							});
+							continue;
+						}
 					}
 				}
 			}
 			//訂正注記変更
 			void DeleteDeltaRemark(SxEntSeg seg)
 			{
+				//訂正記号削除許可なら
 				if (!_param.Settings.CanDeleteDelta) return;
-				//
+				//ジオメトリを取得
 				if (seg.getGeom() is SxGeomText geomText)
 				{
+					//1行
 					if (geomText.text_line_num != 1) return;
+					//テキストを取得
 					var text = geomText.txt[0];
+					//訂正注記パターン
 					foreach (var notePattern in _keywords.DeltaNoteRegexes)
 					{
+						//署名パターン
 						foreach (var sigPattern in _keywords.Signatures)
 						{
-							var pattern = $"({notePattern}{sigPattern})$";
-							if (!Regex.IsMatch(text, pattern, RegexOptions.Compiled)) continue;
-							seg.delete();
-							return;
+							try
+							{
+								//パターンの合成
+								var pattern = $"({notePattern}{sigPattern})$";
+								//照合
+								if (!Regex.IsMatch(text, pattern, RegexOptions.Compiled)) continue;
+								//削除
+								seg.delete();
+								return;
+							}
+							catch (SxException e)
+							{
+								record.IsSuccess = false;
+								record.Remark = GetRemark(record.Remark, ErrorCategory.DeltaNote);
+								RenameLogger.WriteLog(new LogItem
+								{
+									Exception = e,
+									Level = LogLevel.Error,
+									Message = GetExchangeError(ErrorCategory.DeltaNote)
+								});
+							}
 						}
 					}
 				}
 			}
 		}
 
+		/// <summary>
+		/// 備考欄を取得する
+		/// </summary>
+		/// <param name="remark">元の備考欄を表す文字列</param>
+		/// <param name="category">メッセージ区分</param>
+		/// <param name="e">例外</param>
+		/// <returns></returns>
 		private string GetRemark(string remark, ErrorCategory category, Exception e = null)
 		{
+			//文字列ビルダ
 			StringBuilder sb;
+			//備考欄に記入があれば改行を追加
 			if (remark.Length > 0)
 			{
 				sb = new StringBuilder(remark);
@@ -622,21 +791,29 @@ namespace ICADRenamer
 			{
 				sb = new StringBuilder();
 			}
+			//変換エラーを追加
 			sb.AppendLine(GetExchangeError(category));
+			//エラーがあれば
 			if (e != null)
 			{
+				//エラーを追加
 				sb.AppendLine(e.Message);
 			}
 			return sb.ToString();
 		}
 
+		/// <summary>
+		/// 変換エラー文字列を取得する
+		/// </summary>
+		/// <param name="category">エラー区分</param>
+		/// <returns></returns>
 		private string GetExchangeError(ErrorCategory category)
 		{
 			var mes = category switch
 			{
 				ErrorCategory.ChildPartName => "子パーツ名変更",
 				ErrorCategory.Date => "日付変更",
-				ErrorCategory.DelaNote => "改訂注記削除",
+				ErrorCategory.DeltaNote => "改訂注記削除",
 				ErrorCategory.Delta => "改訂記号削除",
 				ErrorCategory.DrawingNumber => "図番変更",
 				ErrorCategory.FileCopy => "ファイルコピー",
@@ -684,21 +861,30 @@ namespace ICADRenamer
 			/// <summary>
 			/// 訂正注記
 			/// </summary>
-			DelaNote,
+			DeltaNote,
 			/// <summary>
 			/// 保存
 			/// </summary>
 			Save,
 		}
 
+		/// <summary>
+		/// ファイルのコピーを実行し、CSVに書き込むレコードを取得する
+		/// </summary>
+		/// <param name="files">ファイル名リスト</param>
+		/// <returns></returns>
 		private CsvRecordItem[] CopyFiles(string[] files)
 		{
+			//CSVアイテム
 			var items = new List<CsvRecordItem>();
-
+			//実行ルーチン
 			Parallel.ForEach(files, (Action<string>) (file =>
 			 {
+				 //新しいファイル
 				 var newFile = this.GetNewPath((string) file);
+				 //新しいディレクトリ
 				 var newDir = Path.GetDirectoryName(newFile);
+				 //CSVアイテム
 				 var item = new CsvRecordItem
 				 {
 					 Date = DateTime.Now,
@@ -708,12 +894,15 @@ namespace ICADRenamer
 					 DestinationFileName = Path.GetFileName(newFile),
 					 IsSuccess = true,
 				 };
+				 //新しいディレクトリが存在しないとき
 				 if (!Directory.Exists(newDir))
 				 {
+					 //ディレクトリ作成
 					 Directory.CreateDirectory(newDir);
 				 }
 				 try
 				 {
+					 //コピー実行
 					 File.Copy(file, newFile);
 				 }
 				 catch (Exception e)
@@ -737,6 +926,11 @@ namespace ICADRenamer
 			return items.OrderBy(x => x.SourcePath).ToArray();
 		}
 
+		/// <summary>
+		/// 新しいパスを取得する
+		/// </summary>
+		/// <param name="sourcePath">元のパスを表す文字列</param>
+		/// <returns></returns>
 		private string GetNewPath(string sourcePath)
 		{
 			var relativePath = sourcePath.Remove(0, _param.SourcePath.Length);

@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj": {}
+    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj": {
+    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
+        "projectUniqueName": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
         "projectName": "ICADRenamerTests",
-        "projectPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamerTests\\obj\\",
+        "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
+        "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\拓也\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -23,13 +23,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
+              "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+                "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
               }
             }
           }
@@ -61,18 +61,18 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "projectUniqueName": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
         "projectName": "ICADRenamer",
-        "projectPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\OneDrive - 株式会社　テクノ　\\App\\ICADRenamer\\ICADRenamer\\obj\\",
+        "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\拓也\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net48": {
