@@ -138,7 +138,8 @@ namespace ICADRenamer.Log
 				LogMessageKind k when (k == LogMessageKind.ActionComplete
 				|| k == LogMessageKind.FileStart
 				|| k == LogMessageKind.HelpPageNavigate
-				|| k == LogMessageKind.StartExecute) => LogLevel.Info,
+				|| k == LogMessageKind.StartExecute)
+				|| k== LogMessageKind.CancelByUser => LogLevel.Info,
 				LogMessageKind.Operation => LogLevel.Trace,
 				LogMessageKind.Error => LogLevel.Error,
 				_ => LogLevel.Off

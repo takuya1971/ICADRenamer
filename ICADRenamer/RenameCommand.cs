@@ -99,6 +99,11 @@ namespace ICADRenamer
 		public event EventHandler ICADStarted;
 
 		/// <summary>
+		///  実行キャンセル時に動作するイベント
+		/// </summary>
+		public event EventHandler ExecuteCanceled;
+
+		/// <summary>
 		/// キャンセル要求の真偽値を保持するプロパティ
 		/// </summary>
 		public bool CancelRequest { get; set; } = false;
@@ -250,6 +255,12 @@ namespace ICADRenamer
 			PartRenameStarted?.Invoke(this, new EventArgs());
 			//パーツ変更
 			ExecuteReplace(GetSuccessedFiles());
+			//キャンセル
+			if (CancelRequest)
+			{
+				ExecuteCanceled?.Invoke(this, new EventArgs());
+				return;
+			}
 			//プロセスの開き直し
 			_process.Close();
 			_process = GetIcadProcess();
@@ -261,6 +272,26 @@ namespace ICADRenamer
 				, SystemSettings.IcadExtension
 				, SearchOption.AllDirectories));
 			_recorder.WriteAll(_recordItems);
+		}
+
+		private void WriteCancelByUserLog(string path)
+			=> RenameLogger.WriteLog(LogMessageKind.CancelByUser
+					, new List<(LogMessageCategory category, string message)>
+					{
+						(LogMessageCategory.Canceled, $"{path}実行時にユーザーによってキャンセルされました。")
+					});
+
+		private void CancelExecute(IEnumerable<(string file, int index)> files, int index)
+		{
+			var remainedFiles = files.Where(x => x.index + 1 >= index);
+			foreach (var f in remainedFiles)
+			{
+				var record = _recordItems.FirstOrDefault(
+					x => x.DestinationPath == f.file);
+				//
+				record.IsSuccess = false;
+				record.Remark = GetRemark(record.Remark, ErrorCategory.CancelByUSer);
+			}
 		}
 
 		/// <summary>
@@ -292,6 +323,13 @@ namespace ICADRenamer
 				ExecutePartName(file, fileIndex, files.Count());
 				//保存
 				SaveFile();
+				//キャンセル
+				if (CancelRequest)
+				{
+					CancelExecute(files.Indexed(), fileIndex);
+					WriteCancelByUserLog(file);
+					return;
+				}
 			}
 			//元ファイル削除
 			DeleteFile();
@@ -441,6 +479,7 @@ namespace ICADRenamer
 						{
 							//パーツ名を変更
 							part.setName(newName, inf.comment, "", true);
+							var partInf = part.getInfDetail();
 						}
 					}
 				}
@@ -820,6 +859,7 @@ namespace ICADRenamer
 				ErrorCategory.ModelName => "モデル名変更",
 				ErrorCategory.Signature => "署名変更",
 				ErrorCategory.Save => "保存",
+				ErrorCategory.CancelByUSer => "ユーザーによるキャンセル要求",
 				_ => throw new NotImplementedException()
 			};
 			return $"{mes}エラー";
@@ -866,6 +906,10 @@ namespace ICADRenamer
 			/// 保存
 			/// </summary>
 			Save,
+			/// <summary>
+			/// ユーザーによるキャンセルを保持するフィールド
+			/// </summary>
+			CancelByUSer
 		}
 
 		/// <summary>

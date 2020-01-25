@@ -97,5 +97,10 @@ namespace ICADRenamer.Log
 		/// ファイル名を保持するフィールド
 		/// </summary>
 		FileName,
+
+		/// <summary>
+		/// キャンセルされたを保持するフィールド
+		/// </summary>
+		Canceled,
 	}
 }

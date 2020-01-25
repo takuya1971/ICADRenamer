@@ -34,5 +34,10 @@ namespace ICADRenamer.Log
 		/// エラーを保持するフィールド
 		/// </summary>
 		Error,
+
+		/// <summary>
+		/// ユーザーによるキャンセルを保持するフィールド
+		/// </summary>
+		CancelByUser,
 	}
 }
