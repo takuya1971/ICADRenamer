@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj": {}
+    "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+    "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "projectUniqueName": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
         "projectName": "ICADRenamer",
-        "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "projectPath": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
         "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\obj\\",
+        "outputPath": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -36,7 +36,7 @@
           "dependencies": {
             "CsvHelper": {
               "target": "Package",
-              "version": "[12.3.2, )"
+              "version": "[13.0.0, )"
             },
             "ILRepack": {
               "target": "Package",
@@ -90,14 +90,14 @@
         }
       }
     },
-    "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj": {
+    "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
+        "projectUniqueName": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
         "projectName": "LogViewer",
-        "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
+        "projectPath": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
         "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\obj\\",
+        "outputPath": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -114,8 +114,8 @@
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
-                "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
+              "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+                "projectPath": "C:\\Users\\拓也\\Source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
               }
             }
           }
