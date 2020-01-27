@@ -1,12 +1,13 @@
 ﻿/*	ICAD Renamer
 	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
 */
-using CsvHelper;
-using CsvHelper.Configuration;
-
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
+
+using CsvHelper;
+using CsvHelper.Configuration;
 
 namespace ICADRenamer.CSV
 {
@@ -43,8 +44,7 @@ namespace ICADRenamer.CSV
 		public IEnumerable<CsvRecordItem> Read()
 		{
 			IEnumerable<CsvRecordItem> items;
-
-			using var cr = new CsvReader(new StreamReader(FilePath));
+			using var cr = new CsvReader(new StreamReader(FilePath), CultureInfo.CurrentUICulture);
 			items = cr.GetRecords<CsvRecordItem>();
 			return items;
 		}
@@ -58,7 +58,7 @@ namespace ICADRenamer.CSV
 			var sw = new StreamWriter(FilePath, true, Encoding.UTF8);
 			try
 			{
-				using var cw = new CsvWriter(sw);
+				using var cw = new CsvWriter(sw, CultureInfo.CurrentUICulture);
 				var config = cw.Configuration;
 				SetWriteConfig(ref config);
 				cw.WriteRecord<CsvRecordItem>(item);
@@ -76,7 +76,7 @@ namespace ICADRenamer.CSV
 			var sw = new StreamWriter(FilePath, false, Encoding.UTF8);
 			try
 			{
-				using var cw = new CsvWriter(sw);
+				using var cw = new CsvWriter(sw, CultureInfo.CurrentUICulture);
 				var config = cw.Configuration;
 				SetWriteConfig(ref config);
 				cw.WriteRecords<CsvRecordItem>(items);

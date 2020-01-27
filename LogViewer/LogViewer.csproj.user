@@ -4,6 +4,6 @@
     <StartArguments>"C:\Users\拓也\Source\repos\iCADRenamer\ICADRenamer\bin\Debug\Log"</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>
