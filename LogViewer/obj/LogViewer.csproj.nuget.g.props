@@ -12,7 +12,4 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgILRepack Condition=" '$(PkgILRepack)' == '' ">C:\Users\拓也\.nuget\packages\ilrepack\2.0.18</PkgILRepack>
-  </PropertyGroup>
 </Project>

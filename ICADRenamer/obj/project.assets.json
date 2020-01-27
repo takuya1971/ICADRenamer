@@ -15,18 +15,6 @@
           "lib/net47/CsvHelper.dll": {}
         }
       },
-      "ILRepack/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
-      "ILRepack.Lib.MSBuild.Task/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.Lib.MSBuild.Task.targets": {}
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -312,18 +300,6 @@
         },
         "runtime": {
           "lib/net47/CsvHelper.dll": {}
-        }
-      },
-      "ILRepack/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
-      "ILRepack.Lib.MSBuild.Task/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.Lib.MSBuild.Task.targets": {}
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -613,18 +589,6 @@
           "lib/net47/CsvHelper.dll": {}
         }
       },
-      "ILRepack/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
-      "ILRepack.Lib.MSBuild.Task/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.Lib.MSBuild.Task.targets": {}
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -910,18 +874,6 @@
         },
         "runtime": {
           "lib/net47/CsvHelper.dll": {}
-        }
-      },
-      "ILRepack/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.props": {}
-        }
-      },
-      "ILRepack.Lib.MSBuild.Task/2.0.18": {
-        "type": "package",
-        "build": {
-          "build/ILRepack.Lib.MSBuild.Task.targets": {}
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -1217,33 +1169,6 @@
         "lib/netstandard2.0/CsvHelper.xml",
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
-      ]
-    },
-    "ILRepack/2.0.18": {
-      "sha512": "sR5Aj3JLDbA8JwESfWYfigSz5k1oNSHPN434W1LX8sboWJYEOSQP/KkvZGmJKPgajzSUKkl2jDar3LPZiMFU4Q==",
-      "type": "package",
-      "path": "ilrepack/2.0.18",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/ILRepack.props",
-        "ilrepack.2.0.18.nupkg.sha512",
-        "ilrepack.nuspec",
-        "tools/ILRepack.exe"
-      ]
-    },
-    "ILRepack.Lib.MSBuild.Task/2.0.18": {
-      "sha512": "q/5RmAdyP6v3gFtsyNVbmJ26Uui8hkL9AhH8Eq0FIYUdluo+iqHy44aS3r/IXn6wGtODceVXcUSxcFHmJJG8Tw==",
-      "type": "package",
-      "path": "ilrepack.lib.msbuild.task/2.0.18",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/ILRepack.Lib.MSBuild.Task.dll",
-        "build/ILRepack.Lib.MSBuild.Task.targets",
-        "ilrepack.lib.msbuild.task.2.0.18.nupkg.sha512",
-        "ilrepack.lib.msbuild.task.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -1865,8 +1790,6 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
       "CsvHelper >= 13.0.0",
-      "ILRepack >= 2.0.18",
-      "ILRepack.Lib.MSBuild.Task >= 2.0.18",
       "Microsoft.Toolkit.Forms.UI.Controls.WebView >= 6.0.0",
       "Microsoft.Toolkit.Win32.UI.Controls >= 5.0.0",
       "NLog >= 4.6.8",
@@ -1911,14 +1834,6 @@
           "CsvHelper": {
             "target": "Package",
             "version": "[13.0.0, )"
-          },
-          "ILRepack": {
-            "target": "Package",
-            "version": "[2.0.18, )"
-          },
-          "ILRepack.Lib.MSBuild.Task": {
-            "target": "Package",
-            "version": "[2.0.18, )"
           },
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": {
             "target": "Package",
