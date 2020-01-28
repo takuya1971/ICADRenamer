@@ -2,16 +2,17 @@
 	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
 */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Ookii.CommandLine;
+using System.Diagnostics;
 using System.IO;
-using ICADRenamer.Log;
-using NLog;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
+using ICADRenamer.Log;
 using ICADRenamer.Settings;
+
+using NLog;
+
+using Ookii.CommandLine;
 
 namespace ICADRenamer
 {
@@ -154,7 +155,9 @@ namespace ICADRenamer
 				PrefixName = args[2],
 				Signature = args[3],
 				Settings = new OptionSettingsSerializer().Load()
-			});
+			}
+			, out string filePath);
+			Process.Start(filePath);
 			//コマンドの破棄
 			command.Dispose();
 			//結果を返す
