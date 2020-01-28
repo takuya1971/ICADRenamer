@@ -1,0 +1,11 @@
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.csprojAssemblyReference.cache
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.AboutBox.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.ExecuteProgressForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.HelpBrowser.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.ICADStartingForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.KeywordEditForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.MainForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.OptionSettingForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.RegexInputForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.Properties.Resources.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug2\ICADRenamer.csproj.GenerateResource.cache

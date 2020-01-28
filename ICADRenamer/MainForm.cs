@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace ICADRenamer
 {
@@ -120,7 +121,7 @@ namespace ICADRenamer
 						BrowseButton_Click(button, new EventArgs());
 					}
 				}
-				catch(Exception)
+				catch (Exception)
 				{
 					BrowseButton_Click(sender, e);
 				}
@@ -188,6 +189,7 @@ namespace ICADRenamer
 		{
 			//ボタンを押せないように
 			_executeButton.Enabled = false;
+			_closeButton.Enabled = false;
 			//進捗フォームの作成
 			var progressForm = new ExecuteProgressForm(new RenameExecuteParams
 			{
@@ -211,7 +213,7 @@ namespace ICADRenamer
 
 		private void ProgressForm_Prepared(object sender, EventArgs e)
 		{
-			if(sender is Form progressForm)
+			if (sender is Form progressForm)
 			{
 				progressForm.Show();
 			}
@@ -369,9 +371,27 @@ namespace ICADRenamer
 		/// <param name="e">イベント引数</param>
 		private void ProgressForm_ExecuteFinished(object sender, EventArgs e)
 		{
+			if (sender is ExecuteProgressForm form)
+			{
+				//結果表示の確認
+				var result = SystemMethods.GetMessageBox(
+				MessageCategory.Confirm
+				, "処理が終了しました。\r\n結果を表示しますか？"
+				, LogMessageKind.ActionComplete
+				, new List<(LogMessageCategory category, string message)>
+				{
+					(LogMessageCategory.Message,"処理完了。"),
+				});
+				//結果表示の可否
+				if (result == DialogResult.Yes)
+				{
+					//ファイルを開く
+					Process.Start(form.ResultFilePath);
+				}
+				form?.Dispose();
+			}
 			_executeButton.Enabled = true;
-			var form = (Form) sender;
-			form.Dispose();
+			_closeButton.Enabled = true;
 		}
 
 		/// <summary>
