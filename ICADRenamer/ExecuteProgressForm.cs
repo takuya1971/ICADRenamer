@@ -124,6 +124,7 @@ namespace ICADRenamer
 			};
 
 			//
+			Application.DoEvents();
 			pb.Maximum = item.Items;
 			pb.Value = item.Counter;
 			nameLabel.Text = item.Name;
@@ -221,6 +222,7 @@ namespace ICADRenamer
 		{
 			_iCadStartingForm = new ICADStartingForm();
 			_iCadStartingForm.Show();
+			Application.DoEvents();
 		}
 
 		/// <summary>
@@ -271,7 +273,7 @@ namespace ICADRenamer
 			_command.FileDeleteStarted += Command_FileDeleteStarted;
 			_command.ICADStarted += Command_ICADStarted;
 			_command.ICADStarting += Command_ICADStarting;
-			_command.UpdateStarted += Command_ExecuteFinished;
+			_command.ExecuteFinished+= Command_ExecuteFinished;
 		}
 
 		/// <summary>

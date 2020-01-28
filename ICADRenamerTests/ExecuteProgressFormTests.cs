@@ -31,7 +31,6 @@ namespace ICADRenamer.Tests
 			form.ExecuteFinished += Form_ExecuteFinished;
 			form.ExecuteCanceled += Form_ExecuteCanceled;
 			form.ShowDialog();
-
 		}
 
 		private void Form_ExecuteCanceled(object sender, EventArgs e)
@@ -54,10 +53,9 @@ namespace ICADRenamer.Tests
 
 		private void Form_ExecuteStarted(object sender, EventArgs e)
 		{
-			if(sender is Form form)
+			if (sender is Form form)
 			{
 				Console.WriteLine("実行開始しました。");
-				form.ShowDialog();
 			}
 		}
 	}

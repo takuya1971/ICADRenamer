@@ -75,6 +75,11 @@ namespace ICADRenamer
 		public event EventHandler ExecuteStarted;
 
 		/// <summary>
+		/// 実行完了時に動作するイベント
+		/// </summary>
+		public event EventHandler ExecuteFinished;
+
+		/// <summary>
 		///  ファイルコピー開始時に動作するイベント
 		/// </summary>
 		public event EventHandler FileCopyStarted;
@@ -360,6 +365,11 @@ namespace ICADRenamer
 				var model = fModel.open(false);
 				//2次元
 				SxSys.setDim(false);
+				//研削タイプの設定
+				var searchType = new SxInfSearchEntType();
+				searchType.setStatus(SxEntSeg.SEGTYPE_DELTA, true);
+				searchType.setStatus(SxEntSeg.SEGTYPE_TEXT, true);
+				SxSys.setSearchEntType(searchType);
 				//レコードを取得
 				record = _recordItems.FirstOrDefault(x => x.DestinationPath == file);
 				//ビューリスト
@@ -367,8 +377,11 @@ namespace ICADRenamer
 				//
 				foreach (var (vs, vsIndex) in vsArray.Indexed())
 				{
+
 					//セグメントリスト
-					var segList = vs.getSegList(0, 0, false, true, true, true);
+					var segList = vs.getSegList(0, 0, false, true, false, false);
+					//セグメントチェック
+					if (segList == null) continue;
 					//セグメントを検索
 					foreach (var (seg, segIndex) in segList.Indexed())
 					{
@@ -427,7 +440,6 @@ namespace ICADRenamer
 				model.close(false);
 			}
 			return;
-
 			//訂正記号削除
 			void DeleteDelta(SxEntSeg seg)
 			{

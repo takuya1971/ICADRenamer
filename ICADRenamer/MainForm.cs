@@ -188,6 +188,7 @@ namespace ICADRenamer
 		{
 			//ボタンを押せないように
 			_executeButton.Enabled = false;
+			_closeButton.Enabled = false;
 			//進捗フォームの作成
 			var progressForm = new ExecuteProgressForm(new RenameExecuteParams
 			{
@@ -369,9 +370,18 @@ namespace ICADRenamer
 		/// <param name="e">イベント引数</param>
 		private void ProgressForm_ExecuteFinished(object sender, EventArgs e)
 		{
+			_=SystemMethods.GetMessageBox(
+				MessageCategory.Information
+				, "変換が終了しました。"
+				, LogMessageKind.ActionComplete
+				, new List<(LogMessageCategory category, string message)>
+				{
+					(LogMessageCategory.Message,"変換完了。"),
+				});
 			_executeButton.Enabled = true;
+			_closeButton.Enabled = true;
 			var form = (Form) sender;
-			form.Dispose();
+			form?.Dispose();
 		}
 
 		/// <summary>
