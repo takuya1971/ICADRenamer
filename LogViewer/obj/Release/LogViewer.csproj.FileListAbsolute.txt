@@ -54,3 +54,8 @@ C:\Users\拓也\Source\repos\iCADRenamer\LogViewer\obj\Release\LogViewer.Propert
 C:\Users\拓也\Source\repos\iCADRenamer\LogViewer\obj\Release\LogViewer.csproj.GenerateResource.cache
 C:\Users\拓也\Source\repos\iCADRenamer\LogViewer\obj\Release\LogViewer.csproj.CopyComplete
 C:\Users\拓也\Source\repos\iCADRenamer\LogViewer\obj\Release\LogViewer.exe
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Release\LogViewer.csprojAssemblyReference.cache
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Release\LogViewer.MainForm.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Release\LogViewer.Properties.Resources.resources
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Release\LogViewer.csproj.GenerateResource.cache
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Release\LogViewer.exe

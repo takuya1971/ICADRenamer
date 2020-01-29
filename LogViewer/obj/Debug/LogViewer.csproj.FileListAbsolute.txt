@@ -170,12 +170,11 @@ C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\ICADRena
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\sxnet.dll
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\ICADRenamer.pdb
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\ICADRenamer.exe.config
-C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\sxnet.xml
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.csprojAssemblyReference.cache
-C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.exe.config
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.MainForm.resources
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.Properties.Resources.resources
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.csproj.GenerateResource.cache
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.csproj.CopyComplete
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.exe
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.pdb
+C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\LogViewer\bin\Debug\sxnet.xml

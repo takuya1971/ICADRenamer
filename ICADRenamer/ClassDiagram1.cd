@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="ICADRenamer.MainForm" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
@@ -17,7 +17,7 @@
   <Class Name="ICADRenamer.ExecuteProgressForm" Collapsed="true">
     <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ARAAAIgAACkAB1AQQECAACACAMBACAAAAqAIABBABDA=</HashCode>
+      <HashCode>idCAAAgAACkAB0AUQACUACACAMABCCAIAoAABDQAAjA=</HashCode>
       <FileName>ExecuteProgressForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,7 +31,7 @@
   <Class Name="ICADRenamer.KeywordEditForm" Collapsed="true">
     <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>TBGAAIAgACBAEAAAggDiIBEGAOAIBABAA5AI4CiAASA=</HashCode>
+      <HashCode>TBGAAIAgBCBAEAAAggDiIBEGAOAIBABAA5AI4CiAASA=</HashCode>
       <FileName>KeywordEditForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -52,7 +52,7 @@
   <Class Name="ICADRenamer.Program" Collapsed="true">
     <Position X="2.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAABAAAIAAAABAAAAACAAABAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAAABAAAIAAAAAAAAAACAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +80,7 @@
   <Class Name="ICADRenamer.RenameCommand" Collapsed="true">
     <Position X="13.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IgAAAAgQACAEAEUAoAQAABAgCYAAEAAKAIAAQAAAEBI=</HashCode>
+      <HashCode>KAAAAAQwADAEAEwIIAAMgCEBCIIQAQAAAIAIQIQAAQA=</HashCode>
       <FileName>RenameCommand.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -102,7 +102,7 @@
   <Class Name="ICADRenamer.SystemSettings" Collapsed="true">
     <Position X="13.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAQAAAIAAAAAAAAAAACAAhAgAAAAAgA=</HashCode>
+      <HashCode>AAAAAEAAAAAAIAQAAAIAAAAAAAAAAACAAhAgAAAAAgA=</HashCode>
       <FileName>SystemSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -116,7 +116,7 @@
   <Class Name="ICADRenamer.Settings.FrameKeyword" Collapsed="true">
     <Position X="4" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAABAAAQAAAAAAAAAIAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Settings\FrameKeyword.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -165,14 +165,14 @@
   <Class Name="ICADRenamer.Events.CategoryChangeEventArgs" Collapsed="true">
     <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Events\CategorychangeEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ICADRenamer.Events.ItemProgressedEventArgs" Collapsed="true">
     <Position X="9.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>gAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Events\ItemProgressedEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -214,28 +214,28 @@
   <Enum Name="ICADRenamer.RegexCategory" Collapsed="true">
     <Position X="2.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAgAAAE=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAACAAAAEBAAAAAAgAAAE=</HashCode>
       <FileName>RegexCategory.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ICADRenamer.Log.LogMessageCategory" Collapsed="true">
     <Position X="9.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIBgAAAAAAEAQAwAAIAAAAAABAIABogAU=</HashCode>
+      <HashCode>AAAAAAAAAAAIBgAAgAAAEAQAwAAIAAAAAABAIABogAU=</HashCode>
       <FileName>Log\LogMessageCategory.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ICADRenamer.Log.LogMessageKind" Collapsed="true">
     <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAQAgAAAAAAAAAAAAAAgAAAEAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAQAgAAAAAAAAAAAAAAgAAAEACQAAAAA=</HashCode>
       <FileName>Log\LogMessageKind.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ICADRenamer.Events.ProgressCategory" Collapsed="true">
     <Position X="7.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAAFAAIAAAgAAAAAAIA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAAFAAIAAAgAAAAACIA=</HashCode>
       <FileName>Events\ProgressCategory.cs</FileName>
     </TypeIdentifier>
   </Enum>

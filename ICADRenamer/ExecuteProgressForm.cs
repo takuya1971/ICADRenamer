@@ -1,15 +1,12 @@
 ﻿/*	ICAD Renamer
 	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
 */
-using ICADRenamer.Events;
-
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+
+using ICADRenamer.Events;
 using ICADRenamer.Log;
-using System.Threading.Tasks;
-using NLog;
 
 namespace ICADRenamer
 {
@@ -38,6 +35,8 @@ namespace ICADRenamer
 		/// ICAD起動中フォームを保持するフィールド
 		/// </summary>
 		private ICADStartingForm _iCadStartingForm = null;
+
+		private string _formText;
 
 		/// <summary>
 		///   <see cref="ExecuteProgressForm"/> classの初期化
@@ -69,6 +68,13 @@ namespace ICADRenamer
 		/// 準備完了時に動作するイベント
 		/// </summary>
 		public event EventHandler Prepared;
+
+		/// <summary>
+		/// 結果のファイルパスを保持するプロパティ
+		/// </summary>
+		public string ResultFilePath => _resultFilePath;
+
+		private string _resultFilePath;
 
 		/// <summary>
 		/// キャンセルボタンクリックイベントを実行する
@@ -130,7 +136,7 @@ namespace ICADRenamer
 			nameLabel.Text = item.Name;
 			countLabel.Text = $"{item.Counter}/{item.Items}";
 			var rate = e.DetailCount.Counter / e.DetailCount.Items;
-			Text = $"{Text}{rate.ToString()}%";
+			Text = $"{GetFormText()}{rate.ToString()}%";
 		}
 
 		/// <summary>
@@ -153,7 +159,8 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Command_DrawingTitleStarted(object sender, EventArgs e)
 		{
-			Text = GetFormText("図面表題欄編集中...");
+			_formText = "図面表題欄編集中...";
+			Text = GetFormText();
 		}
 
 		/// <summary>
@@ -175,10 +182,7 @@ namespace ICADRenamer
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
-		private void Command_ExecuteStarted(object sender, EventArgs e)
-		{
-			ExecuteStarted?.Invoke(this, new EventArgs());
-		}
+		private void Command_ExecuteStarted(object sender, EventArgs e) => ExecuteStarted?.Invoke(this, new EventArgs());
 		/// <summary>
 		/// ファイルコピー開始イベントを実行する
 		/// </summary>
@@ -186,7 +190,8 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Command_FileCopyStarted(object sender, EventArgs e)
 		{
-			Text = GetFormText($"ファイルコピー中...");
+			_formText = "ファイルをコピー中...";
+			Text = GetFormText();
 		}
 
 		/// <summary>
@@ -196,7 +201,8 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Command_FileDeleteStarted(object sender, EventArgs e)
 		{
-			Text = GetFormText("元ファイル削除中...");
+			_formText = "元ファイル削除中...";
+			Text = GetFormText();
 		}
 
 		/// <summary>
@@ -230,7 +236,7 @@ namespace ICADRenamer
 		/// </summary>
 		private void ExecuteCommand()
 		{
-			_command.Execute(_executeParams);
+			_command.Execute(_executeParams, out _resultFilePath);
 			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 
@@ -239,8 +245,7 @@ namespace ICADRenamer
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
-		private void ExecuteProgressForm_Load(object sender, EventArgs e)
-		{
+		private void ExecuteProgressForm_Load(object sender, EventArgs e) =>
 			//ログ
 			RenameLogger.WriteLog(LogMessageKind.Operation, new List<(LogMessageCategory category, string message)>
 			{
@@ -251,14 +256,13 @@ namespace ICADRenamer
 				(LogMessageCategory.NewNumber,_executeParams.PrefixName),
 				(LogMessageCategory.Signature,_executeParams.Signature)
 			});
-		}
 
 		/// <summary>
 		/// フォームキャプション文字列を取得する
 		/// </summary>
 		/// <param name="message">メッセージを表す文字列</param>
 		/// <returns></returns>
-		private string GetFormText(string message) => $"変換実行中:{message}";
+		private string GetFormText() => $"変換実行中:{_formText}";
 
 		/// <summary>
 		/// 初期化を実行する
@@ -273,7 +277,19 @@ namespace ICADRenamer
 			_command.FileDeleteStarted += Command_FileDeleteStarted;
 			_command.ICADStarted += Command_ICADStarted;
 			_command.ICADStarting += Command_ICADStarting;
-			_command.ExecuteFinished+= Command_ExecuteFinished;
+			_command.ExecuteFinished += Command_ExecuteFinished;
+			_command.PartRenameStarted += Command_PartRenameStarted;
+		}
+
+		/// <summary>
+		/// パーツ名変更開始イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_PartRenameStarted(object sender, EventArgs e)
+		{
+			_formText = "パーツ名変更中...";
+			Text = GetFormText();
 		}
 
 		/// <summary>
@@ -281,9 +297,6 @@ namespace ICADRenamer
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
-		private void ExecuteProgressForm_Shown(object sender, EventArgs e)
-		{
-			ExecuteCommand();
-		}
+		private void ExecuteProgressForm_Shown(object sender, EventArgs e) => ExecuteCommand();
 	}
 }

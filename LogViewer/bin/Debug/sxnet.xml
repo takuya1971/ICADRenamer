@@ -6867,8 +6867,7 @@
             <exception cref="T:sxnet.SxException">CAD処理中の例外</exception>
             <exception cref="T:System.Exception">その他の例外</exception>
             <remarks>
-            自パーツにのみCSV形式の任意情報文字列を設定します。<br/>
-            ※全ての同名パーツに同じ任意情報文字列を設定してください。<br/>
+            自パーツにCSV形式の任意情報文字列を設定します。<br/>
             infoは、半角英数字で最大4000文字までです。(全角文字で最大2000文字まで)
             自パーツが既に任意情報を持つ場合、上書きされます。<br/>
             <br/>
@@ -6880,10 +6879,6 @@
             CAD本体の部品表コマンドで利用する情報を付加する場合は、定義したテンプレート
             の内容に従って、文字列をCSV形式で指定して下さい。<br/>
             部品表コマンドの詳細については、CAD本体のヘルプを参照して下さい。<br/>
-            <br/>
-            [注意]<br/>
-            同名パーツに異なった任意情報文字列を設定した場合は、<br/>
-            ３次元ツール/部品表コマンドや保存などが正しく動作しないことがあります。<br/>
             </remarks>
             <example>
             [C#]
@@ -6931,13 +6926,8 @@
             <exception cref="T:sxnet.SxException">CAD処理中の例外</exception>
             <exception cref="T:System.Exception">その他の例外</exception>
             <remarks>
-            自パーツのみが持つ任意情報文字列を削除します。<br/>
-            ※全ての同名パーツの任意情報文字列を削除してください。<br/>
-            自パーツが任意情報文字列を持たない場合、何も行いません。<br/>
-            <br/>
-            [注意]<br/>
-            同名パーツに異なった任意情報文字列が設定された状態になると、<br/>
-            ３次元ツール/部品表コマンドや保存などが正しく動作しないことがあります。<br/>
+            自パーツが持つ任意情報文字列を削除します。<br/>
+            自パーツが任意情報を持たない場合、何も行いません。<br/>
             </remarks>
         </member>
         <member name="M:sxnet.SxEntPart.getInfPartTree">
@@ -7065,7 +7055,6 @@
             <exception cref="T:System.Exception">その他の例外</exception>
             <remarks>
             指定パーツ群にCSV形式の任意情報文字列を設定します。<br/>
-            ※指定したパーツに同名のパーツがある場合は、全ての同名パーツに同じ任意情報文字列を設定してください。<br/>
             パーツが既に任意情報を持つ場合、上書きされます。<br/>
             parmlistには、同一WF内のパーツを指定して下さい。<br/>
             <br/>
@@ -7073,10 +7062,6 @@
             CAD本体の部品表コマンドで利用する情報を付加する場合は、定義したテンプレート
             の内容に従って、文字列をCSV形式で指定して下さい。<br/>
             部品表コマンドの詳細については、CAD本体のヘルプを参照して下さい。<br/>
-            <br/>
-            [注意]<br/>
-            同名パーツに異なった任意情報文字列が設定された状態になると、<br/>
-            ３次元ツール/部品表コマンドや保存などが正しく動作しないことがあります。<br/>
             </remarks>
         </member>
         <member name="M:sxnet.SxEntPart.deleteInfEx(sxnet.SxEntPart[])">
@@ -7089,13 +7074,8 @@
             <exception cref="T:System.Exception">その他の例外</exception>
             <remarks>
             指定パーツ群の任意情報文字列を一括削除します。<br/>
-            ※指定したパーツに同名のパーツがある場合は、全ての同名パーツの任意情報文字列を削除してください。<br/>
             パーツが任意情報を持たない場合、何も行いません。<br/>
             partlistには、同一WF内のパーツを指定して下さい。<br/>
-            <br/>
-            [注意]<br/>
-            同名パーツに異なった任意情報文字列が設定された状態になると、<br/>
-            ３次元ツール/部品表コマンドや保存などが正しく動作しないことがあります。<br/>
             </remarks>
         </member>
         <member name="M:sxnet.SxEntPart.checkCollisions(sxnet.SxEntPart[],System.Double,System.Boolean)">
@@ -14031,8 +14011,6 @@
             </param>
             <param name="pos">
             ビュー配置位置<br/>
-            ※既存ビューの座標軸延長線付近を指定した場合は、既存ビューの座標軸延長線上に開設されます。<br/>
-            　座標軸延長上付近に開設したい場合は、開設後に<see cref="T:sxnet.SxVS"/>クラスの、<see cref="M:sxnet.SxVS.move(sxnet.SxPos)"/>で移動してください。<br/>
             </param>
             <returns>開設したVS(基本ビュ－)インスタンス</returns>
             <exception cref="T:sxnet.SxException">CAD処理中の例外</exception>
@@ -14068,10 +14046,7 @@
             ローカルビューを開設します。
             </summary>
             <param name="name">ローカルビュー名(半角英数字で8文字まで)</param>
-            <param name="pos">ローカルビューの原点配置位置<br/>
-            ※既存ビューの座標軸延長線付近を指定した場合は、既存ビューの座標軸延長線上に開設されます。<br/>
-            　座標軸延長上付近に開設したい場合は、開設後に<see cref="T:sxnet.SxVS"/>クラスの、<see cref="M:sxnet.SxVS.move(sxnet.SxPos)"/>で移動してください。<br/>
-            </param>
+            <param name="pos">ローカルビューの原点配置位置</param>
             <param name="angle">回転角度(度)</param>
             <param name="scale">尺度(0.0001～99999999)</param>
             <returns>開設したVS(ローカルビュー)インスタンス</returns>
@@ -14089,10 +14064,7 @@
             ローカルビューを開設します。(角度ラジアン指定)
             </summary>
             <param name="name">ローカルビュー名(半角英数字で8文字まで)</param>
-            <param name="pos">ローカルビューの原点配置位置<br/>
-            ※既存ビューの座標軸延長線付近を指定した場合は、既存ビューの座標軸延長線上に開設されます。<br/>
-            　座標軸延長上付近に開設したい場合は、開設後に<see cref="T:sxnet.SxVS"/>クラスの、<see cref="M:sxnet.SxVS.move(sxnet.SxPos)"/>で移動してください。<br/>
-            </param>
+            <param name="pos">ローカルビューの原点配置位置</param>
             <param name="angle">回転角度(単位:ラジアン)</param>
             <param name="scale">尺度(0.0001～99999999)</param>
             <returns>開設したVS(ローカルビュー)インスタンス</returns>
@@ -17863,7 +17835,7 @@
         </member>
         <member name="M:sxnet.SxVS.move(sxnet.SxPos)">
             <summary>
-            ビュー/ローカルビューを移動します。
+            ビュー/ローカルビューの配置位置を変更します。
             </summary>
             <param name="pos">
             グローバルビュー上でのビュー/ローカルビュー原点移動位置
@@ -17871,7 +17843,7 @@
             <exception cref="T:sxnet.SxException">CAD処理中の例外</exception>
             <exception cref="T:System.Exception">その他の例外</exception>
             <remarks>
-            指定した位置にビュー/ローカルビューを移動します。<br/>
+            ビュー/ローカルビューの配置位置を変更します。<br/>
             自VSを表示するウィンドウが存在しない場合、新規にウィンドウを開設します。<br/>
             自VSを表示するウィンドウをアクティブウィンドウに設定します。<br/>
             </remarks>
@@ -38105,8 +38077,8 @@
             SxSys.STYLE_DASH : 破線<br/>
             SxSys.STYLE_ONE_DOT_CHAIN : 一点鎖線<br/>
             SxSys.STYLE_TWO_DOT_CHAIN : 二点鎖線<br/>
-            SxSys.STYLE_DOT : 点線<br/>
-            SxSys.STYLE_LONG_DASH : 長破線<br/>
+            SxSys.STYLE_TWO_DOT : 点線<br/>
+            SxSys.STYLE_TWO_LONG_DASH : 長破線<br/>
             </summary>
         </member>
         <member name="F:sxnet.SxOpt3D2D_2.outline_width">
@@ -38134,8 +38106,8 @@
             SxSys.STYLE_DASH : 破線 (デフォルト)<br/>
             SxSys.STYLE_ONE_DOT_CHAIN : 一点鎖線<br/>
             SxSys.STYLE_TWO_DOT_CHAIN : 二点鎖線<br/>
-            SxSys.STYLE_DOT : 点線<br/>
-            SxSys.STYLE_LONG_DASH : 長破線<br/>
+            SxSys.STYLE_TWO_DOT : 点線<br/>
+            SxSys.STYLE_TWO_LONG_DASH : 長破線<br/>
             </summary>
         </member>
         <member name="F:sxnet.SxOpt3D2D_2.inter_hidden_line_width">
@@ -38164,8 +38136,8 @@
             SxSys.STYLE_DASH : 破線 (デフォルト)<br/>
             SxSys.STYLE_ONE_DOT_CHAIN : 一点鎖線<br/>
             SxSys.STYLE_TWO_DOT_CHAIN : 二点鎖線<br/>
-            SxSys.STYLE_DOT : 点線<br/>
-            SxSys.STYLE_LONG_DASH : 長破線<br/>
+            SxSys.STYLE_TWO_DOT : 点線<br/>
+            SxSys.STYLE_TWO_LONG_DASH : 長破線<br/>
             </summary>
         </member>
         <member name="F:sxnet.SxOpt3D2D_2.self_hidden_line_width">

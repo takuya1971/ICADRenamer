@@ -70,14 +70,14 @@ namespace ICADRenamer
 		public event EventHandler ExecuteCanceled;
 
 		/// <summary>
-		/// 実行開始イベント
-		/// </summary>
-		public event EventHandler ExecuteStarted;
-
-		/// <summary>
 		/// 実行完了時に動作するイベント
 		/// </summary>
 		public event EventHandler ExecuteFinished;
+
+		/// <summary>
+		/// 実行開始イベント
+		/// </summary>
+		public event EventHandler ExecuteStarted;
 
 		/// <summary>
 		///  ファイルコピー開始時に動作するイベント
@@ -208,7 +208,7 @@ namespace ICADRenamer
 		/// 変換を実行する
 		/// </summary>
 		/// <param name="executeParams">パラメータ類</param>
-		public void Execute(RenameExecuteParams executeParams)
+		public void Execute(RenameExecuteParams executeParams, out string filePath)
 		{
 			//実行パラメータ
 			_param = executeParams;
@@ -216,6 +216,8 @@ namespace ICADRenamer
 			_recordItems = new List<CsvRecordItem>();
 			//変換レコーダ
 			_recorder = new CsvRecorder(GetReseultFilePath());
+			//結果ファイルパス
+			filePath = _recorder.FilePath;
 			//パラメータがないときの処理
 			if (_param == null)
 			{
@@ -224,6 +226,8 @@ namespace ICADRenamer
 			}
 			//プロセスの起動
 			_process = GetIcadProcess();
+			//イベント
+			ExecuteStarted?.Invoke(this, new EventArgs());
 			//初期化
 			SxSys.init(_param.Settings.ICADLinkPort, false);
 			//フラグがあればアイコン化
@@ -267,13 +271,16 @@ namespace ICADRenamer
 				, SystemSettings.IcadExtension
 				, SearchOption.AllDirectories));
 			_recorder.WriteAll(_recordItems);
+			//イベント
+			ExecuteFinished?.Invoke(this, new EventArgs());
+
 		}
 
 		/// <summary>
 		/// 変換のキャンセルを実行する
 		/// </summary>
 		/// <param name="files">変換しているファイル配列</param>
-		/// <param name="index">きゃんせうるする1個手前のインデックス</param>
+		/// <param name="index">キャンセルする1個手前のインデックス</param>
 		private void CancelExecute(IEnumerable<(string file, int index)> files, int index)
 		{
 			var remainedFiles = files.Where(x => x.index + 1 >= index);
@@ -322,7 +329,7 @@ namespace ICADRenamer
 				 try
 				 {
 					 //コピー実行
-					 File.Copy(file, newFile);
+					 File.Copy(file, newFile, true);
 				 }
 				 catch (Exception e)
 				 {
@@ -381,7 +388,34 @@ namespace ICADRenamer
 					//セグメントリスト
 					var segList = vs.getSegList(0, 0, false, true, false, false);
 					//セグメントチェック
-					if (segList == null) continue;
+					if (segList == null)
+					{
+						DetailChanged?.Invoke(this,
+							new ItemProgressedEventArgs
+							{
+								//ファイルカウント
+								FileCount = new CountItem
+								{
+									Counter = fileIndex + 1,
+									Items = files.Count(),
+									Name = Path.GetFileName(file)
+								},
+								//ビュー情報
+								ViewCount = new CountItem
+								{
+									Counter = vsIndex + 1,
+									Items = vsArray.Length,
+									Name = vs.getInf().name
+								},
+								//セグメント情報
+								DetailCount = new CountItem
+								{
+									Counter = 0,
+									Items = 0,
+									Name = string.Empty
+								}
+							});
+					}
 					//セグメントを検索
 					foreach (var (seg, segIndex) in segList.Indexed())
 					{
@@ -408,7 +442,7 @@ namespace ICADRenamer
 							{
 								Counter = segIndex + 1,
 								Items = segList.Length,
-								Name = seg.ID.ToString()
+								Name = ((ulong) seg.ID).ToString()
 							}
 						});
 						//セグメントタイプで実行するメソッドを選択
@@ -438,6 +472,12 @@ namespace ICADRenamer
 				model.save();
 				//クローズ
 				model.close(false);
+				if (CancelRequest)
+				{
+					CancelExecute(files.Indexed(), fileIndex);
+					WriteCancelByUserLog(file);
+					break;
+				}
 			}
 			return;
 			//訂正記号削除
@@ -652,7 +692,7 @@ namespace ICADRenamer
 				{
 					CancelExecute(files.Indexed(), fileIndex);
 					WriteCancelByUserLog(file);
-					return;
+					break;
 				}
 			}
 			//元ファイル削除
@@ -1000,7 +1040,7 @@ namespace ICADRenamer
 		/// <summary>
 		/// CSVファイルへのユーザーによるキャンセルを記録する
 		/// </summary>
-		/// <param name="path">CSVのパス</param>
+		/// <param name="path">キャンセルしたファイルのパス</param>
 		private void WriteCancelByUserLog(string path)
 					=> RenameLogger.WriteLog(LogMessageKind.CancelByUser
 					, new List<(LogMessageCategory category, string message)>
