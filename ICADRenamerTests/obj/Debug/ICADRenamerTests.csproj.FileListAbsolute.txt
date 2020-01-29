@@ -112,7 +112,6 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\ICADRenamerTests.pdb
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\CsvHelper.dll
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\Microsoft.CSharp.dll
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\Microsoft.Toolkit.Forms.UI.Controls.WebView.dll
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\Microsoft.Toolkit.Forms.UI.Controls.WebView.pdb
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
@@ -128,7 +127,6 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\sxnet.dll
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\ICADRenamer.pdb
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\ICADRenamer.exe.config
-C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\sxnet.xml
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.csprojAssemblyReference.cache
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.csproj.CopyComplete
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.dll

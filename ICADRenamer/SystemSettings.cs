@@ -17,6 +17,8 @@ namespace ICADRenamer
 		/// </summary>
 		public static string SettingFolder { get; } = Directory.GetCurrentDirectory() + @"\Settings";
 
+		public const string IcadPath = "ICADDIR";
+
 		/// <summary>
 		/// 図面変更検索文字ファイルを保持するプロパティ
 		/// </summary>
@@ -66,5 +68,7 @@ namespace ICADRenamer
 			"..COMFLG /1/",
 			"..LINCTR /1/",
 		};
+
+		public static string DblockPath { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\bin\DBLOCK.exe";
 	}
 }

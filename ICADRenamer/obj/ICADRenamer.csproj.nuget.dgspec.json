@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {}
+    "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+    "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
         "projectName": "ICADRenamer",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [

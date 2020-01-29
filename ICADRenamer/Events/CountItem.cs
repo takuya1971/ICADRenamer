@@ -12,12 +12,12 @@ namespace ICADRenamer.Events
 		/// <summary>
 		/// 名前を保持するプロパティ
 		/// </summary>
-		public string Name { get; set; }
+		public string Name { get; set; } 
 
 		/// <summary>
 		/// アイテム数を保持するプロパティ
 		/// </summary>
-		public int Items { get; set; }
+		public int Items { get; set; } 
 
 		/// <summary>
 		/// カウントを保持するプロパティ

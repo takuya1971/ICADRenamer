@@ -25,13 +25,21 @@ namespace ICADRenamer.Tests
 				PrefixName = "M1120",
 				Signature = "木下",
 				Settings = new OptionSettingsSerializer().Load(),
-			});
+			}
+			, out string output);
 			foreach (var resultRecord in command.RecordItems)
 			{
 				Console.WriteLine(resultRecord);
 			}
 			var time = start.Subtract(DateTime.Now);
 			Console.WriteLine($"実行時間:{time.TotalSeconds}sec.");
+		}
+
+		[TestMethod()]
+		public void ReleaseReadOnlyTest()
+		{
+			var command = new RenameCommand();
+			command.ReleaseReadOnly();
 		}
 	}
 }

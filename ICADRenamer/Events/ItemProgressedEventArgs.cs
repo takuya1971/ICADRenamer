@@ -14,7 +14,7 @@ namespace ICADRenamer.Events
 		/// <summary>
 		/// ファイルカウントを保持するプロパティ
 		/// </summary>
-		public CountItem FileCount { get; set;}
+		public CountItem FileCount { get; set; } 
 
 		/// <summary>
 		/// 詳細カウントを保持するプロパティ

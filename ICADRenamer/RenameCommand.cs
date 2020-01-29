@@ -250,6 +250,8 @@ namespace ICADRenamer
 			FileCopyStarted?.Invoke(this, new EventArgs());
 			//ファイルコピーと変更記録
 			_recordItems.AddRange(CopyFiles(source));
+			//
+			ReleaseReadOnly();
 			//イベント
 			PartRenameStarted?.Invoke(this, new EventArgs());
 			//パーツ変更
@@ -273,7 +275,42 @@ namespace ICADRenamer
 			_recorder.WriteAll(_recordItems);
 			//イベント
 			ExecuteFinished?.Invoke(this, new EventArgs());
+			_process?.Dispose();
+		}
 
+		public void ReleaseReadOnly()
+		{
+			//
+			var folders = Directory.GetDirectories(_param.DestinationPath);
+			var pInfo = new ProcessStartInfo
+			{
+				CreateNoWindow=true,
+				RedirectStandardOutput = true,
+				UseShellExecute = false,
+				FileName = SystemSettings.DblockPath
+			};
+			const string dispArg = "/DISP";
+			const string offArg = "/OFF ";
+			foreach (var folder in folders)
+			{
+				var ms = new MemoryStream();
+				pInfo.Arguments = $@"{dispArg} ""{folder}""";
+				var pDisp = Process.Start(pInfo);
+				var output = pDisp.StandardOutput.ReadToEnd();
+				pDisp?.Dispose();
+				var lines = output.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+				foreach (var line in lines)
+				{
+					var fields = line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+					if (fields[0].Trim() == "OFF") continue;
+					var path = Path.Combine(folder, $"{fields[1].Trim()}.icd");
+					pInfo.Arguments = $@"{offArg}""{path}""";
+					var pOff = Process.Start(pInfo);
+					Console.WriteLine(pOff.StandardOutput.ReadToEnd());
+					pOff.WaitForExit();
+					pOff?.Dispose();
+				}
+			}
 		}
 
 		/// <summary>
@@ -356,7 +393,7 @@ namespace ICADRenamer
 		/// 図面表題欄の変更を実行する
 		/// </summary>
 		/// <param name="files">変更するファイルパス配列</param>
-		private void ExecuteDrawingTitle(IEnumerable<string> files)
+		private void ExecuteDrawingTitle(string[] files)
 		{
 			/*	メインルーチン
 				ここからスタート
@@ -382,6 +419,32 @@ namespace ICADRenamer
 				//ビューリスト
 				var vsArray = model.getVSList();
 				//
+				if (vsArray == null)
+				{
+					DetailChanged?.Invoke(this,
+						new ItemProgressedEventArgs
+						{
+							FileCount = new CountItem
+							{
+								Counter = fileIndex + 1,
+								Items = files.Length,
+								Name = Path.GetFileName(file)
+							},
+							ViewCount = new CountItem
+							{
+								Counter = 0,
+								Items = 0,
+								Name = string.Empty
+							},
+							DetailCount = new CountItem
+							{
+								Counter = 0,
+								Items = 0,
+								Name = string.Empty
+							}
+						});
+					continue;
+				}
 				foreach (var (vs, vsIndex) in vsArray.Indexed())
 				{
 
@@ -397,7 +460,7 @@ namespace ICADRenamer
 								FileCount = new CountItem
 								{
 									Counter = fileIndex + 1,
-									Items = files.Count(),
+									Items = files.Length,
 									Name = Path.GetFileName(file)
 								},
 								//ビュー情報
@@ -417,6 +480,7 @@ namespace ICADRenamer
 							});
 					}
 					//セグメントを検索
+					if (segList == null) continue;
 					foreach (var (seg, segIndex) in segList.Indexed())
 					{
 						//イベント
@@ -669,7 +733,7 @@ namespace ICADRenamer
 		/// 変換を実行する
 		/// </summary>
 		/// <param name="files">変更するファイルリスト</param>
-		private void ExecuteReplace(IEnumerable<string> files)
+		private void ExecuteReplace(string[] files)
 		{
 			SxFileModel fModel = null;
 			SxModel model = null;
@@ -762,6 +826,32 @@ namespace ICADRenamer
 				SxSys.setDim(true);
 				//3D空間リスト
 				var wfArray = model.getWFList();
+				if (wfArray == null)
+				{
+					DetailChanged?.Invoke(this
+						, new ItemProgressedEventArgs
+						{
+							FileCount = new CountItem
+							{
+								Counter = fileIndex + 1,
+								Items = Total,
+								Name = Path.GetFileName(file)
+							},
+							ViewCount = new CountItem
+							{
+								Counter = 0,
+								Items = 0,
+								Name = string.Empty
+							},
+							DetailCount = new CountItem
+							{
+								Counter = 0,
+								Items = 0,
+								Name = string.Empty
+							}
+						});
+					return;
+				}
 				foreach (var (wf, viewIndex) in wfArray.Indexed())
 				{
 					//3D空間リスト
@@ -813,10 +903,24 @@ namespace ICADRenamer
 					if (part.getInf().kind != SxInfEnt.KIND_PART) return;
 					//パーツ情報
 					var inf = part.getInfDetail();
+					//未解決パーツならスキップ
+					if (inf.is_unloaded) return;
 					//読取専用解除
 					if (inf.is_read_only)
 					{
-						part.setAccess(false);
+						try
+						{
+							part.setAccess(false);
+						}
+						catch (SxException)
+						{
+							var partInf = part.getInfDetail();
+							var arg = $@"/OFF ""{partInf.path}\{partInf.ref_model_name}.icd""";
+							var p = Process.Start(SystemSettings.DblockPath, arg);
+							p.WaitForExit();
+							part.setAccess(false);
+							p?.Dispose();
+						}
 					}
 					//新しい名前
 					var newName = GetName(inf.name);
@@ -893,10 +997,27 @@ namespace ICADRenamer
 				{
 					if (Regex.IsMatch(name, $"^{pattern}"))
 					{
-						return Regex.Replace(name, pattern, _param.PrefixName);
+						var newName = Regex.Replace(name, pattern, _param.PrefixName);
+						newName = newName.Replace(" ", string.Empty);
+						var enc = Encoding.GetEncoding("Shift_JIS");
+						if (enc.GetByteCount(newName) > 40)
+						{
+							return GetOverLength(newName, 40, enc);
+						}
+						else return newName;
 					}
 				}
 				return null;
+			}
+			//
+			static string GetOverLength(string source, int byteLength, Encoding enc)
+			{
+				var newString = source.Substring(0, source.Length - 1);
+				if (enc.GetByteCount(newString) > byteLength)
+				{
+					GetOverLength(newString, byteLength, enc);
+				}
+				return newString;
 			}
 		}
 
@@ -1034,8 +1155,8 @@ namespace ICADRenamer
 		/// コピー成功ファイルの取得を実行する
 		/// </summary>
 		/// <returns></returns>
-		private IEnumerable<string> GetSuccessedFiles() =>
-					_recordItems.Where(x => x.IsSuccess).Select(x => x.DestinationPath);
+		private string[] GetSuccessedFiles() =>
+					_recordItems.Where(x => x.IsSuccess).Select(x => x.DestinationPath).ToArray();
 
 		/// <summary>
 		/// CSVファイルへのユーザーによるキャンセルを記録する

@@ -135,7 +135,11 @@ namespace ICADRenamer
 			pb.Value = item.Counter;
 			nameLabel.Text = item.Name;
 			countLabel.Text = $"{item.Counter}/{item.Items}";
-			var rate = e.DetailCount.Counter / e.DetailCount.Items;
+			int rate = 0;
+			if (e.DetailCount.Items > 1)
+			{
+				rate = e.DetailCount.Counter / e.DetailCount.Items * 100;
+			}
 			Text = $"{GetFormText()}{rate.ToString()}%";
 		}
 
@@ -190,6 +194,7 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Command_FileCopyStarted(object sender, EventArgs e)
 		{
+			Application.DoEvents();
 			_formText = "ファイルをコピー中...";
 			Text = GetFormText();
 		}
