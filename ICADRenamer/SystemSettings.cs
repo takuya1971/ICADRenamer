@@ -70,5 +70,7 @@ namespace ICADRenamer
 		};
 
 		public static string DblockPath { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\bin\DBLOCK.exe";
+
+		public static string ProductFile { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\USER\Etc\3Dseihin.txt";
 	}
 }

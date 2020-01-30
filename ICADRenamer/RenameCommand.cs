@@ -153,7 +153,12 @@ namespace ICADRenamer
 			/// <summary>
 			/// ユーザーによるキャンセルを保持するフィールド
 			/// </summary>
-			CancelByUSer
+			CancelByUSer,
+
+			/// <summary>
+			/// アクセス権取得失敗を保持するフィールド
+			/// </summary>
+			FailedGetAccess,
 		}
 
 		/// <summary>
@@ -250,12 +255,14 @@ namespace ICADRenamer
 			FileCopyStarted?.Invoke(this, new EventArgs());
 			//ファイルコピーと変更記録
 			_recordItems.AddRange(CopyFiles(source));
-			//
+			//読取専用解除
 			ReleaseReadOnly();
+			//製品フォルダの登録
+			SetProductFolder();
 			//イベント
 			PartRenameStarted?.Invoke(this, new EventArgs());
 			//パーツ変更
-			ExecuteReplace(GetSuccessedFiles());
+			ExecuteRename(GetSuccessedFiles());
 			//キャンセル
 			if (CancelRequest)
 			{
@@ -278,13 +285,254 @@ namespace ICADRenamer
 			_process?.Dispose();
 		}
 
+		/// <summary>
+		/// 製品フォルダへのフォルダの登録を実行する
+		/// </summary>
+		private void SetProductFolder()
+		{
+			//登録するフォルダ配列
+			var dirArray = Directory.GetDirectories(_param.DestinationPath, "*", SearchOption.AllDirectories);
+			//製品ファイルの中身
+			string seihinFile;
+			//読み込み
+			using (var sr = new StreamReader(SystemSettings.ProductFile))
+			{
+				seihinFile = sr.ReadToEnd();
+			}
+			//製品フォルダの追加
+			StringBuilder sb = new StringBuilder(seihinFile);
+			foreach (var dir in dirArray)
+			{
+				sb.AppendLine(dir);
+			}
+			//製品ファイルへの書き戻し
+			seihinFile = sb.ToString();
+			/*
+				 行数が255行以上あるときは上から削除
+			*/
+			//行に分ける
+			var lines = seihinFile.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+			//ラインが255以上なら
+			if (lines.Count > 255)
+			{
+				do
+				{
+					//削除
+					lines.RemoveAt(0);
+				} while (lines.Count > 255);
+				//
+				sb = new StringBuilder();
+				//再構築
+				foreach (var line in lines)
+				{
+					sb.AppendLine(line);
+				}
+				//製品ファイルに書き戻し
+				seihinFile = sb.ToString();
+			}
+			//書き込み
+			using var sw = new StreamWriter(SystemSettings.ProductFile);
+			sw.Write(seihinFile);
+		}
+
+		/// <summary>
+		/// パーツ名の変更を実行する。
+		/// ICADへのアクセスを減らしたバージョン
+		/// </summary>
+		/// <param name="files">ファイルパスリスト</param>
+		private void ExecuteRename(string[] files)
+		{
+			//ファイルモデル
+			SxFileModel fModel = null;
+			//モデル
+			SxModel model = null;
+			//CSVレコード
+			CsvRecordItem record = null;
+			//3D画面に変更
+			SxSys.setDim(true);
+			//すべてのファイルをループ
+			for (var i = 0; i < files.Length; i++)
+			{
+				//ファイルパス
+				var file = files[i];
+				//ファイルモデルを作成
+				fModel = new SxFileModel(file);
+				//モデルを作成
+				model = fModel.open(false);
+				//CSVレコードを抽出
+				record = _recordItems.FirstOrDefault(
+					x => x.DestinationPath == file);
+				//名前変更リスト
+				var parmList = new List<SxParmPartName>();
+				//3D空間を走査
+				foreach (var wf in model.getWFList())
+				{
+					//パーツツリーを取得
+					var partTree = wf.getInfPartTree();
+					//名前変更条件に一致したら
+					if (IsMatch(partTree))
+					{
+						//パーツ情報を取得
+						var inf = partTree.inf;
+						//未解決パーツならスキップ
+						if (partTree.inf.is_unloaded) continue;
+						//エラートラップ
+						try
+						{
+							//アクセス権取得
+							if (partTree.inf.is_read_only) partTree.entpart.setAccess(false);
+						}
+						//読取専用を強制解除してアクセス権取得
+						catch (SxException)
+						{
+							var arg = $@"/OFF ""{partTree.inf.path}\{partTree.inf.ref_model_name}.icd""";
+							var p = Process.Start(SystemSettings.DblockPath, arg);
+							p.WaitForExit();
+							partTree.entpart.setAccess(false);
+							p?.Dispose();
+						}
+						//パーツツリーをたどって改名リストを作成
+						var childParms = RenameChild(partTree);
+						if (childParms.Count > 0)
+						{
+							parmList.AddRange(childParms);
+						}
+					}
+				}
+				//一括改名
+				SxEntPart.setName(parmList.ToArray(), true);
+				//保存
+				SaveFile();
+			}
+			return;
+
+			//ファイルの保存
+			void SaveFile()
+			{
+				//モデル情報
+				var inf = model.getInf();
+				//コピー先パス
+				record.DestinationPath = $@"{inf.path}\{inf.name}.icd";
+				//コピー先ファイル名
+				record.DestinationFileName = $@"{inf.name}.icd";
+				try
+				{
+					//新しいファイル名
+					var newName = NewName(inf.name);
+					//新しいファイルがあれば
+					if (File.Exists($@"{inf.path}\\{newName}.icd"))
+					{
+						//上書き
+						model.save();
+					}
+					else
+					{
+						//名前を付けて保存
+						model.save("", newName, inf.comment, 0, 0);
+					}
+				}
+				catch (Exception e)
+				{
+					record.IsSuccess = false;
+					record.Remark = GetRemark(record.Remark, ErrorCategory.Save, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.Save)
+					});
+				}
+				finally
+				{
+					model.close(false);
+				}
+			}
+			//改名オブジェクトの取得
+			SxParmPartName GetParmName(SxInfPartTree tree)
+			{
+				//新しい図番
+				var newName = NewName(tree.inf.name);
+				//nullならnullを返す
+				if (newName == null) return null;
+				//パスを取得
+				var path = Path.Combine(tree.inf.path, $"{newName}.icd");
+				//CSVレコードの情報を更新
+				record.DestinationPath = path;
+				record.DestinationFileName = Path.GetFileNameWithoutExtension(path);
+				//ファイルが存在したとき
+				if (File.Exists(path))
+				{
+					//パーツ名と同じ場合はスキップ
+					if (newName == tree.inf.name) return null;
+					//ファイルモデル
+					var fModel = new SxFileModel(path);
+					//置換
+					tree.entpart.replace(fModel, true);
+				}
+				return new SxParmPartName(tree.entpart, newName, tree.inf.comment, newName);
+			}
+			//子パーツを検索してリストに追加
+			List<SxParmPartName> RenameChild(SxInfPartTree tree)
+			{
+				//リスト
+				var nameList = new List<SxParmPartName>();
+				//タイプがパーツなら実行
+				if (tree.entpart.Type == SxInfEnt.KIND_PART)
+				{
+					//このパーツを改名
+					var parmName = GetParmName(tree);
+					//改名に成功したらリストに追加
+					if (parmName != null) nameList.Add(parmName);
+					//子パーツリスト
+					var childList = tree.child_list;
+					//子パーツリストが存在するとき
+					if (childList != null)
+					{
+						foreach (var child in childList)
+						{
+							//再帰
+							var childParms = RenameChild(child);
+							if (childParms.Count > 0)
+							{
+								nameList.AddRange(childParms);
+							}
+						}
+					}
+				}
+				return nameList;
+			}
+			//
+			string NewName(string oldName)
+			{
+				foreach (var pattern in _keywords.DrawNumberSplit)
+				{
+					if (Regex.IsMatch(oldName, $"^{pattern}"))
+					{
+						return Regex.Replace(oldName, pattern, _param.PrefixName);
+					}
+				}
+				return null;
+			}
+			//
+			bool IsMatch(SxInfPartTree tree)
+			{
+				if (tree.entpart.Type != SxInfEnt.KIND_PART) return false;
+				//
+				foreach (var pattern in _keywords.DrawNumberRegexes)
+				{
+					if (Regex.IsMatch(tree.inf.name, pattern)) return true;
+				}
+				return false;
+			}
+		}
+
 		public void ReleaseReadOnly()
 		{
 			//
-			var folders = Directory.GetDirectories(_param.DestinationPath);
+			var folders = Directory.GetDirectories(_param.DestinationPath, "*", SearchOption.AllDirectories);
 			var pInfo = new ProcessStartInfo
 			{
-				CreateNoWindow=true,
+				CreateNoWindow = true,
 				RedirectStandardOutput = true,
 				UseShellExecute = false,
 				FileName = SystemSettings.DblockPath
@@ -1040,6 +1288,7 @@ namespace ICADRenamer
 				ErrorCategory.Signature => "署名変更",
 				ErrorCategory.Save => "保存",
 				ErrorCategory.CancelByUSer => "ユーザーによるキャンセル要求",
+				ErrorCategory.FailedGetAccess => "アクセス権取得失敗",
 				_ => throw new NotImplementedException()
 			};
 			return $"{mes}エラー";
