@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ICADRenamer.Settings;
 using System.IO;
+using sxnet;
 
 namespace ICADRenamer.Tests
 {
@@ -14,32 +14,34 @@ namespace ICADRenamer.Tests
 	public class RenameCommandTests
 	{
 		[TestMethod()]
-		public void Execute2Test()
+		public void ExecuteDrawingTitleTest()
 		{
-			DateTime start = DateTime.Now;
 			var command = new RenameCommand();
-			command.Execute(new RenameExecuteParams
+			command.ExecuteParams = new RenameExecuteParams
 			{
+				DestinationPath = @"d:\M1200",
 				SourcePath = @"D:\M1124_KB治具 - コピー",
-				DestinationPath = @"D:\M1200",
-				PrefixName = "M1120",
+				PrefixName = "M1200",
 				Signature = "木下",
-				Settings = new OptionSettingsSerializer().Load(),
-			}
-			, out string output);
-			foreach (var resultRecord in command.RecordItems)
-			{
-				Console.WriteLine(resultRecord);
-			}
-			var time = start.Subtract(DateTime.Now);
-			Console.WriteLine($"実行時間:{time.TotalSeconds}sec.");
+				Settings = new Settings.OptionSettingsSerializer().Load()
+			};
+			SxSys.init(3999);
+			var files = Directory.GetFiles(@"D:\M1200", "*.icd", SearchOption.AllDirectories);
+			command.ExecuteDrawingTitle(files);
 		}
 
 		[TestMethod()]
-		public void ReleaseReadOnlyTest()
+		public void ExecuteTest()
 		{
 			var command = new RenameCommand();
-			command.ReleaseReadOnly();
+			command.Execute( new RenameExecuteParams
+			{
+				DestinationPath = @"d:\M1200",
+				SourcePath = @"D:\M1124_KB治具 - コピー",
+				PrefixName = "M1200",
+				Signature = "木下",
+				Settings = new Settings.OptionSettingsSerializer().Load()
+			});
 		}
 	}
 }

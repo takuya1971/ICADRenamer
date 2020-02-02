@@ -12,12 +12,12 @@ namespace ICADRenamer.Tests
 	[TestClass()]
 	public class ExecuteProgressFormTests
 	{
-		private DateTime start;
+		private DateTime _start;
 
 		[TestMethod()]
 		public void ExecuteProgressFormTest()
 		{
-			start = DateTime.Now;
+			_start = DateTime.Now;
 			ExecuteProgressForm form = new ExecuteProgressForm(
 				new RenameExecuteParams
 				{
@@ -37,7 +37,7 @@ namespace ICADRenamer.Tests
 		{
 			if(sender is ExecuteProgressForm form)
 			{
-				var time = start.Subtract(DateTime.Now);
+				var time = _start.Subtract(DateTime.Now);
 				Console.WriteLine($"キャンセルされました。実行時間:{time.TotalSeconds}秒");
 			}
 		}

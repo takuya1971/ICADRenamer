@@ -61,6 +61,33 @@ namespace ICADRenamer.Settings
 		public string UserName { get; set; }
 
 		/// <summary>
+		/// 年が４桁表示かどうかの状態を保持するプロパティ
+		/// </summary>
+		/// <remarks>
+		/// 真の場合：4桁表示
+		/// </remarks>
+		[JsonProperty("年は４桁表示")]
+		public bool IsYear4Digit { get; set; }
+
+		/// <summary>
+		/// 月日が２桁固定かどうかの状態を保持するプロパティ
+		/// </summary>
+		/// <remarks>
+		/// 真の場合：２桁固定
+		/// </remarks>
+		[JsonProperty("月日は２桁表示")]
+		public bool IsMonthAndDate2Digit { get; set; }
+
+		/// <summary>
+		/// 年月日区切りがスラッシュかどうかの状態を保持するプロパティ
+		/// </summary>
+		/// <remarks>
+		/// 真の場合：
+		/// </remarks>
+		[JsonProperty("年月日区切がスラッシュ")]
+		public bool IsDateSeparatorSlash { get; set; }
+
+		/// <summary>
 		///   <see cref="OptionSettings"/> classの初期化
 		/// </summary>
 		public OptionSettings() { }

@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="sxnet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b59f2dd2eaba094d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ICADSX\bin\sxnet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>

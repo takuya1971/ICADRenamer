@@ -138,7 +138,7 @@ namespace ICADRenamer
 			int rate = 0;
 			if (e.DetailCount.Items > 1)
 			{
-				rate = e.DetailCount.Counter / e.DetailCount.Items * 100;
+				rate =100* e.DetailCount.Counter / e.DetailCount.Items;
 			}
 			Text = $"{GetFormText()}{rate.ToString()}%";
 		}
@@ -152,9 +152,18 @@ namespace ICADRenamer
 		{
 			for (var i = 1; i < 4; i++)
 			{
+				//if (InvokeRequired)
+				//{
+				//	Invoke(new UpdateProgress(ChangeProgress),i, e);
+				//}
+				//else
+				//{
+				//	ChangeProgress(i, e);
+				//}
 				ChangeProgress(i, e);
 			}
 		}
+		delegate void UpdateProgress(int index, ItemProgressedEventArgs arg);
 
 		/// <summary>
 		/// 図面表題欄進捗イベントを実行する
@@ -241,7 +250,10 @@ namespace ICADRenamer
 		/// </summary>
 		private void ExecuteCommand()
 		{
-			_command.Execute(_executeParams, out _resultFilePath);
+			//var task=_command.Execute(_executeParams);
+			//await task;
+			_command.Execute(_executeParams);
+			_resultFilePath = _command.RecordPath;
 			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 

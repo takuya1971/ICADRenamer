@@ -25,10 +25,8 @@ namespace ICADRenamer
 		/// アプリケーションのメイン エントリ ポイントです。
 		/// </summary>
 		[STAThread]
-		public static int Main(string[] args)
+		public static void Main(string[] args)
 		{
-			//標準出力
-			int result;
 			//Logフォルダ作成
 			if (!Directory.Exists(SystemSettings.LogFolder)) Directory.CreateDirectory(SystemSettings.LogFolder);
 			//
@@ -37,30 +35,23 @@ namespace ICADRenamer
 				//コマンドラインを取得
 				var arguments = CommandLineArgs.Create(args);
 				//サイレントモードでなければフォームを表示
-				if (arguments == null)
-				{
-					result = 0;
-				}
-				else if (arguments.SilentMode == null)
+				if (arguments.SilentMode == null)
 				{
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
 					var form = new MainForm(arguments);
 					Application.Run(form);
-					result = form.Result;
 					form.Dispose();
 				}
 				//サイレントモードの時
-				else return RunSilent(arguments.SilentMode);
+				else RunSilent(arguments.SilentMode);
 			}
 			//例外発生
 			catch (CommandLineArgumentException e)
 			{
 				NativeMethods.AttachConsole(uint.MaxValue);
 				Console.WriteLine(e.Message);
-				result = e.HResult;
 			}
-			return result;
 		}
 
 		/// <summary>
@@ -125,13 +116,11 @@ namespace ICADRenamer
 		/// </summary>
 		/// <param name="param">パラメータ</param>
 		/// <returns></returns>
-		static int RunSilent(string[] param)
+		static void RunSilent(string[] param)
 		{
 			RenameLogger.ConsoleMode = true;
 			NativeMethods.AttachConsole(uint.MaxValue);
 			var args = param;
-			//実行結果出力
-			var result = 0;
 			//コマンドライン不正時の処理
 			if (!IsValidCommandLine(args, out string msg))
 			{
@@ -155,13 +144,19 @@ namespace ICADRenamer
 				PrefixName = args[2],
 				Signature = args[3],
 				Settings = new OptionSettingsSerializer().Load()
-			}
-			, out string filePath);
-			Process.Start(filePath);
+			});
+			//var task=command.Execute(new RenameExecuteParams
+			//{
+			//	SourcePath = args[0],
+			//	DestinationPath = args[1],
+			//	PrefixName = args[2],
+			//	Signature = args[3],
+			//	Settings = new OptionSettingsSerializer().Load()
+			//});
+			//await task;
+			Process.Start(command.RecordPath);
 			//コマンドの破棄
 			command.Dispose();
-			//結果を返す
-			return result;
 		}
 	}
 }

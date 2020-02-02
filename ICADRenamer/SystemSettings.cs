@@ -3,6 +3,7 @@
 */
 using System.IO;
 using System;
+using System.Text;
 
 namespace ICADRenamer
 {
@@ -11,7 +12,6 @@ namespace ICADRenamer
 	/// </summary>
 	public static class SystemSettings
 	{
-
 		/// <summary>
 		/// 設定フォルダを保持するプロパティ
 		/// </summary>
@@ -72,5 +72,7 @@ namespace ICADRenamer
 		public static string DblockPath { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\bin\DBLOCK.exe";
 
 		public static string ProductFile { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\USER\Etc\3Dseihin.txt";
+
+		public static Encoding SeihinEnc { get; } = Encoding.GetEncoding("Shift_JIS");
 	}
 }

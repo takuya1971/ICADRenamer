@@ -131,3 +131,4 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.csproj.CopyComplete
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.dll
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\obj\Debug\ICADRenamerTests.pdb
+C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamerTests\bin\Debug\sxnet.xml
