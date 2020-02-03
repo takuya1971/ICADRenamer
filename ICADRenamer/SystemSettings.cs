@@ -69,6 +69,11 @@ namespace ICADRenamer
 			"..LINCTR /1/",
 		};
 
+		/// <summary>
+		/// 終了コマンドを保持するプロパティ
+		/// </summary>
+		public static string EndIcad { get; } = ";END";
+
 		public static string DblockPath { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\bin\DBLOCK.exe";
 
 		public static string ProductFile { get; } = $@"{Environment.GetEnvironmentVariable(IcadPath)}\USER\Etc\3Dseihin.txt";

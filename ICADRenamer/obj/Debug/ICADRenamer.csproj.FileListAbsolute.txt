@@ -313,4 +313,3 @@ C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRe
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.csproj.CopyComplete
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.exe
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.pdb
-C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.ResultSelectForm.resources
