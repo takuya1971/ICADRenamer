@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 using ICADRenamer.Events;
 using ICADRenamer.Log;
+using sxnet;
+using NLog;
+using System.Text;
 
 namespace ICADRenamer
 {
@@ -138,7 +141,7 @@ namespace ICADRenamer
 			int rate = 0;
 			if (e.DetailCount.Items > 1)
 			{
-				rate =100* e.DetailCount.Counter / e.DetailCount.Items;
+				rate = 100 * e.DetailCount.Counter / e.DetailCount.Items;
 			}
 			Text = $"{GetFormText()}{rate.ToString()}%";
 		}
@@ -296,7 +299,16 @@ namespace ICADRenamer
 			_command.ICADStarting += Command_ICADStarting;
 			_command.ExecuteFinished += Command_ExecuteFinished;
 			_command.PartRenameStarted += Command_PartRenameStarted;
+			_command.ICADRestarted += Command_ICADRestarted;
 		}
+
+		/// <summary>
+		/// ICAD再起動後イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_ICADRestarted(object sender, EventArgs e)
+			=> _timer.Enabled = true;
 
 		/// <summary>
 		/// パーツ名変更開始イベントを実行する
@@ -315,5 +327,103 @@ namespace ICADRenamer
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
 		private void ExecuteProgressForm_Shown(object sender, EventArgs e) => ExecuteCommand();
+
+		/// <summary>
+		/// メモリ監視タイマイベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Timer_Tick(object sender, EventArgs e)
+		{
+			//使用メモリ量
+			var workingSet = _command.IcadProcess.WorkingSet64;
+			//900MB以上占有なら
+			if (workingSet > 900 * Math.Pow(1000, 2))
+			{
+				//タイマ停止
+				_timer.Enabled = false;
+				//プロセスがなければスキップ
+				if (_command.IcadProcess == null) return;
+				//モデルリスト
+				var models = SxModel.getModelList();
+				//モデルがあれば
+				if (models != null)
+				{
+					//モデルをクローズするメッセージボックス
+					LoopMessageBox(false);
+				}
+				//再起動要求
+				_command.RestartRequest = true;
+			}
+		}
+
+		/// <summary>
+		/// ICADにモデルが残っているときのクローズ処理のメッセージボックスを実行する
+		/// </summary>
+		private void LoopMessageBox(bool looped)
+		{
+			//モデルリスト
+			var models = SxModel.getModelList();
+			//メッセージボックス
+			var result = MessageBox.Show(GetMessage(models, looped)
+				, "ICADの再起動前の確認"
+				, MessageBoxButtons.YesNo
+				, MessageBoxIcon.Question);
+			//確認なしですべて閉じる
+			if (result == DialogResult.Yes)
+			{
+				try
+				{
+					foreach (var model in models)
+					{
+						model.close(false);
+					}
+				}
+				catch (SxException e)
+				{
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = "モデルクローズに失敗しました。"
+					});
+				}
+			}
+			//手動で閉じる
+			else
+			{
+				//モデルリストを取得
+				models = SxModel.getModelList();
+				//モデルがあれば
+				if (models != null)
+				{
+					//メッセージボックスをもう一度表示
+					LoopMessageBox(true);
+				}
+			}
+			//メッセージの取得
+			static string GetMessage(SxModel[] models, bool looped)
+			{
+				var sb = new StringBuilder();
+				//2度目以降
+				if (looped)
+				{
+					sb.AppendLine("手動で閉じられていません。");
+				}
+				sb.AppendLine("ICADに未保存のモデルが残っています。");
+				sb.AppendLine("保存せず自動的に閉じてもいいですか？");
+				sb.AppendLine("手動で閉じるときは、閉じた後に「No」を選択してください。");
+				//モデルがあるときのメッセージ
+				if (models != null)
+				{
+					sb.AppendLine("開いているモデル:");
+					foreach (var model in models)
+					{
+						sb.AppendLine($"  {model.getInf().name}");
+					}
+				}
+				return sb.ToString();
+			}
+		}
 	}
 }
