@@ -187,6 +187,7 @@ namespace ICADRenamer
 		/// <exception cref="NotImplementedException"></exception>
 		private void Command_ExecuteFinished(object sender, EventArgs e)
 		{
+			_resultFilePath = _command.RecordPath;
 			if (_command.CancelRequest) ExecuteCanceled?.Invoke(this, new EventArgs());
 			else ExecuteFinished?.Invoke(this, new EventArgs());
 			_command?.Dispose();
@@ -257,7 +258,6 @@ namespace ICADRenamer
 			//await task;
 			_command.Execute(_executeParams);
 			_resultFilePath = _command.RecordPath;
-			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>
@@ -300,6 +300,25 @@ namespace ICADRenamer
 			_command.ExecuteFinished += Command_ExecuteFinished;
 			_command.PartRenameStarted += Command_PartRenameStarted;
 			_command.ICADRestarted += Command_ICADRestarted;
+			_command.ShowMessageRequest += Command_ShowMessageRequest;
+		}
+
+		/// <summary>
+		/// ICAD再起動中表示フォームを保持するフィールド
+		/// </summary>
+		private IcadRestartForm _icadRestartForm;
+
+		/// <summary>
+		/// メッセージボックス要求を実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void Command_ShowMessageRequest(object sender, EventArgs e)
+		{
+			LoopMessageBox(false);
+			//
+			_icadRestartForm = new IcadRestartForm();
+			_icadRestartForm.Show();
 		}
 
 		/// <summary>
@@ -308,7 +327,10 @@ namespace ICADRenamer
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
 		private void Command_ICADRestarted(object sender, EventArgs e)
-			=> _timer.Enabled = true;
+		{
+			_timer.Enabled = true;
+			_icadRestartForm?.Close();
+		}
 
 		/// <summary>
 		/// パーツ名変更開始イベントを実行する
@@ -335,23 +357,15 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Timer_Tick(object sender, EventArgs e)
 		{
+			//リフレッシュ
+			_command.IcadProcess.Refresh();
 			//使用メモリ量
 			var workingSet = _command.IcadProcess.WorkingSet64;
 			//900MB以上占有なら
-			if (workingSet > 900 * Math.Pow(1000, 2))
+			if (workingSet > 800 * Math.Pow(1000, 2))
 			{
 				//タイマ停止
 				_timer.Enabled = false;
-				//プロセスがなければスキップ
-				if (_command.IcadProcess == null) return;
-				//モデルリスト
-				var models = SxModel.getModelList();
-				//モデルがあれば
-				if (models != null)
-				{
-					//モデルをクローズするメッセージボックス
-					LoopMessageBox(false);
-				}
 				//再起動要求
 				_command.RestartRequest = true;
 			}

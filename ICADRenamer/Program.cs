@@ -155,6 +155,12 @@ namespace ICADRenamer
 			//});
 			//await task;
 			Process.Start(command.RecordPath);
+			//
+			var outStream = Console.Out;
+			foreach(var line in command.RecordItems)
+			{
+				outStream.WriteLine(line);
+			}
 			//コマンドの破棄
 			command.Dispose();
 		}

@@ -82,10 +82,16 @@ namespace ICADRenamer.Settings
 		/// 年月日区切りがスラッシュかどうかの状態を保持するプロパティ
 		/// </summary>
 		/// <remarks>
-		/// 真の場合：
+		/// 真の場合：スラッシュ
 		/// </remarks>
 		[JsonProperty("年月日区切がスラッシュ")]
 		public bool IsDateSeparatorSlash { get; set; }
+
+		/// <summary>
+		/// 3D製品フォルダを登録するかどうかの真偽値を保持するプロパティ
+		/// </summary>
+		/// <remarks>芯の場合：登録する</remarks>
+		public bool ResitTo3DSeihin { get; set; }
 
 		/// <summary>
 		///   <see cref="OptionSettings"/> classの初期化

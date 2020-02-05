@@ -42,6 +42,10 @@
 			this._iCADLinkBox = new System.Windows.Forms.TextBox();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this._isIcadMinimize = new System.Windows.Forms.CheckBox();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this._isDateSeparatorSlashBox = new System.Windows.Forms.CheckBox();
+			this._isMonthAndDate2DigitBox = new System.Windows.Forms.CheckBox();
+			this._isYear4digitBox = new System.Windows.Forms.CheckBox();
 			this._icadLinkLabel = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this._userLabel = new System.Windows.Forms.Label();
@@ -56,8 +60,10 @@
 			this._generalPage = new System.Windows.Forms.TabPage();
 			this._regexPage = new System.Windows.Forms.TabPage();
 			this._regexContextMenuStrip = new ICADRenamer.RegexContextMenuStrip();
+			this._resit3dSeihinBox = new System.Windows.Forms.CheckBox();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this._tabControl1.SuspendLayout();
 			this._generalPage.SuspendLayout();
@@ -73,7 +79,7 @@
 			this.flowLayoutPanel1.Controls.Add(this._addNewButton);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 216);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 303);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(434, 45);
 			this.flowLayoutPanel1.TabIndex = 0;
@@ -191,11 +197,13 @@
 			this.flowLayoutPanel2.Controls.Add(this._isUpdate);
 			this.flowLayoutPanel2.Controls.Add(this._isValidateProject);
 			this.flowLayoutPanel2.Controls.Add(this._isIcadMinimize);
+			this.flowLayoutPanel2.Controls.Add(this._resit3dSeihinBox);
+			this.flowLayoutPanel2.Controls.Add(this.groupBox1);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 108);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 105);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 74);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 164);
 			this.flowLayoutPanel2.TabIndex = 5;
 			// 
 			// _isIcadMinimize
@@ -203,11 +211,53 @@
 			this._isIcadMinimize.AutoSize = true;
 			this._isIcadMinimize.Location = new System.Drawing.Point(144, 28);
 			this._isIcadMinimize.Name = "_isIcadMinimize";
-			this._isIcadMinimize.Size = new System.Drawing.Size(165, 19);
+			this._isIcadMinimize.Size = new System.Drawing.Size(152, 19);
 			this._isIcadMinimize.TabIndex = 4;
-			this._isIcadMinimize.Text = "パーツ変更後更新処理をする";
+			this._isIcadMinimize.Text = "ICAD起動時に最小化する";
 			this._toolTip.SetToolTip(this._isIcadMinimize, "ICADを最小化するか指定します");
 			this._isIcadMinimize.UseVisualStyleBackColor = true;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this._isDateSeparatorSlashBox);
+			this.groupBox1.Controls.Add(this._isMonthAndDate2DigitBox);
+			this.groupBox1.Controls.Add(this._isYear4digitBox);
+			this.groupBox1.Location = new System.Drawing.Point(160, 53);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(149, 100);
+			this.groupBox1.TabIndex = 6;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "日付の表示";
+			// 
+			// _isDateSeparatorSlashBox
+			// 
+			this._isDateSeparatorSlashBox.AutoSize = true;
+			this._isDateSeparatorSlashBox.Location = new System.Drawing.Point(6, 73);
+			this._isDateSeparatorSlashBox.Name = "_isDateSeparatorSlashBox";
+			this._isDateSeparatorSlashBox.Size = new System.Drawing.Size(121, 19);
+			this._isDateSeparatorSlashBox.TabIndex = 7;
+			this._isDateSeparatorSlashBox.Text = "年月日区切りは「/」";
+			this._isDateSeparatorSlashBox.UseVisualStyleBackColor = true;
+			// 
+			// _isMonthAndDate2DigitBox
+			// 
+			this._isMonthAndDate2DigitBox.AutoSize = true;
+			this._isMonthAndDate2DigitBox.Location = new System.Drawing.Point(6, 48);
+			this._isMonthAndDate2DigitBox.Name = "_isMonthAndDate2DigitBox";
+			this._isMonthAndDate2DigitBox.Size = new System.Drawing.Size(136, 19);
+			this._isMonthAndDate2DigitBox.TabIndex = 6;
+			this._isMonthAndDate2DigitBox.Text = "日付の月日表示は2桁";
+			this._isMonthAndDate2DigitBox.UseVisualStyleBackColor = true;
+			// 
+			// _isYear4digitBox
+			// 
+			this._isYear4digitBox.AutoSize = true;
+			this._isYear4digitBox.Location = new System.Drawing.Point(6, 22);
+			this._isYear4digitBox.Name = "_isYear4digitBox";
+			this._isYear4digitBox.Size = new System.Drawing.Size(124, 19);
+			this._isYear4digitBox.TabIndex = 5;
+			this._isYear4digitBox.Text = "日付の年表示は4桁";
+			this._isYear4digitBox.UseVisualStyleBackColor = true;
 			// 
 			// _icadLinkLabel
 			// 
@@ -215,7 +265,7 @@
 			this._icadLinkLabel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this._icadLinkLabel.Location = new System.Drawing.Point(3, 0);
 			this._icadLinkLabel.Name = "_icadLinkLabel";
-			this._icadLinkLabel.Size = new System.Drawing.Size(117, 36);
+			this._icadLinkLabel.Size = new System.Drawing.Size(117, 35);
 			this._icadLinkLabel.TabIndex = 4;
 			this._icadLinkLabel.Tag = "1";
 			this._icadLinkLabel.Text = "ICAD連携ポート";
@@ -226,7 +276,7 @@
 			// 
 			this.tableLayoutPanel1.ColumnCount = 3;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66667F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutPanel1.Controls.Add(this._userLabel, 0, 2);
 			this.tableLayoutPanel1.Controls.Add(this._userBox, 1, 2);
@@ -240,21 +290,20 @@
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 4;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.99999F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 182);
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 269);
 			this.tableLayoutPanel1.TabIndex = 6;
 			// 
 			// _userLabel
 			// 
 			this._userLabel.AutoSize = true;
 			this._userLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._userLabel.Location = new System.Drawing.Point(3, 72);
+			this._userLabel.Location = new System.Drawing.Point(3, 70);
 			this._userLabel.Name = "_userLabel";
-			this._userLabel.Size = new System.Drawing.Size(117, 36);
+			this._userLabel.Size = new System.Drawing.Size(117, 35);
 			this._userLabel.TabIndex = 8;
 			this._userLabel.Tag = "3";
 			this._userLabel.Text = "ユーザー";
@@ -265,7 +314,7 @@
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this._userBox, 2);
 			this._userBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._userBox.Location = new System.Drawing.Point(126, 79);
+			this._userBox.Location = new System.Drawing.Point(126, 77);
 			this._userBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this._userBox.Name = "_userBox";
 			this._userBox.Size = new System.Drawing.Size(291, 23);
@@ -277,9 +326,9 @@
 			// 
 			this._defaultFolderLabel.AutoSize = true;
 			this._defaultFolderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._defaultFolderLabel.Location = new System.Drawing.Point(3, 36);
+			this._defaultFolderLabel.Location = new System.Drawing.Point(3, 35);
 			this._defaultFolderLabel.Name = "_defaultFolderLabel";
-			this._defaultFolderLabel.Size = new System.Drawing.Size(117, 36);
+			this._defaultFolderLabel.Size = new System.Drawing.Size(117, 35);
 			this._defaultFolderLabel.TabIndex = 6;
 			this._defaultFolderLabel.Tag = "2";
 			this._defaultFolderLabel.Text = "初期フォルダ";
@@ -289,10 +338,10 @@
 			// _defaultFolderBox
 			// 
 			this._defaultFolderBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._defaultFolderBox.Location = new System.Drawing.Point(126, 39);
+			this._defaultFolderBox.Location = new System.Drawing.Point(126, 38);
 			this._defaultFolderBox.Multiline = true;
 			this._defaultFolderBox.Name = "_defaultFolderBox";
-			this._defaultFolderBox.Size = new System.Drawing.Size(240, 30);
+			this._defaultFolderBox.Size = new System.Drawing.Size(240, 29);
 			this._defaultFolderBox.TabIndex = 7;
 			this._defaultFolderBox.Tag = "2";
 			this._defaultFolderBox.Validated += new System.EventHandler(this.Boxes_Validated);
@@ -301,9 +350,9 @@
 			// 
 			this._folderBrowseButton.Dock = System.Windows.Forms.DockStyle.Fill;
 			this._folderBrowseButton.Image = global::ICADRenamer.Properties.Resources.FolderBrowseIcon;
-			this._folderBrowseButton.Location = new System.Drawing.Point(372, 39);
+			this._folderBrowseButton.Location = new System.Drawing.Point(372, 38);
 			this._folderBrowseButton.Name = "_folderBrowseButton";
-			this._folderBrowseButton.Size = new System.Drawing.Size(45, 30);
+			this._folderBrowseButton.Size = new System.Drawing.Size(45, 29);
 			this._folderBrowseButton.TabIndex = 10;
 			this._folderBrowseButton.Tag = "2";
 			this._toolTip.SetToolTip(this._folderBrowseButton, "フォルダをダイアログで指定します。");
@@ -327,7 +376,7 @@
 			this._regexBox.ItemHeight = 15;
 			this._regexBox.Location = new System.Drawing.Point(240, 3);
 			this._regexBox.Name = "_regexBox";
-			this._regexBox.Size = new System.Drawing.Size(183, 184);
+			this._regexBox.Size = new System.Drawing.Size(183, 271);
 			this._regexBox.TabIndex = 0;
 			this._regexBox.Tag = "4";
 			this._toolTip.SetToolTip(this._regexBox, "入力規則のリストを表示します。");
@@ -342,7 +391,7 @@
 			this._tabControl1.Location = new System.Drawing.Point(0, 0);
 			this._tabControl1.Name = "_tabControl1";
 			this._tabControl1.SelectedIndex = 0;
-			this._tabControl1.Size = new System.Drawing.Size(434, 216);
+			this._tabControl1.Size = new System.Drawing.Size(434, 303);
 			this._tabControl1.TabIndex = 7;
 			// 
 			// _generalPage
@@ -351,7 +400,7 @@
 			this._generalPage.Location = new System.Drawing.Point(4, 24);
 			this._generalPage.Name = "_generalPage";
 			this._generalPage.Padding = new System.Windows.Forms.Padding(3);
-			this._generalPage.Size = new System.Drawing.Size(426, 188);
+			this._generalPage.Size = new System.Drawing.Size(426, 275);
 			this._generalPage.TabIndex = 0;
 			this._generalPage.Text = "全般";
 			this._generalPage.UseVisualStyleBackColor = true;
@@ -364,7 +413,7 @@
 			this._regexPage.Location = new System.Drawing.Point(4, 22);
 			this._regexPage.Name = "_regexPage";
 			this._regexPage.Padding = new System.Windows.Forms.Padding(3);
-			this._regexPage.Size = new System.Drawing.Size(426, 190);
+			this._regexPage.Size = new System.Drawing.Size(426, 277);
 			this._regexPage.TabIndex = 1;
 			this._regexPage.Tag = "4";
 			this._regexPage.Text = "入力規則";
@@ -379,10 +428,20 @@
 			this._regexContextMenuStrip.DeleteRequest += new System.EventHandler(this.RegexContextMenuStrip_DeleteRequest);
 			this._regexContextMenuStrip.EditRequest += new System.EventHandler(this.RegexContextMenuStrip_EditRequest);
 			// 
+			// _resit3dSeihinBox
+			// 
+			this._resit3dSeihinBox.AutoSize = true;
+			this._resit3dSeihinBox.Location = new System.Drawing.Point(3, 53);
+			this._resit3dSeihinBox.Name = "_resit3dSeihinBox";
+			this._resit3dSeihinBox.Size = new System.Drawing.Size(151, 19);
+			this._resit3dSeihinBox.TabIndex = 7;
+			this._resit3dSeihinBox.Text = "3D製品フォルダに登録する";
+			this._resit3dSeihinBox.UseVisualStyleBackColor = true;
+			// 
 			// OptionSettingForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(434, 261);
+			this.ClientSize = new System.Drawing.Size(434, 348);
 			this.Controls.Add(this._tabControl1);
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -398,6 +457,8 @@
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel2.ResumeLayout(false);
 			this.flowLayoutPanel2.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this._tabControl1.ResumeLayout(false);
@@ -436,5 +497,10 @@
 		private System.Windows.Forms.Button _helpButton;
 		private System.Windows.Forms.CheckBox _isIcadMinimize;
 		private RegexContextMenuStrip _regexContextMenuStrip;
+		private System.Windows.Forms.CheckBox _isYear4digitBox;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.CheckBox _isDateSeparatorSlashBox;
+		private System.Windows.Forms.CheckBox _isMonthAndDate2DigitBox;
+		private System.Windows.Forms.CheckBox _resit3dSeihinBox;
 	}
 }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* ICAD Renaler
+	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
+*/
 using System.Windows.Forms;
 
 namespace ICADRenamer
@@ -19,9 +14,6 @@ namespace ICADRenamer
 		/// <summary>
 		///  <see cref="ICADStartingForm"/> classの初期化
 		/// </summary>
-		public ICADStartingForm()
-		{
-			InitializeComponent();
-		}
+		public ICADStartingForm() => InitializeComponent();
 	}
 }

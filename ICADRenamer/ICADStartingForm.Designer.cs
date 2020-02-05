@@ -28,34 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
-			this._progressBar = new System.Windows.Forms.ProgressBar();
+			this._messageLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
-			// label1
+			// _messageLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(149, 20);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "ICADを起動しています...";
-			// 
-			// _progressBar
-			// 
-			this._progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this._progressBar.Location = new System.Drawing.Point(0, 102);
-			this._progressBar.Name = "_progressBar";
-			this._progressBar.Size = new System.Drawing.Size(195, 28);
-			this._progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-			this._progressBar.TabIndex = 1;
+			this._messageLabel.AutoSize = true;
+			this._messageLabel.Location = new System.Drawing.Point(12, 9);
+			this._messageLabel.Name = "_messageLabel";
+			this._messageLabel.Size = new System.Drawing.Size(149, 20);
+			this._messageLabel.TabIndex = 0;
+			this._messageLabel.Text = "ICADを起動しています...";
 			// 
 			// ICADStartingForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.ClientSize = new System.Drawing.Size(195, 130);
-			this.Controls.Add(this._progressBar);
-			this.Controls.Add(this.label1);
+			this.ControlBox = false;
+			this.Controls.Add(this._messageLabel);
 			this.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
@@ -69,7 +59,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ProgressBar _progressBar;
+		private System.Windows.Forms.Label _messageLabel;
 	}
 }

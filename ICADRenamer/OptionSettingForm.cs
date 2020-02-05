@@ -154,6 +154,10 @@ namespace ICADRenamer
 			Option.ICADLinkPort = Convert.ToInt32(_iCADLinkBox.Text);
 			Option.UserName = _userBox.Text;
 			Option.NewProjectRegex = _regexBox.Items.Cast<string>().ToList();
+			Option.IsYear4Digit = _isYear4digitBox.Checked;
+			Option.IsMonthAndDate2Digit = _isMonthAndDate2DigitBox.Checked;
+			Option.IsDateSeparatorSlash = _isDateSeparatorSlashBox.Checked;
+			Option.ResitTo3DSeihin = _resit3dSeihinBox.Checked;
 		}
 
 		/// <summary>
@@ -197,6 +201,10 @@ namespace ICADRenamer
 			_isUpdate.Checked = Option.CanExecuteUpdate;
 			_isValidateProject.Checked = Option.UseProjectCheck;
 			_isIcadMinimize.Checked = Option.ICADMinimize;
+			_isYear4digitBox.Checked = Option.IsYear4Digit;
+			_isMonthAndDate2DigitBox.Checked = Option.IsMonthAndDate2Digit;
+			_isDateSeparatorSlashBox.Checked = Option.IsDateSeparatorSlash;
+			_resit3dSeihinBox.Checked = Option.ResitTo3DSeihin;
 			_regexBox.Items.Clear();
 			_regexBox.Items.AddRange(Option.NewProjectRegex.ToArray());
 		}

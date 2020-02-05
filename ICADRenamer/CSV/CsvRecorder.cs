@@ -79,7 +79,7 @@ namespace ICADRenamer.CSV
 				using var cw = new CsvWriter(sw, CultureInfo.CurrentUICulture);
 				var config = cw.Configuration;
 				SetWriteConfig(ref config);
-				cw.WriteRecords<CsvRecordItem>(items);
+				cw.WriteRecords(items);
 			}
 			finally
 			{ sw?.Dispose(); }

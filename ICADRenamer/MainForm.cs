@@ -61,9 +61,11 @@ namespace ICADRenamer
 				(LogMessageCategory.ActiveControl,(SystemMethods.GetLabelText(this,box.Tag))),
 				(LogMessageCategory.NewData,box.Text)
 			});
-			if (Equals(box, _newProjectBox) || Equals(box, _signatureBox)) return;
-			//
-			DisplayFiles((TextBox) sender);
+			if (Equals(box, _sourceBox) || Equals(box, _destinationBox))
+			{
+				//
+				DisplayFiles((TextBox) sender);
+			}
 			_executeButton.Enabled = ExecuteEnableCheck();
 		}
 

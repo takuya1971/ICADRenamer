@@ -79,6 +79,7 @@ namespace ICADRenamer.Settings
 				IsYear4Digit=true,
 				IsMonthAndDate2Digit=true,
 				IsDateSeparatorSlash=true,
+				ResitTo3DSeihin=true,
 				NewProjectRegex = new List<string>
 				{
 					@"M[0-9]{4}",

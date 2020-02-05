@@ -2,11 +2,12 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "CsvHelper/13.0.0": {
+      "CsvHelper/15.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
-          "Microsoft.CSharp": "4.5.0"
+          "Microsoft.CSharp": "4.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.3"
         },
         "compile": {
           "lib/net47/CsvHelper.dll": {}
@@ -289,7 +290,7 @@
           "build/net461/_._": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.2": {
+      "System.Threading.Tasks.Extensions/4.5.3": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
@@ -305,7 +306,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
-          "CsvHelper": "13.0.0",
+          "CsvHelper": "15.0.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -322,11 +323,12 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
-      "CsvHelper/13.0.0": {
+      "CsvHelper/15.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
-          "Microsoft.CSharp": "4.5.0"
+          "Microsoft.CSharp": "4.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.3"
         },
         "compile": {
           "lib/net47/CsvHelper.dll": {}
@@ -609,7 +611,7 @@
           "build/net461/_._": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.2": {
+      "System.Threading.Tasks.Extensions/4.5.3": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
@@ -625,7 +627,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
-          "CsvHelper": "13.0.0",
+          "CsvHelper": "15.0.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -642,11 +644,12 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
-      "CsvHelper/13.0.0": {
+      "CsvHelper/15.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
-          "Microsoft.CSharp": "4.5.0"
+          "Microsoft.CSharp": "4.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.3"
         },
         "compile": {
           "lib/net47/CsvHelper.dll": {}
@@ -929,7 +932,7 @@
           "build/net461/_._": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.2": {
+      "System.Threading.Tasks.Extensions/4.5.3": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
@@ -945,7 +948,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
-          "CsvHelper": "13.0.0",
+          "CsvHelper": "15.0.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -962,11 +965,12 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
-      "CsvHelper/13.0.0": {
+      "CsvHelper/15.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
-          "Microsoft.CSharp": "4.5.0"
+          "Microsoft.CSharp": "4.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.3"
         },
         "compile": {
           "lib/net47/CsvHelper.dll": {}
@@ -1249,7 +1253,7 @@
           "build/net461/_._": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.2": {
+      "System.Threading.Tasks.Extensions/4.5.3": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.5.2"
@@ -1265,7 +1269,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
-          "CsvHelper": "13.0.0",
+          "CsvHelper": "15.0.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -1283,15 +1287,15 @@
     }
   },
   "libraries": {
-    "CsvHelper/13.0.0": {
-      "sha512": "Z90xLP9RQX4bmaxzd4UIv/WTdV5Fqyv8eM4V9opdscatrdlBzOf9h75KiObovSLjPBoo6EOog6xmPBcxysFYew==",
+    "CsvHelper/15.0.0": {
+      "sha512": "edCk/ugHNUlH9JGULveiujP3G8lQsbf8D8p9lpJYq9q9tY4iYlURiy3cBp+gP8KaLbfvgYoEo7AIy+d2Oi5Kdg==",
       "type": "package",
-      "path": "csvhelper/13.0.0",
+      "path": "csvhelper/15.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "csvhelper.13.0.0.nupkg.sha512",
+        "csvhelper.15.0.0.nupkg.sha512",
         "csvhelper.nuspec",
         "lib/net45/CsvHelper.dll",
         "lib/net45/CsvHelper.xml",
@@ -2013,10 +2017,10 @@
         "version.txt"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.5.2": {
-      "sha512": "BG/TNxDFv0svAzx8OiMXDlsHfGw623BZ8tCXw4YLhDFDvDhNUEV58jKYMGRnkbJNm7c3JNNJDiN7JBMzxRBR2w==",
+    "System.Threading.Tasks.Extensions/4.5.3": {
+      "sha512": "+MvhNtcvIbqmhANyKu91jQnvIRVSTiaOiFNfKWwXGHG48YAb4I/TyH8spsySiPYla7gKal5ZnF3teJqZAximyQ==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.5.2",
+      "path": "system.threading.tasks.extensions/4.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2042,7 +2046,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+        "system.threading.tasks.extensions.4.5.3.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -2062,20 +2066,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\拓也\\.nuget\\packages\\": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
       "projectName": "ICADRenamerTests",
-      "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
-      "packagesPath": "C:\\Users\\拓也\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\obj\\",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\ICADRenamerTests.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamerTests\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\拓也\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2083,13 +2087,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net48": {
           "projectReferences": {
-            "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
-              "projectPath": "C:\\Users\\拓也\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
             }
           }
         }
