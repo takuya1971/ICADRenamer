@@ -326,7 +326,7 @@ namespace ICADRenamer
 				seihinFile = sr.ReadToEnd();
 				enc = sr.CurrentEncoding;
 			}
-			//フォルダパスの首都気宇
+			//フォルダパスのラインを分割
 			var seihinArray = seihinFile.Split(new string[] { "\r\n" }
 			, StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -545,13 +545,13 @@ namespace ICADRenamer
 					var vsName = vs.getInf().name;
 					//対象のセグメントリスト
 					var segList = vs.getSegList(0, 0, false, true, true, false);
-					SxGeom[] geomList=null;
+					SxGeom[] geomList = null;
 					try
 					{
 						//対象セグメントのジオメトリリスト
 						geomList = SxEntSeg.getGeomList(segList);
 					}
-					catch(SxException e)
+					catch (SxException e)
 					{
 						SetRecordRemark(ref record, ErrorCategory.GetGeomError, e);
 						RenameLogger.WriteLog(new LogItem
@@ -1029,7 +1029,7 @@ namespace ICADRenamer
 								foreach (var dir in dirs)
 								{
 									//改名後のパス
-									var path = Path.Combine(dir, name,".icd");
+									var path = Path.Combine(dir, name, ".icd");
 									if (File.Exists(path))
 									{
 										return new SxFileModel(path);
@@ -1038,7 +1038,7 @@ namespace ICADRenamer
 									{
 										//改名前のパス
 										path = Path.Combine(dir, tree.inf.name, ".icd");
-										if(File.Exists(path))
+										if (File.Exists(path))
 										{
 											return new SxFileModel(path);
 										}

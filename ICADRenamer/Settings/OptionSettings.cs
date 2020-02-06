@@ -94,6 +94,11 @@ namespace ICADRenamer.Settings
 		public bool ResitTo3DSeihin { get; set; }
 
 		/// <summary>
+		/// ICAD再起動しきい値を保持するプロパティ
+		/// </summary>
+		public int RestartThredshold { get; set; }
+
+		/// <summary>
 		///   <see cref="OptionSettings"/> classの初期化
 		/// </summary>
 		public OptionSettings() { }

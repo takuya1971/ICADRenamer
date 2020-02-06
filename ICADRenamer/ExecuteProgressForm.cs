@@ -155,14 +155,6 @@ namespace ICADRenamer
 		{
 			for (var i = 1; i < 4; i++)
 			{
-				//if (InvokeRequired)
-				//{
-				//	Invoke(new UpdateProgress(ChangeProgress),i, e);
-				//}
-				//else
-				//{
-				//	ChangeProgress(i, e);
-				//}
 				ChangeProgress(i, e);
 			}
 		}
@@ -362,7 +354,7 @@ namespace ICADRenamer
 			//使用メモリ量
 			var workingSet = _command.IcadProcess.WorkingSet64;
 			//900MB以上占有なら
-			if (workingSet > 800 * Math.Pow(1000, 2))
+			if (workingSet > _executeParams.Settings.RestartThredshold * Math.Pow(1000, 2))
 			{
 				//タイマ停止
 				_timer.Enabled = false;

@@ -42,6 +42,7 @@
 			this._iCADLinkBox = new System.Windows.Forms.TextBox();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this._isIcadMinimize = new System.Windows.Forms.CheckBox();
+			this._resit3dSeihinBox = new System.Windows.Forms.CheckBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this._isDateSeparatorSlashBox = new System.Windows.Forms.CheckBox();
 			this._isMonthAndDate2DigitBox = new System.Windows.Forms.CheckBox();
@@ -60,7 +61,9 @@
 			this._generalPage = new System.Windows.Forms.TabPage();
 			this._regexPage = new System.Windows.Forms.TabPage();
 			this._regexContextMenuStrip = new ICADRenamer.RegexContextMenuStrip();
-			this._resit3dSeihinBox = new System.Windows.Forms.CheckBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -79,7 +82,7 @@
 			this.flowLayoutPanel1.Controls.Add(this._addNewButton);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 303);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 339);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(434, 45);
 			this.flowLayoutPanel1.TabIndex = 0;
@@ -200,10 +203,10 @@
 			this.flowLayoutPanel2.Controls.Add(this._resit3dSeihinBox);
 			this.flowLayoutPanel2.Controls.Add(this.groupBox1);
 			this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 105);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 140);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 164);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 165);
 			this.flowLayoutPanel2.TabIndex = 5;
 			// 
 			// _isIcadMinimize
@@ -216,6 +219,16 @@
 			this._isIcadMinimize.Text = "ICAD起動時に最小化する";
 			this._toolTip.SetToolTip(this._isIcadMinimize, "ICADを最小化するか指定します");
 			this._isIcadMinimize.UseVisualStyleBackColor = true;
+			// 
+			// _resit3dSeihinBox
+			// 
+			this._resit3dSeihinBox.AutoSize = true;
+			this._resit3dSeihinBox.Location = new System.Drawing.Point(3, 53);
+			this._resit3dSeihinBox.Name = "_resit3dSeihinBox";
+			this._resit3dSeihinBox.Size = new System.Drawing.Size(151, 19);
+			this._resit3dSeihinBox.TabIndex = 7;
+			this._resit3dSeihinBox.Text = "3D製品フォルダに登録する";
+			this._resit3dSeihinBox.UseVisualStyleBackColor = true;
 			// 
 			// groupBox1
 			// 
@@ -237,6 +250,8 @@
 			this._isDateSeparatorSlashBox.Size = new System.Drawing.Size(121, 19);
 			this._isDateSeparatorSlashBox.TabIndex = 7;
 			this._isDateSeparatorSlashBox.Text = "年月日区切りは「/」";
+			this._toolTip.SetToolTip(this._isDateSeparatorSlashBox, "年月日の区切を「/」（スラッシュ）にするか選択します。\r\nチェックすると「/」になり、チェックをはずすと、「.」になります。\r\nチェックありのときは、2020年1" +
+        "0月10日は、「2020/10/10」にチェックなしのときは、「2020.10.10」になります。");
 			this._isDateSeparatorSlashBox.UseVisualStyleBackColor = true;
 			// 
 			// _isMonthAndDate2DigitBox
@@ -247,6 +262,7 @@
 			this._isMonthAndDate2DigitBox.Size = new System.Drawing.Size(136, 19);
 			this._isMonthAndDate2DigitBox.TabIndex = 6;
 			this._isMonthAndDate2DigitBox.Text = "日付の月日表示は2桁";
+			this._toolTip.SetToolTip(this._isMonthAndDate2DigitBox, "日付の月と日の表示が1桁のとき、前にゼロを入れるかどうか選択します。\r\nチェックすると、3月1日は「03/01」と表示されます。");
 			this._isMonthAndDate2DigitBox.UseVisualStyleBackColor = true;
 			// 
 			// _isYear4digitBox
@@ -257,6 +273,7 @@
 			this._isYear4digitBox.Size = new System.Drawing.Size(124, 19);
 			this._isYear4digitBox.TabIndex = 5;
 			this._isYear4digitBox.Text = "日付の年表示は4桁";
+			this._toolTip.SetToolTip(this._isYear4digitBox, "図面の年の表示を4桁にするか2桁にするか選択します。\r\nチェックすると4桁になります。");
 			this._isYear4digitBox.UseVisualStyleBackColor = true;
 			// 
 			// _icadLinkLabel
@@ -282,19 +299,23 @@
 			this.tableLayoutPanel1.Controls.Add(this._userBox, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this._defaultFolderLabel, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this._defaultFolderBox, 1, 1);
-			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 3);
+			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 4);
 			this.tableLayoutPanel1.Controls.Add(this._icadLinkLabel, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this._iCADLinkBox, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this._folderBrowseButton, 2, 1);
+			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 3);
+			this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.label3, 2, 3);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 4;
+			this.tableLayoutPanel1.RowCount = 5;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 269);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 305);
 			this.tableLayoutPanel1.TabIndex = 6;
 			// 
 			// _userLabel
@@ -391,7 +412,7 @@
 			this._tabControl1.Location = new System.Drawing.Point(0, 0);
 			this._tabControl1.Name = "_tabControl1";
 			this._tabControl1.SelectedIndex = 0;
-			this._tabControl1.Size = new System.Drawing.Size(434, 303);
+			this._tabControl1.Size = new System.Drawing.Size(434, 339);
 			this._tabControl1.TabIndex = 7;
 			// 
 			// _generalPage
@@ -400,7 +421,7 @@
 			this._generalPage.Location = new System.Drawing.Point(4, 24);
 			this._generalPage.Name = "_generalPage";
 			this._generalPage.Padding = new System.Windows.Forms.Padding(3);
-			this._generalPage.Size = new System.Drawing.Size(426, 275);
+			this._generalPage.Size = new System.Drawing.Size(426, 311);
 			this._generalPage.TabIndex = 0;
 			this._generalPage.Text = "全般";
 			this._generalPage.UseVisualStyleBackColor = true;
@@ -428,20 +449,42 @@
 			this._regexContextMenuStrip.DeleteRequest += new System.EventHandler(this.RegexContextMenuStrip_DeleteRequest);
 			this._regexContextMenuStrip.EditRequest += new System.EventHandler(this.RegexContextMenuStrip_EditRequest);
 			// 
-			// _resit3dSeihinBox
+			// label1
 			// 
-			this._resit3dSeihinBox.AutoSize = true;
-			this._resit3dSeihinBox.Location = new System.Drawing.Point(3, 53);
-			this._resit3dSeihinBox.Name = "_resit3dSeihinBox";
-			this._resit3dSeihinBox.Size = new System.Drawing.Size(151, 19);
-			this._resit3dSeihinBox.TabIndex = 7;
-			this._resit3dSeihinBox.Text = "3D製品フォルダに登録する";
-			this._resit3dSeihinBox.UseVisualStyleBackColor = true;
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Location = new System.Drawing.Point(3, 105);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(117, 35);
+			this.label1.TabIndex = 11;
+			this.label1.Text = "ICAD再起動閾値";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._toolTip.SetToolTip(this.label1, "ICADが再起動する閾値を入力します。\r\n通常は既定値のままにしてください。");
+			// 
+			// textBox1
+			// 
+			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox1.Location = new System.Drawing.Point(126, 108);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(240, 23);
+			this.textBox1.TabIndex = 12;
+			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label3.Location = new System.Drawing.Point(372, 105);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(45, 35);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "MB";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// OptionSettingForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(434, 348);
+			this.ClientSize = new System.Drawing.Size(434, 384);
 			this.Controls.Add(this._tabControl1);
 			this.Controls.Add(this.flowLayoutPanel1);
 			this.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -502,5 +545,8 @@
 		private System.Windows.Forms.CheckBox _isDateSeparatorSlashBox;
 		private System.Windows.Forms.CheckBox _isMonthAndDate2DigitBox;
 		private System.Windows.Forms.CheckBox _resit3dSeihinBox;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label3;
 	}
 }

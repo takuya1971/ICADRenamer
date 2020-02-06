@@ -76,10 +76,11 @@ namespace ICADRenamer.Settings
 				UseProjectCheck = true,
 				ICADMinimize = true,
 				UserName = "",
-				IsYear4Digit=true,
-				IsMonthAndDate2Digit=true,
-				IsDateSeparatorSlash=true,
-				ResitTo3DSeihin=true,
+				IsYear4Digit = true,
+				IsMonthAndDate2Digit = true,
+				IsDateSeparatorSlash = true,
+				ResitTo3DSeihin = true,
+				RestartThredshold = 800,
 				NewProjectRegex = new List<string>
 				{
 					@"M[0-9]{4}",

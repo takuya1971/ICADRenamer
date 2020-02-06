@@ -315,3 +315,5 @@ C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRe
 C:\Users\拓也\Source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.pdb
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.exe.config
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.IcadRestartForm.resources
+C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.exe.config
+C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\obj\Debug\ICADRenamer.IcadRestartForm.resources

@@ -145,19 +145,9 @@ namespace ICADRenamer
 				Signature = args[3],
 				Settings = new OptionSettingsSerializer().Load()
 			});
-			//var task=command.Execute(new RenameExecuteParams
-			//{
-			//	SourcePath = args[0],
-			//	DestinationPath = args[1],
-			//	PrefixName = args[2],
-			//	Signature = args[3],
-			//	Settings = new OptionSettingsSerializer().Load()
-			//});
-			//await task;
-			Process.Start(command.RecordPath);
-			//
+			//変換結果を出力
 			var outStream = Console.Out;
-			foreach(var line in command.RecordItems)
+			foreach (var line in command.RecordItems)
 			{
 				outStream.WriteLine(line);
 			}
