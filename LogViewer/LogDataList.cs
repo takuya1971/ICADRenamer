@@ -48,20 +48,30 @@ namespace LogViewer
 		private static LogDataList CreateData(string source)
 		{
 			LogDataList dataRecords = new LogDataList();
-			var records = source.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			var records = source.Split(new string[] { "-END-" }, StringSplitOptions.RemoveEmptyEntries);
 			foreach (var record in records)
 			{
 				if (record.Length < 3) continue;
 				var fields = record.Split(new char[] { '|' });
 				var ci = new CultureInfo("ja-JP");
 				ci.DateTimeFormat.LongDatePattern = "yyyy-mm-dd hh:mm:ss.ffff";
-				dataRecords.Add(new LogDataRecord
+				var logRecord = new LogDataRecord
 				{
-					Date = DateTime.TryParse(TrimString(fields[0]), ci, DateTimeStyles.AssumeLocal, out var d) ? d : (DateTime?) null,
-					Level = TrimString(fields[1]),
-					Message = AddReturn(TrimString(fields[2])),
-					Trace = fields[3]
-				});
+					Date = DateTime.TryParse(TrimString(fields[0]), ci, DateTimeStyles.AssumeLocal, out var d) ? d : (DateTime?) null
+				};
+				if (record.Length>1)
+				{
+					logRecord.Level = TrimString(fields[1]);
+				}
+				if(record.Length>2)
+				{
+					logRecord.Message = AddReturn(TrimString(fields[2]));
+				}
+				if(record.Length>3)
+				{
+					logRecord.Trace = fields[3];
+				}
+				dataRecords.Add(logRecord);
 			}
 			return dataRecords;
 		}

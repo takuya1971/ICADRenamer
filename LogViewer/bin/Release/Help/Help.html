@@ -57,7 +57,7 @@
                 <tr>
                     <td>ほか</td>
                     <td>ICAD SX<br>
-                    ICAD SDK+実行権</td>
+                        ICAD SDK+実行権</td>
                 </tr>
             </table>
             <hr />
@@ -285,6 +285,17 @@
                 図面更新によって発生する可能性がある「寸法のずれ」は修正しません。<br>
             </p>
             <hr>
+            <h3>ICADの再起動の可能性</h3>
+            <p>
+                実行中、とくに図面表題欄の編集中にICADが自動的に再起動することがあります。<br>
+                これは、図面開閉を繰り返したときに使用メモリが増大するICADの問題に対応するためです。<br>
+            </p>
+            <hr>
+            <h3>実行中のICADの編集</h3>
+            <p>
+                実行中は、ICADを操作しないでください。<br>
+                操作中の図面を閉じたり、変更を加えたりすると、エラーが発生することがあります。<br>
+            </p>
         </section>
         <section>
             <h2 id="OptionSettingDialog">オプション設定</h2>
@@ -315,6 +326,12 @@
                     <li>⑫...<a href="#RegexBox">M番入力規則リスト</a>です。</li>
                     <li>⑬...<a href="#RegexAddNewButton">新規作成ボタン</a>です。</li>
                     <li>⑭...<a href="#RegexDeleteButton">削除ボタン</a>です。</li>
+                    <li>⑮...<a href="#ICADMinimize">ICADを最小化</a>するかどうかのチェックボックスです。</li>
+                    <li>⑯...<a href="#ICADRestart">ICADを再起動する使用メモリの閾値</a>を設定します。単位はMBです。></li>
+                    <li>⑰...<a href="#Resister3DFolder">3D製品フォルダ</a>にフォルダを登録するかどうかのチェックボックスです。</li>
+                    <li>⑱...<a href="#YearIs4Digit">日付の年表示を4桁</a>にするかどうかのチェックボックスです。</li>
+                    <li>⑲...<a href="#MonthAndDateIs2Digit">月日の表示を2桁</a>に固定するかどうかのチェックボックスです。</li>
+                    <li>⑳...<a href="#DateSeparatorIsSlash">年月日の区切りをスラッシュ(/)にする</a>かどうかのチェックボックスです。</li>
                 </ul>
             </p>
             <hr />
@@ -400,7 +417,47 @@
                 選択したM番入力規則を削除します。<br />
                 確認ダイアログが現れるので、OKを押すと実際に削除されます。<br />
             </p>
+            <hr>
+            <h3 id="ICADMinimize">ICAD最小化</h3>
+            <p>
+                ICADが起動したとき、最小化で起動するか指定します。<br>
+                チェックをはずすと、通常のウィンドウサイズで起動します。<br>
+            </p>
             <hr />
+            <h3 id="ICADRestart">ICAD再起動の閾値</h3>
+            <p>
+                ICADの使用メモリを解放するために再起動するメモリ容量の閾値です。<br>
+                プロセスを監視し、設定した要領になると再起動します。<br>
+            </p>
+            <hr>
+            <h3 id="Resister3DFolder">3D製品フォルダへの登録</h3>
+            <p>
+                3D製品フォルダへの登録を実施するかどうか指定します。<br>
+                3D製品フォルダへの登録件数が増加すると、ICADの起動が遅くなります。<br>
+                3D製品フォルダへの登録はICADの機能です。<br>
+                外部パーツが、同一フォルダ内または、配下のフォルダ内にない場合、登録しないと未解決パーツになります。<br>
+            </p>
+            <hr>
+            <h3 id="YearIs4Digit">年表示は4桁</h3>
+            <p>
+                日付の年表示を4桁にするか選択します。<br>
+                チェックを外すと2桁表示になります。<br>
+            </p>
+            <hr>
+            <h3 id="MonthAndDateIs2Digit">月日の表示は2桁</h3>
+            <p>
+                日付の月と日の表示を2桁にするか選択します。<br>
+                チェックすると、3月1日は「03.01」になります。<br>
+                チェックを外すと、「3.1」になります。<br>
+            </p>
+            <hr>
+            <h3 id="DateSeparatorIsSlash">年月日表示はスラッシュ</h3>
+            <p>
+                年月日の区切表示をスラッシュ(/)にするか指定します。<br>
+                チェックすると、2020年3月1日は「2020/03/01」になります。<br>
+                チェックを外すと、「2020.03.01」になります。<br>
+            </p>
+            <hr>
         </section>
         <section>
             <h2 id="RegexScreen">図面検索キーワード画面</h2>
@@ -863,8 +920,8 @@
                 </thead>
                 <tr>
                     <td>NLog</td>
-                    <td>Copyright (c) 2004-2019 Jaroslaw Kowalski  &lt;jaak@jkowalski.net&gt;, Kim Christensen, Julian
-                            Verdurmen</td>
+                    <td>Copyright (c) 2004-2019 Jaroslaw Kowalski &lt;jaak@jkowalski.net&gt;, Kim Christensen, Julian
+                        Verdurmen</td>
                     <td>
                         BSD 3-Clause "New" or "Revised" License</td>
                 </tr>

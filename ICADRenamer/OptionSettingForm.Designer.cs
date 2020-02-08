@@ -54,6 +54,9 @@
 			this._defaultFolderLabel = new System.Windows.Forms.Label();
 			this._defaultFolderBox = new System.Windows.Forms.TextBox();
 			this._folderBrowseButton = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this._toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.label2 = new System.Windows.Forms.Label();
 			this._regexBox = new System.Windows.Forms.ListBox();
@@ -61,9 +64,6 @@
 			this._generalPage = new System.Windows.Forms.TabPage();
 			this._regexPage = new System.Windows.Forms.TabPage();
 			this._regexContextMenuStrip = new ICADRenamer.RegexContextMenuStrip();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -228,6 +228,7 @@
 			this._resit3dSeihinBox.Size = new System.Drawing.Size(151, 19);
 			this._resit3dSeihinBox.TabIndex = 7;
 			this._resit3dSeihinBox.Text = "3D製品フォルダに登録する";
+			this._toolTip.SetToolTip(this._resit3dSeihinBox, "3D製品フォルダに登録します");
 			this._resit3dSeihinBox.UseVisualStyleBackColor = true;
 			// 
 			// groupBox1
@@ -380,6 +381,38 @@
 			this._folderBrowseButton.UseVisualStyleBackColor = true;
 			this._folderBrowseButton.Click += new System.EventHandler(this.FolderBrowseButton_Click);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Location = new System.Drawing.Point(3, 105);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(117, 35);
+			this.label1.TabIndex = 11;
+			this.label1.Text = "ICAD再起動閾値";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._toolTip.SetToolTip(this.label1, "ICADが再起動する閾値を入力します。\r\n通常は既定値のままにしてください。");
+			// 
+			// textBox1
+			// 
+			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox1.Location = new System.Drawing.Point(126, 108);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(240, 23);
+			this.textBox1.TabIndex = 12;
+			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label3.Location = new System.Drawing.Point(372, 105);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(45, 35);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "MB";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
@@ -397,7 +430,7 @@
 			this._regexBox.ItemHeight = 15;
 			this._regexBox.Location = new System.Drawing.Point(240, 3);
 			this._regexBox.Name = "_regexBox";
-			this._regexBox.Size = new System.Drawing.Size(183, 271);
+			this._regexBox.Size = new System.Drawing.Size(183, 307);
 			this._regexBox.TabIndex = 0;
 			this._regexBox.Tag = "4";
 			this._toolTip.SetToolTip(this._regexBox, "入力規則のリストを表示します。");
@@ -434,7 +467,7 @@
 			this._regexPage.Location = new System.Drawing.Point(4, 22);
 			this._regexPage.Name = "_regexPage";
 			this._regexPage.Padding = new System.Windows.Forms.Padding(3);
-			this._regexPage.Size = new System.Drawing.Size(426, 277);
+			this._regexPage.Size = new System.Drawing.Size(426, 313);
 			this._regexPage.TabIndex = 1;
 			this._regexPage.Tag = "4";
 			this._regexPage.Text = "入力規則";
@@ -448,38 +481,6 @@
 			this._regexContextMenuStrip.AddNewRequest += new System.EventHandler(this.RegexContextMenuStrip_AddNewRequest);
 			this._regexContextMenuStrip.DeleteRequest += new System.EventHandler(this.RegexContextMenuStrip_DeleteRequest);
 			this._regexContextMenuStrip.EditRequest += new System.EventHandler(this.RegexContextMenuStrip_EditRequest);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Location = new System.Drawing.Point(3, 105);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(117, 35);
-			this.label1.TabIndex = 11;
-			this.label1.Text = "ICAD再起動閾値";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._toolTip.SetToolTip(this.label1, "ICADが再起動する閾値を入力します。\r\n通常は既定値のままにしてください。");
-			// 
-			// textBox1
-			// 
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(126, 108);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(240, 23);
-			this.textBox1.TabIndex = 12;
-			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Location = new System.Drawing.Point(372, 105);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(45, 35);
-			this.label3.TabIndex = 13;
-			this.label3.Text = "MB";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// OptionSettingForm
 			// 

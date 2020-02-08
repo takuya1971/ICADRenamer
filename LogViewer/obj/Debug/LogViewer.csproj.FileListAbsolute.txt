@@ -240,3 +240,4 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\L
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.csproj.CopyComplete
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.exe
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.pdb
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\LogViewer\obj\Debug\LogViewer.exe.config
