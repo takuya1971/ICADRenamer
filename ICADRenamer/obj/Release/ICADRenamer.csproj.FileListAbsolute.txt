@@ -120,3 +120,5 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Relea
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Release\ICADRenamer.csproj.GenerateResource.cache
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Release\ICADRenamer.csproj.CopyComplete
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\Release\ICADRenamer.exe
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\obj\Release\ICADRenamer.exe.config
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\obj\Release\ICADRenamer.IcadRestartForm.resources

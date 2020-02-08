@@ -48,7 +48,7 @@ namespace LogViewer
 		private static LogDataList CreateData(string source)
 		{
 			LogDataList dataRecords = new LogDataList();
-			var records = source.Split(new string[] { @"->" }, StringSplitOptions.RemoveEmptyEntries);
+			var records = source.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 			foreach (var record in records)
 			{
 				if (record.Length < 3) continue;

@@ -1,14 +1,14 @@
 ﻿/* ICAD Renamer LogViewer
 	Copyright (c) 2020 T. Kinoshita. All Rights Reserved.
 */
-using ICADRenamer;
-
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+
+using ICADRenamer;
 
 namespace LogViewer
 {

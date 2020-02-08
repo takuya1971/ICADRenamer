@@ -164,6 +164,10 @@ namespace ICADRenamer
 			/// ジオメトリ取得を保持するフィールド
 			/// </summary>
 			GetGeomError,
+			/// <summary>
+			/// ファイルオープンを保持するフィールド
+			/// </summary>
+			FileOpen,
 		}
 
 		/// <summary>
@@ -308,6 +312,7 @@ namespace ICADRenamer
 			_recorder.WriteAll(RecordItems);
 			//イベント
 			ExecuteFinished?.Invoke(this, new EventArgs());
+			SxSys.command(SystemSettings.EndIcad, false);
 			IcadProcess?.Dispose();
 		}
 
@@ -512,6 +517,10 @@ namespace ICADRenamer
 			 */
 			//CSVレコード
 			CsvRecordItem record = null;
+			//ファイルモデル
+			SxFileModel fModel= null;
+			//モデル
+			SxModel model = null;
 			for (var i = 0; i < files.Length; i++)
 			{
 				//ファイルパス
@@ -520,10 +529,24 @@ namespace ICADRenamer
 				record = RecordItems.FirstOrDefault(x => x.DestinationPath == file);
 				//ファイル名
 				var fileName = Path.GetFileNameWithoutExtension(file);
-				//ファイルモデル
-				var fModel = new SxFileModel(file);
-				//モデル
-				var model = fModel.open(false);
+				try
+				{
+					//ファイルモデル
+					fModel = new SxFileModel(file);
+					//モデル
+					model = fModel.open(false);
+				}
+				catch(SxException e)
+				{
+					SetRecordRemark(ref record, ErrorCategory.FileOpen, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.FileCopy)
+					});
+					continue;
+				}
 				//２次元画面
 				SxSys.setDim(false);
 				//ビューリスト
@@ -817,6 +840,8 @@ namespace ICADRenamer
 			SxModel model = null;
 			//CSVレコード
 			CsvRecordItem record = null;
+			//ファイルコピーリスト
+			List<string> removeFiles = new List<string>();
 			//3D画面に変更
 			SxSys.setDim(true);
 			//すべてのファイルをループ
@@ -826,19 +851,35 @@ namespace ICADRenamer
 				var file = files[i];
 				//ファイル名
 				var fileName = Path.GetFileNameWithoutExtension(file);
-				//
-				if (FileExists(file))
-				{
-					continue;
-				}
-				//ファイルモデルを作成
-				fModel = new SxFileModel(file);
-				//モデルを作成
-				model = fModel.open(false);
-
 				//CSVレコードを抽出
 				record = RecordItems.FirstOrDefault(
 					x => x.DestinationPath == file);
+				//
+				if (FileExists(file))
+				{
+					removeFiles.Add(file);
+					continue;
+				}
+				try
+				{
+					//ファイルモデルを作成
+					fModel = new SxFileModel(file);
+					//モデルを作成
+					model = fModel.open(false);
+				}
+				catch(SxException e)
+				{
+					SetRecordRemark(ref record, ErrorCategory.FileOpen, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception=e,
+						Level=LogLevel.Error,
+						Message=GetExchangeError(ErrorCategory.FileOpen)
+					});
+
+					continue;
+				}
+				
 				//名前変更リスト
 				var parmList = new List<SxParmPartName>();
 				//ビューリスト
@@ -1061,14 +1102,14 @@ namespace ICADRenamer
 				}
 				catch (SxException) { }
 				//保存
-				SaveFile();
+				SaveFile(file);
 				if (RestartRequest)
 				{
 					RestartIcadProcess();
 				}
 			}
 			//元ファイルの削除
-			DeleteFile();
+			DeleteFile(removeFiles.ToArray());
 			return;
 			/*
 			 * ローカル関数
@@ -1106,19 +1147,18 @@ namespace ICADRenamer
 				return true;
 			}
 			//ファイルの削除
-			void DeleteFile()
+			void DeleteFile(string[] files)
 			{
 				//イベント
 				FileDeleteStarted?.Invoke(this, new EventArgs());
 				//ファイルがあれば削除実行
 				for (var i = 0; i < files.Length; i++)
 				{
-					var file = files[i];
-					if (File.Exists(file)) File.Delete(file);
+					if (File.Exists(files[i])) File.Delete(files[i]);
 				}
 			}
 			//ファイルの保存
-			void SaveFile()
+			void SaveFile(string filePath)
 			{
 				//モデル情報
 				var inf = model.getInf();
@@ -1143,6 +1183,7 @@ namespace ICADRenamer
 					}
 					//コピー先パス
 					record.DestinationPath = $@"{inf.path}\{newName}.icd";
+					removeFiles.Add(filePath);
 				}
 				catch (Exception e)
 				{
@@ -1236,6 +1277,7 @@ namespace ICADRenamer
 				ErrorCategory.FailedGetAccess => "アクセス権取得失敗",
 				ErrorCategory.Update => "更新失敗",
 				ErrorCategory.GetGeomError => "ジオメトリ取得",
+				ErrorCategory.FileOpen=>"ファイルオープン",
 				_ => throw new NotImplementedException()
 			};
 			return $"{mes}エラー";
@@ -1434,6 +1476,15 @@ namespace ICADRenamer
 			IcadProcess = GetIcadProcess();
 			//待機
 			IcadProcess.WaitForInputIdle();
+			//
+			if(ExecuteParams.Settings.ICADMinimize)
+			{
+				SxSys.setWindowStatus(SxWindow.STATUS_ICON);
+			}
+			else
+			{
+				SxSys.setWindowStatus(SxWindow.STATUS_NORMAL);
+			}
 			//ICAD初期化
 			SxSys.init(ExecuteParams.Settings.ICADLinkPort, false);
 			//再起動要求をリセット

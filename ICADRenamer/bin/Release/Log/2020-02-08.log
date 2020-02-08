@@ -1,0 +1,100 @@
+2020-02-08 14:57:34.8711|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 14:57:37.1721|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:12:20.3714|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:12:22.1524|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:15:56.2302|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:01.1282|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:02.9622|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:11.9752|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:24.0882|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:25.7372|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:16:35.5412|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:16.6156|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:21.5806|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:23.2476|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:31.1606|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:41.6576|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:43.0016|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:18:49.9976|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:20:30.8136|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:20:49.5366|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:20:50.4406|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:20:51.2266|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:20:52.0486|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:21:19.5786|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
+2020-02-08 15:21:33.1186|ERROR|保存エラー| -> sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )    場所 sxnet.SxModel.save(String path, String fname, String comment, Int32 version, Int32 level)
+   場所 ICADRenamer.RenameCommand.<ExecuteRename>g__SaveFile|73_3(String filePath, <>c__DisplayClass73_0& )
