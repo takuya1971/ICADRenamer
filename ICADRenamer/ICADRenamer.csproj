@@ -382,9 +382,9 @@
     <Content Include="Help\CSS\tocbot.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Help\Help.html">
+    <Content Include="Help\Help.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="Help\img\DestinationFolderDialog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

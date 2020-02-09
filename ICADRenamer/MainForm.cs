@@ -386,7 +386,6 @@ namespace ICADRenamer
 					//ファイルを開く
 					Process.Start(form.ResultFilePath);
 				}
-				//form?.Dispose();
 			}
 			_executeButton.Enabled = true;
 			_closeButton.Enabled = true;

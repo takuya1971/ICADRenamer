@@ -56,14 +56,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICADRenamer.exe" size="206328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICADRenamer.exe" size="206840">
       <assemblyIdentity name="ICADRenamer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vUt+Tettccc6qrQY3LrJKWJqQgIQqrqmS3zHIBeGz6c=</dsig:DigestValue>
+        <dsig:DigestValue>9oftLuXLIYJ2+bl+5jljT3iSIovga9xX9jk8//ZJjM8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -167,6 +167,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>zbDktmbAwaIsnSl8UBMH7ylrlcT6+VESjNE0SjgXXAo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Help\Help.html" size="55983">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5W/ESO8+JJsrBXWZMQz4jkuHlZZApOmxBmkbzX8VB3c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Help\img\DestinationFolderDialog.png" size="21856">

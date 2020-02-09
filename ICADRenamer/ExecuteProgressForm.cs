@@ -179,9 +179,14 @@ namespace ICADRenamer
 		/// <exception cref="NotImplementedException"></exception>
 		private void Command_ExecuteFinished(object sender, EventArgs e)
 		{
+			//タイマの停止
+			_timer.Stop();
+			//ファイルパス
 			_resultFilePath = _command.RecordPath;
+			//キャンセ要求時
 			if (_command.CancelRequest) ExecuteCanceled?.Invoke(this, new EventArgs());
 			else ExecuteFinished?.Invoke(this, new EventArgs());
+			//コマンドの破棄
 			_command?.Dispose();
 			Close();
 		}
@@ -349,18 +354,24 @@ namespace ICADRenamer
 		/// <param name="e">e</param>
 		private void Timer_Tick(object sender, EventArgs e)
 		{
-			//リフレッシュ
-			_command.IcadProcess.Refresh();
-			//使用メモリ量
-			var workingSet = _command.IcadProcess.WorkingSet64;
-			//900MB以上占有なら
-			if (workingSet > _executeParams.Settings.RestartThredshold * Math.Pow(1000, 2))
+			try
 			{
-				//タイマ停止
-				_timer.Enabled = false;
-				//再起動要求
-				_command.RestartRequest = true;
+				if (_command.IcadProcess == null) return;
+				//リフレッシュ
+				_command.IcadProcess?.Refresh();
+				//使用メモリ量
+				var workingSet = _command?.IcadProcess.WorkingSet64;
+				//指定値以上占有なら
+				if (workingSet == null) return;
+				if (workingSet > _executeParams.Settings.RestartThredshold * Math.Pow(1000, 2))
+				{
+					//タイマ停止
+					_timer.Enabled = false;
+					//再起動要求
+					_command.RestartRequest = true;
+				}
 			}
+			catch (InvalidOperationException) { }
 		}
 
 		/// <summary>
