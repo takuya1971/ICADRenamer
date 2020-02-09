@@ -30,21 +30,24 @@ namespace ICADRenamer
 			//Logフォルダ作成
 			if (!Directory.Exists(SystemSettings.LogFolder)) Directory.CreateDirectory(SystemSettings.LogFolder);
 			//
+			MainForm form;
 			try
 			{
 				//コマンドラインを取得
 				var arguments = CommandLineArgs.Create(args);
 				//サイレントモードでなければフォームを表示
-				if (arguments.SilentMode == null)
+				if (arguments.SilentMode != null)
+				{
+					//サイレントモード
+					RunSilent(arguments.SilentMode);
+				}
+				else
 				{
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
-					var form = new MainForm(arguments);
+					form = new MainForm(arguments);
 					Application.Run(form);
-					form.Dispose();
 				}
-				//サイレントモードの時
-				else RunSilent(arguments.SilentMode);
 			}
 			//例外発生
 			catch (CommandLineArgumentException e)

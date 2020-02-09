@@ -1,0 +1,17 @@
+﻿ICADRenamerは以下のライブラリを使用しています。
+各ライブラリはリンクのライセンスの下で許諾されています。
+CSV Heltper: https://www.nuget.org/packages/CsvHelper/12.2.2/license
+
+Microsoft C Sharp: https://www.nuget.org/packages/Microsoft.CSharp/4.7.0/license
+
+Newtonsoft Json: https://www.nuget.org/packages/Newtonsoft.Json/12.0.3/license
+    Copyright (C) 2007 James Newton-King
+
+NLOG: https://github.com/NLog/NLog/blob/master/LICENSE.txt
+    Copyright (c) 2004-2019 Jaroslaw Kowalski <jaak@jkowalski.net>, Kim Christensen, Julian Verdurmen. Allrights reserved.
+
+Ookii.CommandLine: https://www.nuget.org/packages/Ookii.CommandLine/2.3.0/license
+
+Icons8: https://icons8.jp/
+
+tocbot: https://tscanlin.github.io/tocbot/#license

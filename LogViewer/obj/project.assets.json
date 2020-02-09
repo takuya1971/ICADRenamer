@@ -31,7 +31,7 @@
           "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -292,6 +292,7 @@
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
           "CsvHelper": "15.0.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -337,7 +338,7 @@
           "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -598,6 +599,7 @@
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
           "CsvHelper": "15.0.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -643,7 +645,7 @@
           "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -904,6 +906,7 @@
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
           "CsvHelper": "15.0.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -949,7 +952,7 @@
           "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -1210,6 +1213,7 @@
         "framework": ".NETFramework,Version=v4.8",
         "dependencies": {
           "CsvHelper": "15.0.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.Toolkit.Forms.UI.Controls.WebView": "6.0.0",
           "Microsoft.Toolkit.Win32.UI.Controls": "5.0.0",
           "NLog": "4.6.8",
@@ -1271,10 +1275,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1287,6 +1291,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -1296,7 +1301,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -1880,11 +1885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
       "projectName": "LogViewer",
-      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\LogViewer.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\LogViewer\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\LogViewer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1901,8 +1906,8 @@
       "frameworks": {
         "net48": {
           "projectReferences": {
-            "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
+            "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\source\\repos\\takuya1971\\ICADRenamer\\ICADRenamer\\ICADRenamer.csproj"
             }
           }
         }

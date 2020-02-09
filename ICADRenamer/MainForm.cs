@@ -119,14 +119,10 @@ namespace ICADRenamer
 						});
 						//選択したパスを消す
 						dialog.SelectedPath = string.Empty;
-						//もう一度ダイアログを開く
-						BrowseButton_Click(button, new EventArgs());
+						return;
 					}
 				}
-				catch (Exception)
-				{
-					BrowseButton_Click(sender, e);
-				}
+				catch (Exception) { }
 			}
 			//フォルダが選択されていた時
 			if (dialog.SelectedPath.Length > 0)
@@ -390,7 +386,7 @@ namespace ICADRenamer
 					//ファイルを開く
 					Process.Start(form.ResultFilePath);
 				}
-				form?.Dispose();
+				//form?.Dispose();
 			}
 			_executeButton.Enabled = true;
 			_closeButton.Enabled = true;

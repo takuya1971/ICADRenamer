@@ -17,15 +17,23 @@ namespace LogViewer
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-
-			if (args == null || !Directory.Exists(args[0]))
+			MainForm form;
+			try
 			{
-				var form = new MainForm();
-				Application.Run(form);
+				if (!Directory.Exists(args[0]))
+				{
+					form = new MainForm();
+					Application.Run(form);
+				}
+				else
+				{
+					form = new MainForm(args[0]);
+					Application.Run(form);
+				}
 			}
-			else
+			catch (Exception)
 			{
-				var form = new MainForm(args[0]);
+				form = new MainForm();
 				Application.Run(form);
 			}
 		}

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ICADRenamer"
+    "\\ICADRenamer",
+    "\\ICADRenamer\\Help"
   ],
   "SelectedNode": "\\ICADRenamer.sln",
   "PreviewInSolutionExplorer": false

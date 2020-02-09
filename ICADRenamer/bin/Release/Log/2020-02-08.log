@@ -1,8 +1,0 @@
-2020-02-08 17:36:23.4300|ERROR|ファイルオープンエラー|sxnet.SxException: 指定したファイルは図面ファイルではありません。
-   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
-   場所 ICADRenamer.RenameCommand.ExecuteRename(String[] files)    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
-   場所 ICADRenamer.RenameCommand.ExecuteRename(String[] files) -END-
-2020-02-08 17:51:55.0091|ERROR|ファイルコピーエラー|sxnet.SxException: 指定したファイルは図面ファイルではありません。
-   場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
-   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files)    場所 sxnet.SxFileModel.open(Boolean read_only, String passwd)
-   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) -END-

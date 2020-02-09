@@ -50,6 +50,70 @@ namespace LogViewer
 		}
 
 		/// <summary>
+		/// コンテキストメニューオープンイベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void ContextMenuStrip_Opened(object sender, EventArgs e)
+		{
+			//データが選択されているか調べてコピーメニューの使用可否を決定する
+			var f = _dataGridView.GetCellCount(DataGridViewElementStates.Selected) > 0
+				? true : false;
+			_copyToolStripMenuItem.Enabled = f;
+		}
+
+		/// <summary>
+		/// コピーメニュー選択イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//セルがひとつの時はテキストコピー
+			if (_dataGridView.GetCellCount(DataGridViewElementStates.Selected) == 1)
+			{
+				Clipboard.SetText(_dataGridView.SelectedCells[0].Value.ToString(), TextDataFormat.UnicodeText);
+			}
+			//2個以上ならオブジェクトコピー
+			else
+			{
+				Clipboard.SetDataObject(_dataGridView.GetClipboardContent(), true);
+			}
+		}
+
+		/// <summary>
+		/// データグリッドビューのコンテキストメニュー要求イベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void DataGridView_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+		{
+			_dataGridView.ClearSelection();
+			//
+			if (e.RowIndex < 0)
+			{
+				return;
+			}
+			else if (e.ColumnIndex < 0)
+			{
+				var row = _dataGridView.Rows[e.RowIndex];
+				row.Selected = true;
+			}
+			else
+			{
+				var cell = _dataGridView[e.ColumnIndex, e.RowIndex];
+				cell.Selected = true;
+			}
+		}
+
+		/// <summary>
+		/// 終了ボタンクリックイベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void ExitButton_Click(object sender, EventArgs e) => Close();
+
+		/// <summary>
 		/// フィルタの適用を実行する
 		/// </summary>
 		/// <returns></returns>
@@ -113,9 +177,23 @@ namespace LogViewer
 			if (Directory.GetFiles(_folderBrowserDialog.SelectedPath
 				, SystemSettings.LogExtension).Length == 0)
 			{
-				GetFolderPath(_folderBrowserDialog.SelectedPath, @"ログファイルがありません。\r\nフォルダを選択しなおしてください。");
+				GetFolderPath(_folderBrowserDialog.SelectedPath, "ログファイルがありません。\r\nフォルダを選択しなおしてください。");
 			}
 			return _folderBrowserDialog.SelectedPath;
+		}
+
+		/// <summary>
+		/// ヘルプボタンクリックイベントを実行する
+		/// </summary>
+		/// <param name="sender">イベント呼び出し元オブジェクト</param>
+		/// <param name="e">e</param>
+		private void HelpButton_Click(object sender, EventArgs e)
+		{
+			var helpForm = new HelpBrowser
+			{
+				Target = $"{SystemSettings.HelpPath}#LogViewer"
+			};
+			helpForm.Show();
 		}
 
 		/// <summary>
@@ -182,83 +260,6 @@ namespace LogViewer
 		}
 
 		/// <summary>
-		/// ログデータの読み込みを実行する
-		/// </summary>
-		private void SetData()
-		{
-			//データを読み込む
-			_logDataRecords = LogDataList.Load(_files[_logFileComboBox.SelectedIndex]);
-			_logDataListBindingSource.DataSource = _logDataRecords;
-			//レコードを最初へ
-			_logDataListBindingSource.MoveFirst();
-			//レベルリスト更新
-			SetLevelComboBox();
-		}
-
-		/// <summary>
-		/// ファイルコンボボックスのデータ更新を実行する
-		/// </summary>
-		private void SetFileComboBox()
-		{
-			//リストアイテムクリア
-			_logFileComboBox.Items.Clear();
-			//ファイル名のみのリストを追加
-			_logFileComboBox.Items.AddRange(GetFileNames(_files));
-			//インデックス更新
-			_logFileComboBox.SelectedIndex = 0;
-			//データの読み込み
-		}
-
-		/// <summary>
-		/// レベルコンボボックスのデータ更新を実行する
-		/// </summary>
-		private void SetLevelComboBox()
-		{
-			//アイテムクリア
-			_logLevelComboBox.Items.Clear();
-			//全部表示
-			_logLevelComboBox.Items.Add(_allSelect);
-			//データにあるレベルを取得
-			var levels = _logDataRecords.Select(
-				x => x.Level).Distinct();
-			_logLevelComboBox.Items.AddRange(levels.ToArray());
-			//インデックス更新
-			_logLevelComboBox.SelectedIndex = 0;
-		}
-
-		/// <summary>
-		/// コピーメニュー選択イベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			//セルがひとつの時はテキストコピー
-			if (_dataGridView.GetCellCount(DataGridViewElementStates.Selected) == 1)
-			{
-				Clipboard.SetText(_dataGridView.SelectedCells[0].Value.ToString(), TextDataFormat.UnicodeText);
-			}
-			//2個以上ならオブジェクトコピー
-			else
-			{
-				Clipboard.SetDataObject(_dataGridView.GetClipboardContent(), true);
-			}
-		}
-
-		/// <summary>
-		/// コンテキストメニューオープンイベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void ContextMenuStrip_Opened(object sender, EventArgs e)
-		{
-			//データが選択されているか調べてコピーメニューの使用可否を決定する
-			var f = _dataGridView.GetCellCount(DataGridViewElementStates.Selected) > 0
-				? true : false;
-			_copyToolStripMenuItem.Enabled = f;
-		}
-
-		/// <summary>
 		/// 保存ボタンクリックイベントを実行する
 		/// </summary>
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
@@ -280,49 +281,57 @@ namespace LogViewer
 		}
 
 		/// <summary>
-		/// データグリッドビューのコンテキストメニュー要求イベントを実行する
+		/// ログデータの読み込みを実行する
 		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void DataGridView_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+		private void SetData()
 		{
-			_dataGridView.ClearSelection();
+			//データを読み込む
+			_logDataRecords = LogDataList.Load(_files[_logFileComboBox.SelectedIndex]);
 			//
-			if (e.RowIndex < 0)
+			if(_logDataRecords==null)
 			{
+				SystemMethods.GetMessageBox(MessageCategory.Error
+					, "選択したファイルはログファイルではありません。"
+					, ICADRenamer.Log.LogMessageKind.Error);
 				return;
 			}
-			else if (e.ColumnIndex < 0)
-			{
-				var row = _dataGridView.Rows[e.RowIndex];
-				row.Selected = true;
-			}
-			else
-			{
-				var cell = _dataGridView[e.ColumnIndex, e.RowIndex];
-				cell.Selected = true;
-			}
+			_logDataListBindingSource.DataSource = _logDataRecords;
+			//レコードを最初へ
+			_logDataListBindingSource.MoveFirst();
+			//レベルリスト更新
+			SetLevelComboBox();
 		}
 
 		/// <summary>
-		/// 終了ボタンクリックイベントを実行する
+		/// ファイルコンボボックスのデータ更新を実行する
 		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void ExitButton_Click(object sender, EventArgs e) => Close();
+		private void SetFileComboBox()
+		{
+			//リストアイテムクリア
+			_logFileComboBox.Items.Clear();
+			//ファイル名のみのリストを追加
+			_logFileComboBox.Items.AddRange(GetFileNames(_files));
+			//インデックス更新
+			_logFileComboBox.SelectedIndex = 0;
+			//データの読み込み
+			SetData();
+		}
 
 		/// <summary>
-		/// ヘルプボタンクリックイベントを実行する
+		/// レベルコンボボックスのデータ更新を実行する
 		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void HelpButton_Click(object sender, EventArgs e)
+		private void SetLevelComboBox()
 		{
-			var helpForm = new HelpBrowser
-			{
-				Target = $"{SystemSettings.HelpPath}#LogViewer"
-			};
-			helpForm.Show();
+			//アイテムクリア
+			_logLevelComboBox.Items.Clear();
+			//全部表示
+			_logLevelComboBox.Items.Add(_allSelect);
+			//データにあるレベルを取得
+			var levels = _logDataRecords.Select(
+				x => x.Level).Distinct();
+			_logLevelComboBox.Items.AddRange(levels.ToArray());
+			//インデックス更新
+			_logLevelComboBox.SelectedIndex = 0;
 		}
 	}
 }

@@ -311,9 +311,8 @@ namespace ICADRenamer
 			ExecuteDrawingTitle(files);
 			_recorder.WriteAll(RecordItems);
 			//イベント
-			ExecuteFinished?.Invoke(this, new EventArgs());
 			SxSys.command(SystemSettings.EndIcad, false);
-			IcadProcess?.Dispose();
+			ExecuteFinished?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>
@@ -809,10 +808,23 @@ namespace ICADRenamer
 						});
 					}
 				}
-				//保存
-				model.save();
-				//閉じる
-				model.close(false);
+				try
+				{
+					//保存
+					model.save();
+					//閉じる
+					model.close(false);
+				}
+				catch(SxException e)
+				{
+					SetRecordRemark(ref record, ErrorCategory.Save, e);
+					RenameLogger.WriteLog(new LogItem
+					{
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.Save)
+					});
+				}
 				//
 				if (RestartRequest)
 				{

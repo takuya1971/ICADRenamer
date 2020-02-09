@@ -20,7 +20,7 @@ namespace ICADRenamer
 		/// <summary>
 		/// 入力エラーを保持するフィールド
 		/// </summary>
-		InputError = 1000,
+		InputError = 1002,
 
 		/// <summary>
 		/// エラーを保持するフィールド
