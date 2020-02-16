@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="ICADRenamer.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="ICADRenamer.exe" version="2.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="AppIcon.ico" asmv2:publisher="T. Kinoshita" asmv2:product="ICAD Renamer" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ICADRenamer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="ICADRenamer" version="2.0.0.0" language="neutral" processorArchitecture="x86" />
     <commandLine file="ICADRenamer.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
   <trustInfo>
     <security>
       <applicationRequestMinimum>
-        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
         <defaultAssemblyRequest permissionSetReference="Custom" />
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!--
-          UAC マニフェスト オプション
-          Windows のユーザー アカウント制御のレベルを変更するには、
-          requestedExecutionLevel ノードを以下のいずれかで置換します。
+        <!-- UAC マニフェスト オプション
+             Windows のユーザー アカウント制御のレベルを変更するには、
+             requestedExecutionLevel ノードを以下のいずれかで置換します。
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         下位互換性を保つためにファイルおよびレジストリの仮想化を使用する場合、
-         requestedExecutionLevel ノードを削除します。
-    -->
+            requestedExecutionLevel 要素を指定すると、ファイルおよびレジストリの仮想化が無効にされます。
+            アプリケーションが下位互換性を保つためにこの仮想化を要求する場合、この要素を
+            削除します。
+        -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
     </security>
@@ -56,14 +56,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICADRenamer.exe" size="206840">
-      <assemblyIdentity name="ICADRenamer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICADRenamer.exe" size="208376">
+      <assemblyIdentity name="ICADRenamer" version="2.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9oftLuXLIYJ2+bl+5jljT3iSIovga9xX9jk8//ZJjM8=</dsig:DigestValue>
+        <dsig:DigestValue>VpdDtbUMYczeo6gaXCyQLwQ7aiSUX09ryeEtQT9khzM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -124,6 +124,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>zachmQ0ND6wwJqYsUVKZ6lybxbEaIJr4Ob5k06ohgwE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="sxnet.dll" size="675840">
+      <assemblyIdentity name="sxnet" version="1.1.0.0" publicKeyToken="B59F2DD2EABA094D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9jN1uk/Pf6EpGJdFRvxRY6jcQaGSpmS1s9YI774tnqc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -934,4 +946,21 @@
       <dsig:DigestValue>19W4Q7zu3yVYYgsH6gG0mlP/FNXOsUmuJ3DFnKs1WAo=</dsig:DigestValue>
     </hash>
   </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- このアプリケーションがテストされ、動作するよう設計された Windows バージョンの
+           一覧。適切な要素をコメント解除すると、最も互換性のある環境を Windows が
+           自動的に選択します。-->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
 </asmv1:assembly>

@@ -288,8 +288,11 @@ namespace ICADRenamer
 			var files = Directory.GetFiles(ExecuteParams.DestinationPath
 				, SystemSettings.IcadExtension
 				, SearchOption.AllDirectories);
+			ReleaseReadOnly();
 			//実行
 			ExecuteDrawingTitle(files);
+			//
+			_recorder.WriteAll(RecordItems);
 			//終了処理
 			FinishExecute();
 		}
@@ -304,6 +307,8 @@ namespace ICADRenamer
 			ExecuteParams = executeParams;
 			//実行
 			ExecuteRenameAll();
+			//
+			_recorder.WriteAll(RecordItems);
 			//終了処理
 			FinishExecute();
 		}
@@ -1337,6 +1342,7 @@ namespace ICADRenamer
 			//しきい値
 			var threashold = ExecuteParams.Settings.RestartThredshold * Math.Pow(1000, 2);
 			//プロセス状況を再取得
+			if (IcadProcess == null) return;
 			IcadProcess.Refresh();
 			//メモリサイズがしきい値以上ならICAD再起動
 			if (IcadProcess.WorkingSet64 > threashold)

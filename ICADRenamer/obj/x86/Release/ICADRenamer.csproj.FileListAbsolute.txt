@@ -94,3 +94,6 @@ C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\x86\R
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\x86\Release\ICADRenamer.pdb
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\x86\Release\ICADRenamer.csprojAssemblyReference.cache
 C:\Users\Administrator\source\repos\takuya1971\ICADRenamer\ICADRenamer\obj\x86\Release\ICADRenamer.exe.config
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\x86\Release\sxnet.dll
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\x86\Release\sxnet.xml
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\obj\x86\Release\ICADRenamer.TrustInfo.xml

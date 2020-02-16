@@ -3,3 +3,10 @@
 2020-02-16 14:34:28.2081|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
 2020-02-16 14:34:58.1975|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
 2020-02-16 14:35:04.9444|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。| -END-
+2020-02-16 18:40:36.7694|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
+2020-02-16 18:43:08.5607|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。| -END-
+2020-02-16 19:56:46.4364|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
+2020-02-16 19:57:07.7834|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1137 HIMILE タイ1号機 - コピー| -END-
+2020-02-16 19:57:25.0772|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1237| -END-
+2020-02-16 19:57:29.8843|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下| -END-
+2020-02-16 19:57:33.6483|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元: コピー先:D:\M1137 HIMILE タイ1号機 - コピー 新番号:M1237 署名:木下| -END-

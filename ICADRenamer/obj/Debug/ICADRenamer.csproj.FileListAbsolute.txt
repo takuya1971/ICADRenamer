@@ -371,3 +371,5 @@ C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\Resour
 C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\Resources\sozai_cman_jp_20191218020534.png
 C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\sxnet.dll
 C:\Users\拓也\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\sxnet.xml
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\sxnet.dll
+C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\bin\Debug\sxnet.xml

@@ -1,2 +1,70 @@
 2020-02-16 16:59:08.8264|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
 2020-02-16 17:00:19.1070|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。| -END-
+2020-02-16 20:00:04.8016|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
+2020-02-16 20:00:12.2114|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1237| -END-
+2020-02-16 20:00:19.6462|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下| -END-
+2020-02-16 20:00:28.0262|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1137 HIMILE タイ1号機 - コピー| -END-
+2020-02-16 20:00:29.8823|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元: コピー先:D:\M1137 HIMILE タイ1号機 - コピー 新番号:M1237 署名:木下| -END-
+2020-02-16 20:00:48.0703|ERROR|保存エラー|sxnet.SxException: 読み取り専用の為、処理できません。
+   場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804    場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804 -END-
+2020-02-16 20:00:48.0703|ERROR|保存エラー|sxnet.SxException: 読み取り専用の為、処理できません。
+   場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804    場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804 -END-
+2020-02-16 20:07:55.7409|ERROR|保存エラー|sxnet.SxException: 読み取り専用の為、処理できません。
+   場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804    場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804 -END-
+2020-02-16 20:07:55.7409|ERROR|保存エラー|sxnet.SxException: 読み取り専用の為、処理できません。
+   場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804    場所 sxnet.SxModel.save()
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 804 -END-
+2020-02-16 20:12:39.9179|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
+2020-02-16 20:12:44.4495|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1237| -END-
+2020-02-16 20:12:47.0169|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下| -END-
+2020-02-16 20:12:55.2020|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1137 HIMILE タイ1号機 - コピー| -END-
+2020-02-16 20:12:57.8179|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元: コピー先:D:\M1137 HIMILE タイ1号機 - コピー 新番号:M1237 署名:木下| -END-
+2020-02-16 20:29:14.1304|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを開始しました。| -END-
+2020-02-16 20:29:20.6105|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1224| -END-
+2020-02-16 20:29:23.0735|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下| -END-
+2020-02-16 20:29:29.8698|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具 - コピー| -END-
+2020-02-16 20:29:32.1978|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元: コピー先:D:\M1124_KB治具 - コピー 新番号:M1224 署名:木下| -END-
+2020-02-16 20:31:35.3570|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1224| -END-
+2020-02-16 20:31:42.4662|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1124_KB治具 - コピー| -END-
+2020-02-16 20:31:54.3071|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1201| -END-
+2020-02-16 20:31:58.0795|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1124_KB治具 - コピー コピー先:D:\M1201 新番号:M1224 署名:木下| -END-
+2020-02-16 20:33:13.3692|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1224| -END-
+2020-02-16 20:33:22.9691|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M1224| -END-
+2020-02-16 20:33:28.1524|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M1161_三菱自工#2号機| -END-
+2020-02-16 20:33:45.7766|INFO| 発生元:iCAD Renamer メッセージ:フォルダが選択されました。 場所: 変更データ:D:\M3161| -END-
+2020-02-16 20:33:50.0974|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M3161| -END-
+2020-02-16 20:33:53.2293|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:署名 変更データ:木下| -END-
+2020-02-16 20:33:53.4263|TRACE| 発生元:変換進捗 メッセージ:変換進捗を開始しました。 コピー元:D:\M1161_三菱自工#2号機 コピー先:D:\M3161 新番号:M3161 署名:木下| -END-
+2020-02-16 21:28:09.9224|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:28:09.9224|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:28:29.3464|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:28:29.3464|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:28:42.9474|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:28:42.9474|ERROR|ジオメトリ取得エラー|sxnet.SxException:  MSG01800 操作方法に誤りがあります。（       
+   場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569    場所 sxnet.SxEntSeg.getGeomList(SxEntSeg[] seglist)
+   場所 ICADRenamer.RenameCommand.ExecuteDrawingTitle(String[] files) 場所 C:\Users\Administrator\Source\Repos\takuya1971\ICADRenamer\ICADRenamer\RenameCommand.cs:行 569 -END-
+2020-02-16 21:30:06.7964|TRACE| 発生元:iCAD Renamer メッセージ:入力が変更されました。 場所:新しい番号 変更データ:M3161| -END-
+2020-02-16 21:30:06.9343|TRACE| 発生元:iCAD Renamer メッセージ:ICAD_Renamerを終了しました。| -END-
