@@ -3,7 +3,7 @@
   <Class Name="ICADRenamer.MainForm" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AigBFhwAACFCQAAggAmMEEQGEEAMAJAAIAALQIAAQDA=</HashCode>
+      <HashCode>AigBFhwAACFCQQIggAmMEEQGMMAMAJACIAALQIAAQDA=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="ICADRenamer.ExecuteProgressForm" Collapsed="true">
     <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>idCAAAgAACkAB0AUQACUACACAMABCCAIAoAABDQAAjA=</HashCode>
+      <HashCode>jdCAAAgAACkAR0AUQACUBCACAMABCCAIAoACBDQAAjA=</HashCode>
       <FileName>ExecuteProgressForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="ICADRenamer.OptionSettingForm" Collapsed="true">
     <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CBAEABBIAChAwBAQQgCCCItGQIAJDCEDQyAIgQmEBSA=</HashCode>
+      <HashCode>CBAEABBJAChAwBAQQgCCCItGQIAJDCEDUyAKgQnEFSA=</HashCode>
       <FileName>OptionSettingForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +80,7 @@
   <Class Name="ICADRenamer.RenameCommand" Collapsed="true">
     <Position X="13.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>KAAAAAQwADAEAEwIIAAMgCEBCIIQAQAAAIAIQIQAAQA=</HashCode>
+      <HashCode>KAAAAAUhADA0gEwKIAAMgAMBCAKCkQIgCIBIQIQABQE=</HashCode>
       <FileName>RenameCommand.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -102,7 +102,7 @@
   <Class Name="ICADRenamer.SystemSettings" Collapsed="true">
     <Position X="13.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAIAQAAAIAAAAAAAAAAACAAhAgAAAAAgA=</HashCode>
+      <HashCode>AAAkAEAAAAAEYAQAAAIAAAAAAAAAAACAAhAgAACAAgA=</HashCode>
       <FileName>SystemSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -130,7 +130,7 @@
   <Class Name="ICADRenamer.Settings.OptionSettings" Collapsed="true">
     <Position X="4" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAABAAAAgAAEAACAAAAAAAQAQAAABAAA=</HashCode>
+      <HashCode>AAAAggAAAAAAAABAQAAgAAGAADAAAACAAQAQAAABAAA=</HashCode>
       <FileName>Settings\OptionSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -237,6 +237,13 @@
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAEAAAAAAAAFAAIAAAgAAAAACIA=</HashCode>
       <FileName>Events\ProgressCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ICADRenamer.ExecuteItem">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIABAAAAAAA=</HashCode>
+      <FileName>ExecuteItem.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Yu Gothic UI" Size="9" />

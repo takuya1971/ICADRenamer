@@ -10,6 +10,7 @@ using ICADRenamer.Log;
 using sxnet;
 using NLog;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ICADRenamer
 {
@@ -179,8 +180,6 @@ namespace ICADRenamer
 		/// <exception cref="NotImplementedException"></exception>
 		private void Command_ExecuteFinished(object sender, EventArgs e)
 		{
-			//タイマの停止
-			_timer.Stop();
 			//ファイルパス
 			_resultFilePath = _command.RecordPath;
 			//キャンセ要求時
@@ -248,12 +247,22 @@ namespace ICADRenamer
 
 		/// <summary>
 		/// コマンド実行を実行する
+		/// todo:部分実行を追加する
 		/// </summary>
 		private void ExecuteCommand()
 		{
-			//var task=_command.Execute(_executeParams);
-			//await task;
-			_command.Execute(_executeParams);
+			switch (_executeParams.ExecuteCategory)
+			{
+				case ExecuteItem.All:
+					_command.Execute(_executeParams);
+					break;
+				case ExecuteItem.DrawingTitiles:
+					_command.ExecuteDrawingTitle(_executeParams);
+					break;
+				case ExecuteItem.RenameParts:
+					_command.ExecuteRename(_executeParams);
+					break;
+			}
 			_resultFilePath = _command.RecordPath;
 		}
 
@@ -316,6 +325,7 @@ namespace ICADRenamer
 			//
 			_icadRestartForm = new IcadRestartForm();
 			_icadRestartForm.Show();
+			Application.DoEvents();
 		}
 
 		/// <summary>
@@ -324,10 +334,7 @@ namespace ICADRenamer
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
 		private void Command_ICADRestarted(object sender, EventArgs e)
-		{
-			_timer.Enabled = true;
-			_icadRestartForm?.Close();
-		}
+			=> _icadRestartForm?.Close();
 
 		/// <summary>
 		/// パーツ名変更開始イベントを実行する
@@ -346,33 +353,6 @@ namespace ICADRenamer
 		/// <param name="sender">イベント呼び出し元オブジェクト</param>
 		/// <param name="e">e</param>
 		private void ExecuteProgressForm_Shown(object sender, EventArgs e) => ExecuteCommand();
-
-		/// <summary>
-		/// メモリ監視タイマイベントを実行する
-		/// </summary>
-		/// <param name="sender">イベント呼び出し元オブジェクト</param>
-		/// <param name="e">e</param>
-		private void Timer_Tick(object sender, EventArgs e)
-		{
-			try
-			{
-				if (_command.IcadProcess == null) return;
-				//リフレッシュ
-				_command.IcadProcess?.Refresh();
-				//使用メモリ量
-				var workingSet = _command?.IcadProcess.WorkingSet64;
-				//指定値以上占有なら
-				if (workingSet == null) return;
-				if (workingSet > _executeParams.Settings.RestartThredshold * Math.Pow(1000, 2))
-				{
-					//タイマ停止
-					_timer.Enabled = false;
-					//再起動要求
-					_command.RestartRequest = true;
-				}
-			}
-			catch (InvalidOperationException) { }
-		}
 
 		/// <summary>
 		/// ICADにモデルが残っているときのクローズ処理のメッセージボックスを実行する

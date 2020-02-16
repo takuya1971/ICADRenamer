@@ -46,7 +46,6 @@ namespace ICADRenamer
 
 		/// <summary>
 		/// メッセージ設置ファイルを保持するプロパティ
-		/// todo:未実装
 		/// </summary>
 		public static string MessageSettings { get; } = $@"{SettingFolder}\Messages.json";
 

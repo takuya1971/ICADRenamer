@@ -45,5 +45,10 @@ namespace ICADRenamer
 		/// 変換元のパスを保持するプロパティ
 		/// </summary>
 		public string SourcePath { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+		/// <summary>
+		/// 実行区分を保持するプロパティ
+		/// </summary>
+		public ExecuteItem ExecuteCategory { get; set; } = ExecuteItem.All;
 	}
 }

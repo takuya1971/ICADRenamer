@@ -45,6 +45,16 @@ namespace ICADRenamer
 		private CsvRecorder _recorder;
 
 		/// <summary>
+		/// タイマを保持するフィールド
+		/// </summary>
+		private Timer _timer;
+
+		/// <summary>
+		/// コールバックを保持するフィールド
+		/// </summary>
+		private TimerCallback _timerCallback;
+
+		/// <summary>
 		///  実行進捗時に動作するイベント
 		/// </summary>
 		public event EventHandler<ItemProgressedEventArgs> DetailChanged;
@@ -199,7 +209,6 @@ namespace ICADRenamer
 		/// ICAD再起動要求の真偽値を保持するプロパティ
 		/// </summary>
 		public bool RestartRequest { get; set; } = false;
-
 		#region Disposable Pattern		
 		/// <summary>
 		/// 破棄進行を保持するフィールド
@@ -243,59 +252,9 @@ namespace ICADRenamer
 		/// <param name="executeParams">パラメータ類</param>
 		public void Execute(RenameExecuteParams executeParams)
 		{
-			//実行パラメータ
 			ExecuteParams = executeParams;
-			//変換結果アイテム
-			RecordItems = new List<CsvRecordItem>();
-			//変換レコーダ
-			_recorder = new CsvRecorder(GetReseultFilePath());
-			//結果ファイルパス
-			RecordPath = _recorder.FilePath;
-			//パラメータがないときの処理
-			if (ExecuteParams == null)
-			{
-				throw new ArgumentNullException(nameof(ExecuteParams),
-									"パラメータがNullです。");
-			}
-			//プロセスの起動
-			IcadProcess = GetIcadProcess();
-			//イベント
-			ExecuteStarted?.Invoke(this, new EventArgs());
-			//初期化
-			SxSys.init(ExecuteParams.Settings.ICADLinkPort, false);
-			//フラグがあればアイコン化
-			if (ExecuteParams.Settings.ICADMinimize)
-			{
-				//最小化
-				SxSys.setWindowStatus(SxWindow.STATUS_ICON);
-			}
-			else
-			{
-				//通常ウィンドウサイズ
-				SxSys.setWindowStatus(SxWindow.STATUS_NORMAL);
-			}
-			//コピー元ファイルの取得
-			var source = Directory.GetFiles(
-				ExecuteParams.SourcePath
-				, SystemSettings.IcadExtension
-				, SearchOption.AllDirectories);
-			//イベント
-			FileCopyStarted?.Invoke(this, new EventArgs());
-			//ファイルコピーと変更記録
-			var copiedFiles = CopyFiles(source).OrderBy(x => x.DestinationPath);
-			RecordItems.AddRange(copiedFiles);
-			//読取専用解除
-			ReleaseReadOnly();
-			//製品フォルダの登録
-			if (ExecuteParams.Settings.ResitTo3DSeihin)
-			{
-				SetProductFolder();
-			}
-			//イベント
-			PartRenameStarted?.Invoke(this, new EventArgs());
-			//パーツ変更
-			ExecuteRename(GetSuccessedFiles());
-			//キャンセル
+			//パーツ名変更
+			ExecuteRenameAll();
 			if (CancelRequest)
 			{
 				ExecuteFinished?.Invoke(this, new EventArgs());
@@ -310,9 +269,43 @@ namespace ICADRenamer
 			var files = Directory.GetFiles(ExecuteParams.DestinationPath, "*.icd", SearchOption.AllDirectories);
 			ExecuteDrawingTitle(files);
 			_recorder.WriteAll(RecordItems);
+			FinishExecute();
+		}
+
+		/// <summary>
+		/// 図面表題欄変更のみを実行する
+		/// </summary>
+		/// <param name="executeParams">実行パラメータ</param>
+		/// <param name="files">files</param>
+		public void ExecuteDrawingTitle(RenameExecuteParams executeParams)
+		{
+			ExecuteParams = executeParams;
+			//初期化
+			ExecuteInitialize();
 			//イベント
-			SxSys.command(SystemSettings.EndIcad, false);
-			ExecuteFinished?.Invoke(this, new EventArgs());
+			DrawingTitleStarted?.Invoke(this, new EventArgs());
+			//ファイルリストの取得
+			var files = Directory.GetFiles(ExecuteParams.DestinationPath
+				, SystemSettings.IcadExtension
+				, SearchOption.AllDirectories);
+			//実行
+			ExecuteDrawingTitle(files);
+			//終了処理
+			FinishExecute();
+		}
+
+		/// <summary>
+		/// パーツ名変更のみを実行する
+		/// </summary>
+		/// <param name="executeParams">実行パラメータ</param>
+		public void ExecuteRename(RenameExecuteParams executeParams)
+		{
+			//初期化
+			ExecuteParams = executeParams;
+			//実行
+			ExecuteRenameAll();
+			//終了処理
+			FinishExecute();
 		}
 
 		/// <summary>
@@ -511,31 +504,28 @@ namespace ICADRenamer
 		/// <param name="files">変更するファイルパス配列</param>
 		private void ExecuteDrawingTitle(string[] files)
 		{
-			/*
-			 * ここからスタート
-			 */
-			//CSVレコード
-			CsvRecordItem record = null;
-			//ファイルモデル
-			SxFileModel fModel= null;
-			//モデル
-			SxModel model = null;
 			for (var i = 0; i < files.Length; i++)
 			{
 				//ファイルパス
 				var file = files[i];
+				/*
+				 * ここからスタート
+				 */
 				//csvレコード
-				record = RecordItems.FirstOrDefault(x => x.DestinationPath == file);
+				CsvRecordItem record = GetRecordItem(file);
 				//ファイル名
 				var fileName = Path.GetFileNameWithoutExtension(file);
+				//モデル
+				SxModel model;
 				try
 				{
 					//ファイルモデル
-					fModel = new SxFileModel(file);
+					//ファイルモデル
+					SxFileModel fModel = new SxFileModel(file);
 					//モデル
 					model = fModel.open(false);
 				}
-				catch(SxException e)
+				catch (SxException e)
 				{
 					SetRecordRemark(ref record, ErrorCategory.FileOpen, e);
 					RenameLogger.WriteLog(new LogItem
@@ -567,7 +557,7 @@ namespace ICADRenamer
 					var vsName = vs.getInf().name;
 					//対象のセグメントリスト
 					var segList = vs.getSegList(0, 0, false, true, true, false);
-					SxGeom[] geomList = null;
+					SxGeom[] geomList;
 					try
 					{
 						//対象セグメントのジオメトリリスト
@@ -815,7 +805,7 @@ namespace ICADRenamer
 					//閉じる
 					model.close(false);
 				}
-				catch(SxException e)
+				catch (SxException e)
 				{
 					SetRecordRemark(ref record, ErrorCategory.Save, e);
 					RenameLogger.WriteLog(new LogItem
@@ -825,7 +815,7 @@ namespace ICADRenamer
 						Message = GetExchangeError(ErrorCategory.Save)
 					});
 				}
-				//
+				//再起動要求
 				if (RestartRequest)
 				{
 					var models = SxModel.getModelList();
@@ -836,6 +826,47 @@ namespace ICADRenamer
 					Thread.Sleep(5000);
 					RestartIcadProcess();
 				}
+			}
+		}
+
+		/// <summary>
+		/// 実行の初期化を実行する
+		/// </summary>
+		/// <param name="executeParams">実行パラメータ</param>
+		/// <exception cref="ArgumentNullException">ExecuteParams - パラメータがNullです。</exception>
+		private void ExecuteInitialize()
+		{
+			//変換結果アイテム
+			RecordItems = new List<CsvRecordItem>();
+			//変換レコーダ
+			_recorder = new CsvRecorder(GetReseultFilePath());
+			//結果ファイルパス
+			RecordPath = _recorder.FilePath;
+			//パラメータがないときの処理
+			if (ExecuteParams == null)
+			{
+				throw new ArgumentNullException(nameof(ExecuteParams),
+									"パラメータがNullです。");
+			}
+			//タイマ
+			_timerCallback = new TimerCallback(ExecuteTimer);
+			_timer = new Timer(_timerCallback, null, 0, 30000);
+			//プロセスの起動
+			IcadProcess = GetIcadProcess();
+			//イベント
+			ExecuteStarted?.Invoke(this, new EventArgs());
+			//初期化
+			SxSys.init(ExecuteParams.Settings.ICADLinkPort, false);
+			//フラグがあればアイコン化
+			if (ExecuteParams.Settings.ICADMinimize)
+			{
+				//最小化
+				SxSys.setWindowStatus(SxWindow.STATUS_ICON);
+			}
+			else
+			{
+				//通常ウィンドウサイズ
+				SxSys.setWindowStatus(SxWindow.STATUS_NORMAL);
 			}
 		}
 
@@ -864,8 +895,7 @@ namespace ICADRenamer
 				//ファイル名
 				var fileName = Path.GetFileNameWithoutExtension(file);
 				//CSVレコードを抽出
-				record = RecordItems.FirstOrDefault(
-					x => x.DestinationPath == file);
+				record = GetRecordItem(file);
 				//
 				if (FileExists(file))
 				{
@@ -879,19 +909,19 @@ namespace ICADRenamer
 					//モデルを作成
 					model = fModel.open(false);
 				}
-				catch(SxException e)
+				catch (SxException e)
 				{
 					SetRecordRemark(ref record, ErrorCategory.FileOpen, e);
 					RenameLogger.WriteLog(new LogItem
 					{
-						Exception=e,
-						Level=LogLevel.Error,
-						Message=GetExchangeError(ErrorCategory.FileOpen)
+						Exception = e,
+						Level = LogLevel.Error,
+						Message = GetExchangeError(ErrorCategory.FileOpen)
 					});
 
 					continue;
 				}
-				
+
 				//名前変更リスト
 				var parmList = new List<SxParmPartName>();
 				//ビューリスト
@@ -1268,6 +1298,67 @@ namespace ICADRenamer
 		}
 
 		/// <summary>
+		/// パーツ名変更を実行する
+		/// </summary>
+		/// <param name="executeParams">実行パラメータ</param>
+		private void ExecuteRenameAll()
+		{
+			ExecuteInitialize();
+			//コピー元ファイルの取得
+			var source = Directory.GetFiles(
+				ExecuteParams.SourcePath
+				, SystemSettings.IcadExtension
+				, SearchOption.AllDirectories);
+			//イベント
+			FileCopyStarted?.Invoke(this, new EventArgs());
+			//ファイルコピーと変更記録
+			var copiedFiles = CopyFiles(source).OrderBy(x => x.DestinationPath);
+			RecordItems.AddRange(copiedFiles);
+			//読取専用解除
+			ReleaseReadOnly();
+			//製品フォルダの登録
+			if (ExecuteParams.Settings.ResitTo3DSeihin)
+			{
+				SetProductFolder();
+			}
+			//イベント
+			PartRenameStarted?.Invoke(this, new EventArgs());
+			//パーツ変更
+			ExecuteRename(GetSuccessedFiles());
+			//キャンセル
+		}
+
+		/// <summary>
+		/// タイマによってプロセスメモリの監視を実行する
+		/// </summary>
+		/// <param name="state">state</param>
+		private void ExecuteTimer(object state)
+		{
+			//しきい値
+			var threashold = ExecuteParams.Settings.RestartThredshold * Math.Pow(1000, 2);
+			//プロセス状況を再取得
+			IcadProcess.Refresh();
+			//メモリサイズがしきい値以上ならICAD再起動
+			if (IcadProcess.WorkingSet64 > threashold)
+			{
+				RestartRequest = true;
+			}
+		}
+
+		/// <summary>
+		///	変換の終了処理を実行する
+		/// </summary>
+		private void FinishExecute()
+		{
+			//タイマの破棄
+			_timer.Dispose();
+			//ICAD終了
+			SxSys.command(SystemSettings.EndIcad, false);
+			//イベント
+			ExecuteFinished?.Invoke(this, new EventArgs());
+		}
+
+		/// <summary>
 		/// 変換エラー文字列を取得する
 		/// </summary>
 		/// <param name="category">エラー区分</param>
@@ -1289,7 +1380,7 @@ namespace ICADRenamer
 				ErrorCategory.FailedGetAccess => "アクセス権取得失敗",
 				ErrorCategory.Update => "更新失敗",
 				ErrorCategory.GetGeomError => "ジオメトリ取得",
-				ErrorCategory.FileOpen=>"ファイルオープン",
+				ErrorCategory.FileOpen => "ファイルオープン",
 				_ => throw new NotImplementedException()
 			};
 			return $"{mes}エラー";
@@ -1358,6 +1449,27 @@ namespace ICADRenamer
 			return $@"{ExecuteParams.DestinationPath}{relativeDir}\{fileName}";
 		}
 
+		/// <summary>
+		/// CSV記録アイテムを取得する
+		/// </summary>
+		/// <param name="path">ファイルパスを表す文字列</param>
+		/// <returns></returns>
+		private CsvRecordItem GetRecordItem(string path)
+		{
+			var record = RecordItems.FirstOrDefault(x => x.DestinationPath == path)
+				?? new CsvRecordItem
+				{
+					Date = DateTime.Now,
+					DestinationPath = path,
+					DestinationFileName = Path.GetFileName(path),
+					IsSuccess = true,
+					Remark = string.Empty,
+					SourceFileName = string.Empty,
+					SourcePath = string.Empty
+				};
+			RecordItems.Add(record);
+			return record;
+		}
 		/// <summary>
 		/// 備考欄を取得する
 		/// </summary>
@@ -1489,7 +1601,7 @@ namespace ICADRenamer
 			//待機
 			IcadProcess.WaitForInputIdle();
 			//
-			if(ExecuteParams.Settings.ICADMinimize)
+			if (ExecuteParams.Settings.ICADMinimize)
 			{
 				SxSys.setWindowStatus(SxWindow.STATUS_ICON);
 			}

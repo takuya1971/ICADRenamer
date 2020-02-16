@@ -200,20 +200,22 @@ namespace ICADRenamer
 				//設定
 				Settings = _settings,
 				//署名
-				Signature = _signatureBox.Text
+				Signature = _signatureBox.Text,
+				//実行区分
+				ExecuteCategory = GetExecuteItem()
 			});
 			//実行完了イベント
 			progressForm.ExecuteFinished += ProgressForm_ExecuteFinished;
 			progressForm.Prepared += ProgressForm_Prepared;
 			//フォーム表示
 			progressForm.Show();
-		}
-
-		private void ProgressForm_Prepared(object sender, EventArgs e)
-		{
-			if (sender is Form progressForm)
+			//実行区分
+			ExecuteItem GetExecuteItem()
 			{
-				progressForm.Show();
+				if (_AllChangeButton.Checked) return ExecuteItem.All;
+				if (_PartOnlyButton.Checked) return ExecuteItem.RenameParts;
+				if (_drawOnlyButton.Checked) return ExecuteItem.DrawingTitiles;
+				throw new NotImplementedException("規定外の区分です。");
 			}
 		}
 
@@ -222,10 +224,21 @@ namespace ICADRenamer
 		/// </summary>
 		/// <returns></returns>
 		private bool ExecuteEnableCheck()
-			=> (Directory.Exists(_sourceBox.Text)
-				&& Directory.Exists(_destinationBox.Text)
-				&& _newProjectBox.Text.Length > 0
-				&& _signatureBox.Text.Length > 0);
+		{
+			if (!_drawOnlyButton.Checked)
+			{
+				return (Directory.Exists(_sourceBox.Text)
+					  && Directory.Exists(_destinationBox.Text)
+					  && _newProjectBox.Text.Length > 0
+					  && _signatureBox.Text.Length > 0);
+			}
+			else
+			{
+				return (Directory.Exists(_destinationBox.Text)
+					&& _newProjectBox.Text.Length > 0
+					&& _signatureBox.Text.Length > 0);
+			}
+		}
 
 		/// <summary>
 		/// メインフォームのClosedイベントを実行する
@@ -323,7 +336,9 @@ namespace ICADRenamer
 				e.Cancel = false;
 				return;
 			}
-			if (!Directory.Exists(_sourceBox.Text))
+			//フォルダパスの存在確認
+			if (!Directory.Exists(_sourceBox.Text)
+				|| (_drawOnlyButton.Checked && !Directory.Exists(_destinationBox.Text)))
 			{
 				//メッセージ
 				const string Message = "フォルダパスが存在しません。";
@@ -341,7 +356,10 @@ namespace ICADRenamer
 				e.Cancel = true;
 				return;
 			}
-			if (Equals(box, _sourceBox))
+			//ファイルの存在確認
+			if (Equals(box, _sourceBox)
+				|| (_drawOnlyButton.Checked
+				&& box.Equals(_destinationBox)))
 			{
 				if (Directory.GetFiles(_sourceBox.Text, SystemSettings.IcadExtension).Length == 0)
 				{
@@ -391,6 +409,13 @@ namespace ICADRenamer
 			_closeButton.Enabled = true;
 		}
 
+		private void ProgressForm_Prepared(object sender, EventArgs e)
+		{
+			if (sender is Form progressForm)
+			{
+				progressForm.Show();
+			}
+		}
 		/// <summary>
 		/// 指定フォルダ以下のファイル名のリストボックスへの表示を実行する
 		/// </summary>
@@ -483,6 +508,27 @@ namespace ICADRenamer
 			if (settingForm.ShowDialog() == DialogResult.OK)
 			{
 				_settings = settingForm.Option;
+			}
+		}
+
+		private void RadioButtons_CheckedChanged(object sender, EventArgs e)
+		{
+			var rb = (RadioButton) sender;
+			//
+			if (rb.Equals(_drawOnlyButton))
+			{
+				//
+				var flag = !rb.Checked;
+				//
+				_sourceBrowseButton.Enabled = flag;
+				_sourceBox.Enabled = flag;
+				_sourceLabel.Enabled = flag;
+				_sourceFileView.Enabled = flag;
+				_destinationLabel.Text = "対象フォルダ";
+			}
+			else
+			{
+				_destinationLabel.Text = "コピー先フォルダ";
 			}
 		}
 	}

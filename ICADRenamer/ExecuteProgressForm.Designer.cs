@@ -43,7 +43,6 @@
 			this._itemNameLabel = new System.Windows.Forms.Label();
 			this._categoryNameLabel = new System.Windows.Forms.Label();
 			this._fileNameLabel = new System.Windows.Forms.Label();
-			this._timer = new System.Windows.Forms.Timer(this.components);
 			this._flowLayoutPanel.SuspendLayout();
 			this._tableLayoutPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -183,12 +182,6 @@
 			this._fileNameLabel.TabIndex = 8;
 			this._fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// _timer
-			// 
-			this._timer.Enabled = true;
-			this._timer.Interval = 30000;
-			this._timer.Tick += new System.EventHandler(this.Timer_Tick);
-			// 
 			// ExecuteProgressForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -226,6 +219,5 @@
 		private System.Windows.Forms.Label _itemNameLabel;
 		private System.Windows.Forms.Label _categoryNameLabel;
 		private System.Windows.Forms.Label _fileNameLabel;
-		private System.Windows.Forms.Timer _timer;
 	}
 }

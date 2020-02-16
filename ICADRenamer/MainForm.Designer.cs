@@ -55,12 +55,17 @@
 			this._tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this._newProjectBox = new System.Windows.Forms.TextBox();
 			this._signatureBox = new System.Windows.Forms.TextBox();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this._AllChangeButton = new System.Windows.Forms.RadioButton();
+			this._PartOnlyButton = new System.Windows.Forms.RadioButton();
+			this._drawOnlyButton = new System.Windows.Forms.RadioButton();
 			this._toolStrip.SuspendLayout();
 			this._tableLayoutPanel1.SuspendLayout();
 			this._tableLayoutPanel2.SuspendLayout();
 			this._tableLayoutPanel3.SuspendLayout();
 			this._flowLayoutPanel1.SuspendLayout();
 			this._tableLayoutPanel4.SuspendLayout();
+			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _toolStrip
@@ -227,7 +232,7 @@
 			this._sourceFileView.Location = new System.Drawing.Point(3, 88);
 			this._sourceFileView.Name = "_sourceFileView";
 			this._sourceFileView.SelectionMode = System.Windows.Forms.SelectionMode.None;
-			this._sourceFileView.Size = new System.Drawing.Size(331, 330);
+			this._sourceFileView.Size = new System.Drawing.Size(331, 295);
 			this._sourceFileView.Sorted = true;
 			this._sourceFileView.TabIndex = 2;
 			this._sourceFileView.TabStop = false;
@@ -241,7 +246,7 @@
 			this._destinationFileView.Location = new System.Drawing.Point(340, 88);
 			this._destinationFileView.Name = "_destinationFileView";
 			this._destinationFileView.SelectionMode = System.Windows.Forms.SelectionMode.None;
-			this._destinationFileView.Size = new System.Drawing.Size(331, 330);
+			this._destinationFileView.Size = new System.Drawing.Size(331, 295);
 			this._destinationFileView.Sorted = true;
 			this._destinationFileView.TabIndex = 3;
 			this._toolTip.SetToolTip(this._destinationFileView, "コピー先のファイルリストが表示されます");
@@ -259,14 +264,14 @@
 			this._tableLayoutPanel1.Controls.Add(this._sourceLabel, 0, 0);
 			this._tableLayoutPanel1.Controls.Add(this._destinationLabel, 1, 0);
 			this._tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._tableLayoutPanel1.Location = new System.Drawing.Point(0, 58);
+			this._tableLayoutPanel1.Location = new System.Drawing.Point(0, 93);
 			this._tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this._tableLayoutPanel1.Name = "_tableLayoutPanel1";
 			this._tableLayoutPanel1.RowCount = 3;
 			this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
 			this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
 			this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this._tableLayoutPanel1.Size = new System.Drawing.Size(674, 421);
+			this._tableLayoutPanel1.Size = new System.Drawing.Size(674, 386);
 			this._tableLayoutPanel1.TabIndex = 1;
 			// 
 			// _tableLayoutPanel2
@@ -347,10 +352,11 @@
 			this._tableLayoutPanel4.Controls.Add(this._signatureLabel, 2, 0);
 			this._tableLayoutPanel4.Controls.Add(this._signatureBox, 3, 0);
 			this._tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this._tableLayoutPanel4.Location = new System.Drawing.Point(0, 25);
+			this._tableLayoutPanel4.Location = new System.Drawing.Point(0, 60);
 			this._tableLayoutPanel4.Name = "_tableLayoutPanel4";
 			this._tableLayoutPanel4.RowCount = 1;
 			this._tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this._tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this._tableLayoutPanel4.Size = new System.Drawing.Size(674, 33);
 			this._tableLayoutPanel4.TabIndex = 3;
 			// 
@@ -378,6 +384,55 @@
 			this._signatureBox.Tag = "2";
 			this._signatureBox.Validated += new System.EventHandler(this.Boxes_Validated);
 			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Controls.Add(this._AllChangeButton);
+			this.flowLayoutPanel1.Controls.Add(this._PartOnlyButton);
+			this.flowLayoutPanel1.Controls.Add(this._drawOnlyButton);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 25);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(674, 35);
+			this.flowLayoutPanel1.TabIndex = 4;
+			// 
+			// _AllChangeButton
+			// 
+			this._AllChangeButton.Appearance = System.Windows.Forms.Appearance.Button;
+			this._AllChangeButton.AutoSize = true;
+			this._AllChangeButton.Checked = true;
+			this._AllChangeButton.Location = new System.Drawing.Point(3, 3);
+			this._AllChangeButton.Name = "_AllChangeButton";
+			this._AllChangeButton.Size = new System.Drawing.Size(88, 25);
+			this._AllChangeButton.TabIndex = 0;
+			this._AllChangeButton.TabStop = true;
+			this._AllChangeButton.Text = "パーツ名+図番";
+			this._AllChangeButton.UseVisualStyleBackColor = true;
+			this._AllChangeButton.CheckedChanged += new System.EventHandler(this.RadioButtons_CheckedChanged);
+			// 
+			// _PartOnlyButton
+			// 
+			this._PartOnlyButton.Appearance = System.Windows.Forms.Appearance.Button;
+			this._PartOnlyButton.AutoSize = true;
+			this._PartOnlyButton.Location = new System.Drawing.Point(97, 3);
+			this._PartOnlyButton.Name = "_PartOnlyButton";
+			this._PartOnlyButton.Size = new System.Drawing.Size(101, 25);
+			this._PartOnlyButton.TabIndex = 1;
+			this._PartOnlyButton.Text = "パーツ名変更のみ";
+			this._PartOnlyButton.UseVisualStyleBackColor = true;
+			this._PartOnlyButton.CheckedChanged += new System.EventHandler(this.RadioButtons_CheckedChanged);
+			// 
+			// _drawOnlyButton
+			// 
+			this._drawOnlyButton.Appearance = System.Windows.Forms.Appearance.Button;
+			this._drawOnlyButton.AutoSize = true;
+			this._drawOnlyButton.Location = new System.Drawing.Point(204, 3);
+			this._drawOnlyButton.Name = "_drawOnlyButton";
+			this._drawOnlyButton.Size = new System.Drawing.Size(86, 25);
+			this._drawOnlyButton.TabIndex = 2;
+			this._drawOnlyButton.Text = "図番変更のみ";
+			this._drawOnlyButton.UseVisualStyleBackColor = true;
+			this._drawOnlyButton.CheckedChanged += new System.EventHandler(this.RadioButtons_CheckedChanged);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -385,6 +440,7 @@
 			this.Controls.Add(this._tableLayoutPanel1);
 			this.Controls.Add(this._tableLayoutPanel4);
 			this.Controls.Add(this._flowLayoutPanel1);
+			this.Controls.Add(this.flowLayoutPanel1);
 			this.Controls.Add(this._toolStrip);
 			this.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -405,6 +461,8 @@
 			this._flowLayoutPanel1.ResumeLayout(false);
 			this._tableLayoutPanel4.ResumeLayout(false);
 			this._tableLayoutPanel4.PerformLayout();
+			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -437,6 +495,10 @@
 		private System.Windows.Forms.TextBox _signatureBox;
 		private System.Windows.Forms.Label _sourceLabel;
 		private System.Windows.Forms.Label _destinationLabel;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.RadioButton _AllChangeButton;
+		private System.Windows.Forms.RadioButton _PartOnlyButton;
+		private System.Windows.Forms.RadioButton _drawOnlyButton;
 	}
 }
 
