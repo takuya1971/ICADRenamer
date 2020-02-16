@@ -63,7 +63,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VpdDtbUMYczeo6gaXCyQLwQ7aiSUX09ryeEtQT9khzM=</dsig:DigestValue>
+        <dsig:DigestValue>7LbUMEOprlvTOkY9dQlmnVrOawNla+ZIJF58PGeHblU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -181,13 +181,13 @@
       <dsig:DigestValue>zbDktmbAwaIsnSl8UBMH7ylrlcT6+VESjNE0SjgXXAo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Help\Help.html" size="55983">
+  <file name="Help\Help.html" size="58875">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5W/ESO8+JJsrBXWZMQz4jkuHlZZApOmxBmkbzX8VB3c=</dsig:DigestValue>
+      <dsig:DigestValue>iGKV7nn23B8JaiadZBnUSltM+k9c5jIjC3va9uc/Ia4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Help\img\DestinationFolderDialog.png" size="21856">
@@ -226,22 +226,22 @@
       <dsig:DigestValue>4hjslQZxYDJi0f4sS6XJoCLOLgv+z2AR9yx2Xt0ozY0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Help\img\MainScreen.PNG" size="19755">
+  <file name="Help\img\MainScreen.PNG" size="20991">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>X5rHZjswRtI0rHgWWAvgQte9CvDadJp4190dFDJEqGk=</dsig:DigestValue>
+      <dsig:DigestValue>VfaYNwJzwHmU5fPAfB36vAfcozY6EESdtlVJU9QaBI0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Help\img\OperationScreen.png" size="16079">
+  <file name="Help\img\OperationScreen.png" size="18764">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BhK+lanUM65egos8XzfyVC5Cjg6y1nW8kG8rjAsvdu8=</dsig:DigestValue>
+      <dsig:DigestValue>54OMSP3EAJCUmWUN3+2/GMDjTSBKVd6mndW4rF5CqlE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Help\img\OptionSettingDialog1.png" size="31401">

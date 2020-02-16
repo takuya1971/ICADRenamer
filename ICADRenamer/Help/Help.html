@@ -68,24 +68,27 @@
                 メイン画面は以下のとおりです。<br />
                 ①～④の項目を入力すると、実行できます。<br />
                 いずれかに不備があると、実行ボタンは押せません。<br />
+                <img src="img/MainScreen.PNG" alt="メイン画面">
             </p>
-            <img src="img/MainScreen.PNG" alt="メイン画面" />
             <p id="MainScreenDescription">
                 各番号の内容は下記のとおりです。<br />
-                <a href="#NewProjectInput">①...新しいM番を入力します。</a><a href="#RegexBox">入力制限</a>をかけることができます。<br />
-                <a href="#SignatureInput">②...署名に使う文字を入力します。</a><br />
-                <a id="SourceInputBox" href="#SourceFolderInput">③...コピー元のフォルダを指定します。</a><br />
-                <a id="DestinationInputBox" href="#DestinationFolderInput">④...コピー先のフォルダを指定します。</a><br />
-                <a href="#SourceFolderDialogOpen">⑤...コピー元のフォルダをダイアログで指定します。</a>こっちを使う方が確実です。<br />
-                <a href="#DestinationFolderDialogOpen">⑥...コピー先のフォルダをダイアログで指定します。</a>こっちを使う方が確実です。<br />
-                <a href="#SourceFilesView">⑦...コピー元のファイルが表示されます。</a><br />
-                <a href="#DestinationFilesView">⑧...コピー先のファイルが表示されます。</a><br />
-                <a href="#ExecuteButton">⑨...実行ボタンです。</a>変換を実行します。<br />
-                <a href="#CancelButton">⑩...変換しないで終了します。</a><br />
-                <a href="#OptionSettingDialog">⑪...設定画面</a>を表示します。<br />
-                <a href="#RegexScreen">⑫...図面の変換要素を検索する規則</a>の編集画面を表示します。<br />
-                <a href="#HelpScreen">⑬...ヘルプ</a>を表示します。<br />
-                ⑭...情報ボックスを表示します。<br />
+                ①...<a href="#NewProjectInput">新しいM番</a>を入力します。<a href="#RegexBox">入力制限</a>をかけることができます。<br />
+                ②...<a href="#SignatureInput">署名</a>に使う文字を入力します。<br />
+                ③...<a id="SourceInputBox" href="#SourceFolderInput">コピー元のフォルダ</a>を指定します。<br />
+                ④...<a id="DestinationInputBox" href="#DestinationFolderInput">コピー先のフォルダ</a>を指定します。<br />
+                ⑤...<a href="#SourceFolderDialogOpen">コピー元のフォルダをダイアログ</a>で指定します。こっちを使う方が確実です。<br />
+                ⑥...<a href="#DestinationFolderDialogOpen">コピー先のフォルダをダイアログ</a>で指定します。こっちを使う方が確実です。<br />
+                ⑦...<a href="#SourceFilesView">コピー元のファイル</a>が表示されます。<br />
+                ⑧...<a href="#DestinationFilesView">コピー先のファイル</a>が表示されます。<br />
+                ⑨...<a href="#ExecuteButton">実行ボタン</a>です。変換を実行します。<br />
+                ⑩...<a href="#CancelButton">変換しないで終了</a>します。<br />
+                ⑪...<a href="#OptionSettingDialog">設定画面</a>を表示します。<br />
+                ⑫...<a href="#RegexScreen">図面の変換要素を検索する規則</a>の編集画面を表示します。<br />
+                ⑬...<a href="#HelpScreen">ヘルプ</a>を表示します。<br />
+                ⑭...<a href="#InformationBox">情報ボックス</a>を表示します。<br />
+                ⑮...<a href="#AllRenameButton">パーツ名と図番を変更するモード</a>のトグルボタンです。<br>
+                ⑯...<a href="#PartOnlyButton">パーツ名のみ変更するモード</a>のトグルボタンです。<br>
+                ⑰...<a href="#DrawingTitleOnlyButton">図番変更モード</a>のトグルボタンです。<br>
             </p>
             <hr />
             <h3 id="NewProjectInput">新しいM番の入力</h3>
@@ -171,6 +174,29 @@
                 エラーメッセージが出てこのボタンを押せないときは、ボックスの内容を全部消して押してみてください。<br />
             </p>
             <hr />
+            <h3 id="InformationBox">情報ボックス</h3>
+            <p>
+                このアプリの情報ボックスです。<br>
+            </p>
+            <hr>
+            <h3 id="AllRenameButton">パーツ名・図番変更ボタン</h3>
+            <p>
+                元フォルダからファイルをコピーしてきて、パーツ名・図番を変更します。<br>
+                本アプリの既定の機能です。<br>
+            </p>
+            <hr>
+            <h3 id="#PartOnlyButton">パーツ名変更ボタン</h3>
+            <p>
+                コピー元フォルダからファイルをコピーして、パーツ名の変更をします。<br>
+                図番の変更は実施しません。<br>
+            </p>
+            <hr>
+            <h3 id="#DrawingTitleOnlyButton">図番変更</h3>
+            <p>
+                このモードの時は、ファイルのコピーをしません。<br>
+                図面ファイルを上書きします。<br>
+            </p>
+            <hr>
         </section>
         <section>
             <h2 id="Operation">基本操作</h2>
@@ -181,12 +207,14 @@
                 下記の①～④の項目を入力してOKボタンを押します。<br>
                 <img src="img/OperationScreen.png" alt="操作画面"><br>
                 <ul>
-                    <li>①...<a href="#NewProjectInput">新しいM番を入力します。</a><a href="#RegexBox">入力制限</a>をかけることができます。<br />
-                    </li>
+                    <li>①...<a href="#NewProjectInput">新しいM番を入力します。</a><a href="#RegexBox">入力制限</a>をかけることができます。<br /></li>
                     <li>②...<a href="#SignatureInput">署名</a>に使う文字を入力します。<br /></li>
                     <li>③...<a href="#SourceFolderDialogOpen">コピー元のフォルダをダイアログ</a>で指定します。<br /></li>
                     <li>④...<a href="#DestinationFolderDialogOpen">コピー先のフォルダをダイアログ</a>で指定します。<br /></li>
                     <li>⑤...<a href="#ExecuteButton">実行ボタンです。</a>変換を実行します。</li>
+                    <li>⑥...<a href="#AllChangeButtonOn">パーツ名と図番を変更するモード</a>です。</li>
+                    <li>⑦...<a href="#PartOnlyButtonOn">パーツ名変更モード</a>です。</li>
+                    <li>⑧...<a href="#DrawingTitleOnlyButtonOn">図番変更モード</a>です。</li>
                 </ul>
                 実行ボタンが灰色の時は実行できません。修正して実行ボタンがカラーになるようにしてください。<br>
             </p>
@@ -204,12 +232,12 @@
             <p>
                 以下の内容をコピー元フォルダ以下のすべてのICADファイルに対して実行します。<br>
                 <ul>
-                    <li><a href="#PartName">パーツ名変更</a></li>
-                    <li><a href="#DrawNumber">図面番号変更</a></li>
-                    <li><a href="#DrawingDate">図面日付変更</a></li>
-                    <li><a href="#Signature">署名変更</a></li>
-                    <li><a href="#DeltaNote">訂正記号と注記の削除</a></li>
-                    <li><a href="#DrawingUpdate">図面更新</a></li>
+                    <li><a href="#PartName">パーツ名変更</a>（図番変更の時はなし）</li>
+                    <li><a href="#DrawNumber">図面番号変更</a>（パーツ名変更の場合はなし）</li>
+                    <li><a href="#DrawingDate">図面日付変更</a>（パーツ名変更の場合はなし）</li>
+                    <li><a href="#Signature">署名変更</a>（パーツ名変更の場合はなし）</li>
+                    <li><a href="#DeltaNote">訂正記号と注記の削除</a>（パーツ名変更の場合はなし）</li>
+                    <li><a href="#DrawingUpdate">図面更新</a>（パーツ名変更の場合はなし）</li>
                 </ul>
                 すべて現在あるものを変更するので、新しくパーツや図番を作ったりはできません。<br>
             </p>
@@ -254,6 +282,24 @@
                 この項目はOFFにできます。方法は、<a href="#OptionSettingDialog">オプション設定</a>を参照してください。<br>
             </p>
             <hr>
+            <h4 id="AllChangeButtonOn">パーツ名と図番変更</h4>
+            <p>
+                パーツ名と図番を一括で変更します。<br>
+                既定のモードです。<br>
+            </p>
+            <hr>
+            <h4 id="PartOnlyButtonOn">パーツ名変更</h4>
+            <p>
+                パーツ名を一括で変更するモードです。<br>
+                図番の変更は行いません。<br>
+            </p>
+            <hr>
+            <h4 id="#DrawingTitleOnlyButtonOn">図番変更</h4>
+            <p>
+                図番の変更のみを行うモードです。<br>
+                このモードの時は、コピー元フォルダ設定を行いません。<br>
+                指定した図面ファイルは上書きされます。<br>
+            </p>
             <h3 id="ExecuteResult">実行結果</h3>
             <p>
                 実行結果は、コピー先フォルダにcsvファイルで保存されます。<br>
@@ -964,7 +1010,7 @@
         </section>
         <footer>
             <hr>
-            ICAD Renamer ver.1.0.0.0<br>
+            ICAD Renamer ver.2.0.0.0<br>
             <hr>
         </footer>
     </div>
