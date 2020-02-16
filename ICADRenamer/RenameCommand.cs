@@ -356,7 +356,8 @@ namespace ICADRenamer
 				 行数が255行以上あるときは上から削除
 			*/
 			//行に分ける
-			var lines = seihinFile.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+			var lines = seihinFile.Split(new string[] { "\r\n" }
+			, StringSplitOptions.RemoveEmptyEntries).ToList();
 			//ラインが255以上なら
 			if (lines.Count > 255)
 			{
@@ -656,17 +657,21 @@ namespace ICADRenamer
 								{
 									foreach (var replacePattern in _keywords.DrawNumberSplit)
 									{
-										if (Regex.IsMatch(ExecuteParams.PrefixName, $"^{replacePattern}"))
+										if (Regex.IsMatch(ExecuteParams.PrefixName
+											, $"^{replacePattern}"))
 										{
 											try
 											{
-												segList[k].editText(Regex.Replace(oldText, replacePattern, ExecuteParams.PrefixName));
+												segList[k].editText(Regex.Replace(oldText
+													, replacePattern
+													, ExecuteParams.PrefixName));
 												return true;
 											}
 											catch (SxException e)
 											{
 												//CSV
-												SetRecordRemark(ref record, ErrorCategory.DrawingNumber, e);
+												SetRecordRemark(ref record
+													, ErrorCategory.DrawingNumber, e);
 												//ログ
 												RenameLogger.WriteLog(new LogItem
 												{
@@ -691,17 +696,22 @@ namespace ICADRenamer
 								if (Regex.IsMatch(oldText, $"^{pattern}$"))
 								{
 									//年月日区切
-									var separator = ExecuteParams.Settings.IsDateSeparatorSlash ? "/" : ".";
+									var separator = ExecuteParams
+										.Settings.IsDateSeparatorSlash ? "/" : ".";
 									//年表示
-									var yearFormat = ExecuteParams.Settings.IsYear4Digit ? "yyyy" : "yy";
+									var yearFormat = ExecuteParams
+										.Settings.IsYear4Digit ? "yyyy" : "yy";
 									//月表示
-									var monthFormat = ExecuteParams.Settings.IsMonthAndDate2Digit ? "MM" : "M";
+									var monthFormat = ExecuteParams
+										.Settings.IsMonthAndDate2Digit ? "MM" : "M";
 									//日表示
-									var dateFormat = ExecuteParams.Settings.IsMonthAndDate2Digit ? "dd" : "d";
+									var dateFormat = ExecuteParams
+										.Settings.IsMonthAndDate2Digit ? "dd" : "d";
 									try
 									{
 										//変更
-										segList[k].editText(DateTime.Today.ToString($"{yearFormat}{separator}{monthFormat}{separator}{dateFormat}"));
+										segList[k].editText(DateTime.Today
+											.ToString($"{yearFormat}{separator}{monthFormat}{separator}{dateFormat}"));
 										return true;
 									}
 									catch (SxException e)
